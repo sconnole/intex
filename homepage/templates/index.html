@@ -14,22 +14,16 @@
                     <th>Specialty</th>
                 </tr>
                 ## Add a for loop to add prescribers
-                <tr>
-                    <td><img src="${STATIC_URL}homepage/media/user.png" alt="user"></td>
-                    <td>Example</td>
-                    <td>M</td>
-                    <td>MD</td>
-                    <td>CA</td>
-                    <td>Pediatrician</td>
-                </tr>
-                <tr>
-                    <td><img src="${STATIC_URL}homepage/media/user.png" alt="user"></td>
-                    <td>Example 2</td>
-                    <td>M</td>
-                    <td>MD</td>
-                    <td>UT</td>
-                    <td>Family</td>
-                </tr>
+                %for doc in prescribers: 
+                    <tr>
+                        <td><img src="${STATIC_URL}homepage/media/user.png" alt="user"></td>
+                        <td>${doc[0]}</td>
+                        <td>${doc[1]}</td>
+                        <td>${doc[2]}</td>
+                        <td>${doc[3]}</td>
+                        <td>${doc[4]}</td>
+                    </tr>
+                %endfor 
             </table>
         </div>
         <div class="drugs">
@@ -40,11 +34,13 @@
                     <th>Type</th>
                 </tr>
                 ## Add a for loop to add drugs
-                <tr>
-                    <td><img src="${STATIC_URL}homepage/media/pill.png" alt="pill"></td>
-                    <td>Example</td>
-                    <td>No</td>
-                </tr>
+                %for drug in drugs:
+                    <tr>
+                        <td><img src="${STATIC_URL}homepage/media/pill.png" alt="pill"></td>
+                        <td>${drug[0]}</td>
+                        <td>${drug[1]}</td>
+                    </tr>
+                %endfor
             </table>
         </div>     
     </div>

@@ -30,6 +30,12 @@ ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = 'account.User'
 
+CONNECTION_STRING = ("DRIVER={ODBC Driver 13 for SQL Server};"
+    "SERVER=tcp:eligardner.database.windows.net,1433;"
+    "Database=INTEXII;"
+    "UID=eligardner@eligardner;"
+    "PWD=Password413")
+
 
 # Application definition
 

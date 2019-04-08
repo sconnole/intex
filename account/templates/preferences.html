@@ -1,0 +1,12 @@
+<%inherit file="app_base.htm" />
+
+<%block name="title">Preferences</%block>
+<%block name="site_center">
+    <form method="post">
+        <table>
+        <h3>Change password for: ${user.username}</h3>
+        ${ form.as_p() }
+        </table>
+        <input type="submit" value="Submit">
+    </form>
+</%block>

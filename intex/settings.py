@@ -101,7 +101,7 @@ WSGI_APPLICATION = 'intex.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Intex',
+        'NAME': 'intex',
         'USER': 'postgres',
         'PASSWORD': 'sprintpassword',
         'HOST': 'localhost',

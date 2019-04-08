@@ -5,9 +5,9 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1553821392.408455
+_modified_time = 1554740851.7503076
 _enable_loop = True
-_template_filename = 'C:/Users/stick/Developer/mysite/homepage/templates/base.htm'
+_template_filename = 'C:/Users/stick/Developer/Intex/homepage/templates/base.htm'
 _template_uri = '/homepage/templates/base.htm'
 _source_encoding = 'utf-8'
 import django_mako_plus
@@ -21,32 +21,32 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def warningText():
-            return render_warningText(context._locals(__M_locals))
-        def site_center():
-            return render_site_center(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
         def successText():
             return render_successText(context._locals(__M_locals))
-        def dangerText():
-            return render_dangerText(context._locals(__M_locals))
         def infoText():
             return render_infoText(context._locals(__M_locals))
-        user = context.get('user', UNDEFINED)
+        def site_center():
+            return render_site_center(context._locals(__M_locals))
         def site_right():
             return render_site_right(context._locals(__M_locals))
-        request = context.get('request', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        def menu():
+            return render_menu(context._locals(__M_locals))
         def site_left():
             return render_site_left(context._locals(__M_locals))
         def title():
             return render_title(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
-        def menu():
-            return render_menu(context._locals(__M_locals))
+        user = context.get('user', UNDEFINED)
+        def warningText():
+            return render_warningText(context._locals(__M_locals))
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        request = context.get('request', UNDEFINED)
+        def dangerText():
+            return render_dangerText(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n<!DOCTYPE html>\r\n<html>\r\n    <meta charset="UTF-8">\r\n    <head>\r\n        <link rel="icon" href="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
-        __M_writer('homepage/media/favicon.ico" type="image/x-icon" />\r\n        <title>Sprint 2 &mdash; ')
+        __M_writer('homepage/media/favicon.ico" type="image/x-icon" />\r\n        <title>Intex &mdash; ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
             context['self'].title(**pageargs)
         
@@ -175,8 +175,8 @@ def render_warningText(context,**pageargs):
 def render_menu(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        request = context.get('request', UNDEFINED)
         self = context.get('self', UNDEFINED)
+        request = context.get('request', UNDEFINED)
         user = context.get('user', UNDEFINED)
         def menu():
             return render_menu(context)
@@ -205,10 +205,10 @@ def render_menu(context,**pageargs):
 def render_site_left(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        request = context.get('request', UNDEFINED)
-        self = context.get('self', UNDEFINED)
         def site_left():
             return render_site_left(context)
+        self = context.get('self', UNDEFINED)
+        request = context.get('request', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n                    <ul class="navbar-nav">\r\n                        <li class="nav-item">\r\n                            <a class="nav-link ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)('active' if request.dmp.page == 'index' else ''))
@@ -250,6 +250,6 @@ def render_site_right(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/stick/Developer/mysite/homepage/templates/base.htm", "uri": "/homepage/templates/base.htm", "source_encoding": "utf-8", "line_map": {"18": 91, "20": 0, "47": 2, "48": 7, "49": 7, "54": 8, "55": 11, "56": 11, "57": 11, "58": 12, "59": 12, "60": 13, "61": 13, "62": 16, "63": 17, "64": 17, "69": 21, "74": 22, "79": 23, "84": 24, "85": 28, "86": 28, "87": 30, "92": 56, "97": 77, "102": 82, "107": 87, "108": 91, "109": 93, "110": 93, "116": 8, "127": 21, "133": 21, "139": 22, "145": 22, "151": 23, "157": 23, "163": 24, "169": 24, "175": 30, "184": 30, "185": 38, "186": 38, "187": 39, "188": 39, "189": 40, "190": 40, "191": 44, "192": 44, "193": 44, "194": 44, "195": 47, "196": 48, "197": 51, "198": 52, "199": 54, "205": 62, "213": 62, "214": 65, "215": 65, "216": 68, "217": 68, "218": 71, "219": 71, "220": 74, "221": 74, "227": 80, "233": 80, "239": 85, "245": 85, "251": 245}}
+{"filename": "C:/Users/stick/Developer/Intex/homepage/templates/base.htm", "uri": "/homepage/templates/base.htm", "source_encoding": "utf-8", "line_map": {"18": 91, "20": 0, "47": 2, "48": 7, "49": 7, "54": 8, "55": 11, "56": 11, "57": 11, "58": 12, "59": 12, "60": 13, "61": 13, "62": 16, "63": 17, "64": 17, "69": 21, "74": 22, "79": 23, "84": 24, "85": 28, "86": 28, "87": 30, "92": 56, "97": 77, "102": 82, "107": 87, "108": 91, "109": 93, "110": 93, "116": 8, "127": 21, "133": 21, "139": 22, "145": 22, "151": 23, "157": 23, "163": 24, "169": 24, "175": 30, "184": 30, "185": 38, "186": 38, "187": 39, "188": 39, "189": 40, "190": 40, "191": 44, "192": 44, "193": 44, "194": 44, "195": 47, "196": 48, "197": 51, "198": 52, "199": 54, "205": 62, "213": 62, "214": 65, "215": 65, "216": 68, "217": 68, "218": 71, "219": 71, "220": 74, "221": 74, "227": 80, "233": 80, "239": 85, "245": 85, "251": 245}}
 __M_END_METADATA
 """

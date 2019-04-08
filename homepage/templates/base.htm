@@ -48,8 +48,13 @@
         </header>
 
         <main>
-            <div id="site_left">
-                <%block name="site_left">
+            <div id="site_center">
+                <%block name="site_center">
+                    
+                </%block>
+            </div>
+            <div id="site_right">
+                <%block name="site_right">
                     <div class="search">
                         <input type="text" id="mySearch" placeholder="Search.." title="Type in a category">
                         <button type="submit" class="searchButton">
@@ -58,17 +63,6 @@
                     </div>
                 </%block>
             </div>
-            <div id="site_center">
-                <%block name="site_center">
-                    
-                </%block>
-            </div>
         </main>
-
-         <%! from datetime import datetime %>
-        <footer>
-            &copy; Copyright ${datetime.now().year}
-        </footer>
-
     </body>
 </html>

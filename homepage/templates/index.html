@@ -3,6 +3,49 @@
 <%block name="title">Home</%block>
 <%block name="site_center">
     <div class="content">
-      <p>Sit reprehenderit ad elit nostrud.</p>
+        <div class="prescribers">
+            <table>
+                <tr>
+                    <th>Icon</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Credentials</th>
+                    <th>Location</th>
+                    <th>Specialty</th>
+                </tr>
+                ## Add a for loop to add prescribers
+                <tr>
+                    <td><img src="${STATIC_URL}homepage/media/user.png" alt="user"></td>
+                    <td>Example</td>
+                    <td>M</td>
+                    <td>MD</td>
+                    <td>CA</td>
+                    <td>Pediatrician</td>
+                </tr>
+                <tr>
+                    <td><img src="${STATIC_URL}homepage/media/user.png" alt="user"></td>
+                    <td>Example 2</td>
+                    <td>M</td>
+                    <td>MD</td>
+                    <td>UT</td>
+                    <td>Family</td>
+                </tr>
+            </table>
+        </div>
+        <div class="drugs">
+        <table>
+                <tr>
+                    <th>Icon</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                </tr>
+                ## Add a for loop to add prescribers
+                <tr>
+                    <td><img src="${STATIC_URL}homepage/media/pill.png" alt="pill"></td>
+                    <td>Example</td>
+                    <td>No</td>
+                </tr>
+            </table>
+        </div>     
     </div>
 </%block>

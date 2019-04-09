@@ -26,7 +26,7 @@ SECRET_KEY = 'jw^e+ycm=f7@eue0rqv21t6_(@-ea&x(s5udrt7^rb32^_p@&e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [os.getenv('PROJECT_DOMAIN')]
+ALLOWED_HOSTS = [os.getenv('PROJECT_DOMAIN'), '127.0.0.1']
 
 AUTH_USER_MODEL = 'account.User'
 
@@ -35,6 +35,8 @@ CONNECTION_STRING = ("DRIVER={ODBC Driver 17 for SQL Server};"
     "Database=INTEXII;"
     "UID=eligardner@eligardner;"
     "PWD=Password413")
+
+SEARCH_DATA = ""
 
 
 # Application definition

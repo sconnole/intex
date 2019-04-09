@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554752856.393814
+_modified_time = 1554778655.737983
 _enable_loop = True
 _template_filename = 'C:/Users/stick/Developer/Intex/homepage/templates/base.htm'
 _template_uri = 'base.htm'
@@ -19,18 +19,18 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        user = context.get('user', UNDEFINED)
-        def title():
-            return render_title(context._locals(__M_locals))
         def menu():
             return render_menu(context._locals(__M_locals))
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        request = context.get('request', UNDEFINED)
-        def site_center():
-            return render_site_center(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
+        def title():
+            return render_title(context._locals(__M_locals))
         def site_right():
             return render_site_right(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
+        user = context.get('user', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        def site_center():
+            return render_site_center(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n<!DOCTYPE html>\r\n<html>\r\n    <meta charset="UTF-8">\r\n    <head>\r\n        <link rel="icon" href="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
@@ -87,11 +87,11 @@ def render_title(context,**pageargs):
 def render_menu(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        user = context.get('user', UNDEFINED)
         def menu():
             return render_menu(context)
-        self = context.get('self', UNDEFINED)
         request = context.get('request', UNDEFINED)
+        self = context.get('self', UNDEFINED)
+        user = context.get('user', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">\r\n                        <span class="icon-bar"></span>\r\n                        <span class="icon-bar"></span>\r\n                        <span class="icon-bar"></span> \r\n                    </button>\r\n                    <div class="dropdown collapse navbar-collapse" id="myNavbar">        \r\n                        <ul class="nav navbar-nav">\r\n                            <li><a class="dropdown-item nav-link ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)('active' if request.dmp.page == 'index' else ''))
@@ -128,7 +128,7 @@ def render_site_right(context,**pageargs):
         def site_right():
             return render_site_right(context)
         __M_writer = context.writer()
-        __M_writer('\r\n                    <div class="search">\r\n                        <input type="text" id="mySearch" placeholder="Search.." title="Type in a category">\r\n                        <button type="submit" class="searchButton">\r\n                            <p class="btn-search">GO</p>\r\n                        </button>\r\n                    </div>\r\n                ')
+        __M_writer('\r\n                    \r\n                ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -136,6 +136,6 @@ def render_site_right(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/stick/Developer/Intex/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 0, "35": 2, "36": 7, "37": 7, "42": 8, "43": 11, "44": 11, "45": 11, "46": 12, "47": 12, "48": 13, "49": 13, "50": 16, "51": 17, "52": 17, "53": 22, "54": 22, "55": 24, "60": 46, "65": 54, "70": 64, "76": 8, "87": 24, "96": 24, "97": 32, "98": 32, "99": 35, "100": 35, "101": 35, "102": 35, "103": 38, "104": 39, "105": 41, "106": 42, "107": 44, "113": 52, "119": 52, "125": 57, "131": 57, "137": 131}}
+{"filename": "C:/Users/stick/Developer/Intex/homepage/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 0, "35": 2, "36": 7, "37": 7, "42": 8, "43": 11, "44": 11, "45": 11, "46": 12, "47": 12, "48": 13, "49": 13, "50": 16, "51": 17, "52": 17, "53": 22, "54": 22, "55": 24, "60": 46, "65": 54, "70": 59, "76": 8, "87": 24, "96": 24, "97": 32, "98": 32, "99": 35, "100": 35, "101": 35, "102": 35, "103": 38, "104": 39, "105": 41, "106": 42, "107": 44, "113": 52, "119": 52, "125": 57, "131": 57, "137": 131}}
 __M_END_METADATA
 """

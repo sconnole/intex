@@ -49,3 +49,14 @@
         </div>    
     </div>
 </%block>
+
+<%block name="site_right">
+    <form method="post">
+        <div class="search">
+            ${ form.as_p() }
+            <button type="submit" class="searchButton">
+                <p class="btn-search">GO</p>
+            </button>
+        </div>
+    </form>
+</%block>

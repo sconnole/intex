@@ -20,7 +20,6 @@
         <header id="header">
             <nav class="navbar navbar-expand-lg">
                 <a href="/"><img src="${ STATIC_URL }homepage/media/logo.png" alt="home" /></a>
-                ##Override the menu when needed
                 <%block name="menu">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                         <span class="icon-bar"></span>
@@ -30,6 +29,9 @@
                     <div class="dropdown collapse navbar-collapse" id="myNavbar">        
                         <ul class="nav navbar-nav">
                             <li><a class="dropdown-item nav-link ${'active' if request.dmp.page == 'index' else ''}" href="/">Home</a></li>
+                            %if user.has_perm('delete_user'):
+                                <li><a class="dropdown-item nav-link ${'active' if request.dmp.page == 'index' else ''}" href="/account/admin/">Admin</a></li>
+                            %endif
                         </ul>
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Welcome${',' if user.username != '' else ''} ${user.username}
@@ -42,7 +44,20 @@
                                 <a class="dropdown-item nav-link" href="/account/login">Login</a>
                             % endif
                         </div>
-                    </div>        
+                    </div> 
+                    % if user.has_perm('view_analytics'): 
+                    <div class="dropdown2 collapse navbar-collapse" id="">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownAnalytics" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Analytics
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownAnalytics">
+                            <a class="dropdown-item nav-link" href="/analytics/unethical/">Unethical</a>
+                            <a class="dropdown-item nav-link" href="/analytics/prescribers/">Prescribers</a>
+                            <a class="dropdown-item nav-link" href="/analytics/risk/">At-Risk</a>
+                        </div>   
+                    </div> 
+                    %endif  
+
                 </%block>
             </nav>
         </header>

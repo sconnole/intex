@@ -143,8 +143,14 @@ input, select {
 }
 
 // Bootstrap Overrides
+.nav.navbar-nav li {
+    margin: 0px 3px;
+}
 .navbar-expand-lg .navbar-collapse {
     justify-content: flex-end;
+}
+.dropdown2.collapse.navbar-collapse {
+    max-width: 7.5rem;
 }
 .navbar-toggle {
     display: none;

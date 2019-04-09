@@ -44,3 +44,4 @@ def runSql (sql):
     cursor.execute(sql)
 
     return cursor
+

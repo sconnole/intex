@@ -36,9 +36,6 @@ CONNECTION_STRING = ("DRIVER={ODBC Driver 17 for SQL Server};"
     "UID=eligardner@eligardner;"
     "PWD=Password413")
 
-SEARCH_DATA = ""
-
-
 # Application definition
 
 INSTALLED_APPS = [

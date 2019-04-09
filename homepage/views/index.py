@@ -10,9 +10,12 @@ OFFSET = 0
 def process_request(request, page:int=0):
     OFFSET = page*ROWS
     if request.method == "POST": 
-        settings.SEARCH_DATA = convertParam(request.POST['search'])
+        request.session['param'] = convertParam(request.POST['search'])
     
-    param = settings.SEARCH_DATA
+    if 'param' in request.session:
+        param = request.session['param'] 
+    else:
+        param = ""
 
     sql = ('''SELECT FullName, Gender, Credentials, State, Specialty  
             FROM dbo.prescriber 
@@ -39,16 +42,14 @@ def process_request(request, page:int=0):
         FETCH NEXT ? ROWS ONLY;''')
 
     drugs = dSQL(sql, param, OFFSET)
-    
-    form = SearchForm()
 
     context = {
         "prescribers": docs,
         "drugs": drugs,
         "page": page,
-        "form": form
+        "form": SearchForm()
     }
-
+ 
     return request.dmp.render('index.html', context)
 
 def pSQL (sql, param, offset):

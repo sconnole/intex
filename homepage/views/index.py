@@ -1,28 +1,33 @@
 from django.conf import settings
 from django_mako_plus import view_function, jscontext
 
+ROWS = 5
+OFFSET = 0
+
 @view_function
-def process_request(request):
+def process_request(request, page:int=0):
     
     #check if search occured 
     #clean input
     #return results 
+    OFFSET = page*ROWS
 
     sql = ("SELECT FullName, Gender, Credentials, State, Specialty "
     " FROM dbo.prescriber"
     " ORDER BY Lname"
-    " OFFSET 0 ROWS"
-    " FETCH NEXT 5 ROWS ONLY;")
+    " OFFSET " + str(OFFSET) + " ROWS"
+    " FETCH NEXT " + str(ROWS) + " ROWS ONLY;")
 
     results = runSql(sql)
     docs = []
     for row in results:
         docs.append(row)
+
     sql = ("SELECT DrugName, IsOpioid "
     " FROM dbo.opioids"
     " ORDER BY DrugName"
-    " OFFSET 0 ROWS"
-    " FETCH NEXT 5 ROWS ONLY;")
+    " OFFSET " + str(OFFSET) + " ROWS"
+    " FETCH NEXT " + str(ROWS) + " ROWS ONLY;")
 
     results = runSql(sql)
     drugs = []
@@ -31,7 +36,8 @@ def process_request(request):
 
     context = {
         "prescribers": docs,
-        "drugs": drugs
+        "drugs": drugs,
+        "page": page,
     }
 
     return request.dmp.render('index.html', context)

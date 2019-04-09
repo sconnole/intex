@@ -20,7 +20,7 @@ html, body {
 .clearfix {
     clear: both;
 }
-
+.hide {display: none;}
 .prescribers, .drugs {
     background-color: $BLUE;
 }
@@ -123,6 +123,25 @@ input, select {
     box-sizing: border-box;
     padding: 5px;
 }
+.page-btn {
+    background: $RED;
+    color: $TEXT_COLOR_SECONDARY;
+    margin: .5rem 1rem;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    text-decoration: none;
+    float: left;
+}
+.page-btn:hover {
+    text-decoration: none;
+    color: $TEXT_COLOR_SECONDARY;
+    background: $BLUE;
+    transition-duration: .4s;
+}
+.right {
+    float: right;
+}
+
 // Bootstrap Overrides
 .navbar-expand-lg .navbar-collapse {
     justify-content: flex-end;

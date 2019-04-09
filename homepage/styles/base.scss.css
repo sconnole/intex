@@ -1,0 +1,260 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial";
+  color: #000;
+  background-color: #fcfcfc;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.hide {
+  display: none;
+}
+
+.prescribers, .drugs {
+  background-color: #233742;
+}
+
+.drugs {
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  text-align: center;
+}
+
+.prescribers th {
+  border-top: 0px;
+}
+
+th:last-child {
+  border-right: none;
+}
+
+th {
+  background-color: #AB3428;
+  color: #FFF;
+  font-weight: 100;
+  padding: 5px 0px;
+  border: 2px solid #7493a5;
+}
+
+td {
+  color: #FFF;
+  padding: 5px 0px;
+}
+
+table img {
+  max-width: 32px;
+}
+
+.navbar {
+  padding: 10px 0px;
+  margin: 0px 10px;
+}
+
+main {
+  margin: 0;
+  padding: 0px;
+  position: relative;
+  min-height: calc(100vh);
+}
+
+#site_right {
+  background-color: #bbcde5;
+  color: #000;
+  position: absolute;
+  top: 0;
+  width: 250px;
+  right: 0px;
+  bottom: 0px;
+  border-left: 2px solid #7493a5;
+}
+
+#site_center {
+  margin-right: 250px;
+  color: #000;
+}
+
+header#header {
+  background-color: #233742;
+  border-bottom: 2px solid #7493a5;
+}
+
+#header button {
+  margin-left: 1rem;
+}
+
+.search {
+  width: 100%;
+  height: 45px;
+  margin-top: 10px;
+}
+
+#mySearch {
+  width: 80%;
+  border-radius: 0;
+  float: left;
+  outline: none;
+  color: #000;
+  margin: 0px;
+  height: 100%;
+  border: none;
+}
+
+.searchButton {
+  float: right;
+  width: 20%;
+  height: 100%;
+  cursor: pointer;
+  background: #AB3428;
+  text-align: center;
+  color: #000;
+  border: none;
+}
+
+.btn-search {
+  color: #FFF;
+  line-height: 2.7rem;
+}
+
+input, select {
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #7493a5;
+  box-shadow: inset 0 1px 3px #ddd;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+.page-btn {
+  background: #AB3428;
+  color: #FFF;
+  margin: 0.5rem 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  float: left;
+}
+
+.page-btn:hover {
+  text-decoration: none;
+  color: #FFF;
+  background: #233742;
+  transition-duration: 0.4s;
+}
+
+.right {
+  float: right;
+}
+
+.navbar-expand-lg .navbar-collapse {
+  justify-content: flex-end;
+}
+
+.navbar-toggle {
+  display: none;
+  background-color: #233742;
+}
+
+.dropdown-menu {
+  left: inherit;
+  right: 0px;
+  padding: 0px;
+  background-color: #233742;
+}
+
+.dropdown-item {
+  color: #FFF;
+}
+
+.dropdown-item.active, .dropdown-item:active, .dropdown-item:hover {
+  background-color: #AB3428;
+  color: #FFF;
+}
+
+.navbar-toggle .icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  background-color: #FFF;
+}
+
+.navbar-toggle .icon-bar + .icon-bar {
+  margin-top: 4px;
+}
+
+.navbar-toggle {
+  position: relative;
+  float: right;
+  padding: 9px 10px;
+  margin-top: 8px;
+  margin-right: 15px;
+  margin-bottom: 8px;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.navbar-default .navbar-toggle {
+  border-color: #AB3428;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active,
+.btn-secondary:not(:disabled):not(.disabled):active,
+.show > .btn-secondary.dropdown-toggle, .btn-secondary {
+  color: #FFF;
+  background-color: #233742;
+  border-color: #AB3428;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+#site_left .navbar-nav .nav-link {
+  padding: 10px;
+  background-color: #233742;
+  color: #FFF;
+  border: 2px solid #7493a5;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#site_left .navbar-nav .nav-link.active {
+  background-color: #233742;
+}
+
+#site_left .navbar-nav {
+  padding: 10px 20px;
+}
+
+@media (max-width: 991px) {
+  .navbar-toggle {
+    display: block;
+  }
+
+  #site_right {
+    width: 0px;
+  }
+
+  #site_center {
+    margin-right: 0px;
+  }
+
+  .dropdown-menu {
+    right: inherit;
+    left: 0px;
+  }
+}
+
+/*# sourceMappingURL=base.scss.css.map */

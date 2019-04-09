@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_mako_plus',
     'homepage', 
-    'account'
+    'account',
+    'analytics'
 ]
 
 MIDDLEWARE = [
@@ -108,7 +109,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'intex',
         'USER': 'postgres',
-        'PASSWORD': 'sprintpassword',
+        'PASSWORD':'sprintpassword',
         'HOST': 'localhost',
         'PORT': '5432',
     }

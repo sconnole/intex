@@ -60,11 +60,8 @@ def runSql (sql):
 
     return cursor
 
-<<<<<<< HEAD
 class SearchForm(forms.Form):
     search = forms.CharField(label=u'',
         widget=forms.TextInput(attrs={'placeholder': 'Search...', 'id':'mySearch'}))
 
         
-=======
->>>>>>> remotes/origin/eli

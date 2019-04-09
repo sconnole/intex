@@ -26,11 +26,11 @@ SECRET_KEY = 'jw^e+ycm=f7@eue0rqv21t6_(@-ea&x(s5udrt7^rb32^_p@&e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [os.getenv('PROJECT_DOMAIN')]
 
 AUTH_USER_MODEL = 'account.User'
 
-CONNECTION_STRING = ("DRIVER={ODBC Driver 13 for SQL Server};"
+CONNECTION_STRING = ("DRIVER={ODBC Driver 17 for SQL Server};"
     "SERVER=tcp:eligardner.database.windows.net,1433;"
     "Database=INTEXII;"
     "UID=eligardner@eligardner;"

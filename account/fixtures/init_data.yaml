@@ -1,0 +1,203 @@
+- model: contenttypes.contenttype
+  pk: 1
+  fields: {app_label: admin, model: logentry}
+- model: contenttypes.contenttype
+  pk: 2
+  fields: {app_label: auth, model: permission}
+- model: contenttypes.contenttype
+  pk: 3
+  fields: {app_label: auth, model: group}
+- model: contenttypes.contenttype
+  pk: 4
+  fields: {app_label: contenttypes, model: contenttype}
+- model: contenttypes.contenttype
+  pk: 5
+  fields: {app_label: sessions, model: session}
+- model: contenttypes.contenttype
+  pk: 6
+  fields: {app_label: account, model: user}
+- model: sessions.session
+  pk: 4jrppedmdxns442f7msys8cnwcb4cjjm
+  fields: {session_data: NmY4ZjMxZDE1NzZiY2M4M2MwOWZmMGIwMTE4OGQ5ZTY3YWM3ZjkyODp7InBhcmFtIjoiJWp1c3RpbiUiLCJwYXJhYW0iOiIlU2VhbSUiLCJfYXV0aF91c2VyX2lkIjoiMSIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiZGQxMzQyMDE4MTBiOGYzZjA1Mzg5NjYwZDUzYmU3NGViZjcyMWI4YSJ9,
+    expire_date: ! '2019-04-23 19:49:40.804871+00:00'}
+- model: auth.permission
+  pk: 1
+  fields: {name: Can add log entry, content_type: 1, codename: add_logentry}
+- model: auth.permission
+  pk: 2
+  fields: {name: Can change log entry, content_type: 1, codename: change_logentry}
+- model: auth.permission
+  pk: 3
+  fields: {name: Can delete log entry, content_type: 1, codename: delete_logentry}
+- model: auth.permission
+  pk: 4
+  fields: {name: Can view log entry, content_type: 1, codename: view_logentry}
+- model: auth.permission
+  pk: 5
+  fields: {name: Can add permission, content_type: 2, codename: add_permission}
+- model: auth.permission
+  pk: 6
+  fields: {name: Can change permission, content_type: 2, codename: change_permission}
+- model: auth.permission
+  pk: 7
+  fields: {name: Can delete permission, content_type: 2, codename: delete_permission}
+- model: auth.permission
+  pk: 8
+  fields: {name: Can view permission, content_type: 2, codename: view_permission}
+- model: auth.permission
+  pk: 9
+  fields: {name: Can add group, content_type: 3, codename: add_group}
+- model: auth.permission
+  pk: 10
+  fields: {name: Can change group, content_type: 3, codename: change_group}
+- model: auth.permission
+  pk: 11
+  fields: {name: Can delete group, content_type: 3, codename: delete_group}
+- model: auth.permission
+  pk: 12
+  fields: {name: Can view group, content_type: 3, codename: view_group}
+- model: auth.permission
+  pk: 13
+  fields: {name: Can add content type, content_type: 4, codename: add_contenttype}
+- model: auth.permission
+  pk: 14
+  fields: {name: Can change content type, content_type: 4, codename: change_contenttype}
+- model: auth.permission
+  pk: 15
+  fields: {name: Can delete content type, content_type: 4, codename: delete_contenttype}
+- model: auth.permission
+  pk: 16
+  fields: {name: Can view content type, content_type: 4, codename: view_contenttype}
+- model: auth.permission
+  pk: 17
+  fields: {name: Can add session, content_type: 5, codename: add_session}
+- model: auth.permission
+  pk: 18
+  fields: {name: Can change session, content_type: 5, codename: change_session}
+- model: auth.permission
+  pk: 19
+  fields: {name: Can delete session, content_type: 5, codename: delete_session}
+- model: auth.permission
+  pk: 20
+  fields: {name: Can view session, content_type: 5, codename: view_session}
+- model: auth.permission
+  pk: 21
+  fields: {name: Can add user, content_type: 6, codename: add_user}
+- model: auth.permission
+  pk: 22
+  fields: {name: Can change user, content_type: 6, codename: change_user}
+- model: auth.permission
+  pk: 23
+  fields: {name: Can delete user, content_type: 6, codename: delete_user}
+- model: auth.permission
+  pk: 24
+  fields: {name: Can view user, content_type: 6, codename: view_user}
+- model: auth.permission
+  pk: 26
+  fields: {name: Can view analytics, content_type: 2, codename: view_analytics}
+- model: auth.permission
+  pk: 27
+  fields: {name: Can search all, content_type: 2, codename: search_all}
+- model: auth.permission
+  pk: 28
+  fields: {name: Can search limited, content_type: 2, codename: search_limited}
+- model: auth.group
+  pk: 1
+  fields:
+    name: CRUD
+    permissions: [21, 22, 23, 24]
+- model: auth.group
+  pk: 2
+  fields:
+    name: search
+    permissions: [27]
+- model: auth.group
+  pk: 3
+  fields:
+    name: analytics
+    permissions: [26]
+- model: auth.group
+  pk: 4
+  fields:
+    name: search_limited
+    permissions: [28]
+- model: account.user
+  pk: 1
+  fields:
+    password: pbkdf2_sha256$120000$BTlgJDcfpbvt$TlpmI3heXMkgXjTpOmmZb+nji27jamVQ9dpcffapBug=
+    last_login: 2019-04-09 19:49:23.063631+00:00
+    is_superuser: true
+    username: sconnole
+    first_name: Sean
+    last_name: Connole
+    email: seanconnole32@gmail.com
+    is_staff: false
+    is_active: true
+    date_joined: 2019-04-09 19:45:02.670167+00:00
+    birthdate: null
+    groups: [1, 2, 3, 4]
+    user_permissions: []
+- model: account.user
+  pk: 2
+  fields:
+    password: pbkdf2_sha256$120000$89uAOlQBV3CT$Ey7M5xRu2J6yfy+usnd1HxFL4bqXA6yB8HUQkX0XMF8=
+    last_login: null
+    is_superuser: true
+    username: Eli
+    first_name: Eli
+    last_name: Gardner
+    email: ''
+    is_staff: false
+    is_active: true
+    date_joined: 2019-04-09 19:50:20.019119+00:00
+    birthdate: null
+    groups: [1]
+    user_permissions: []
+- model: account.user
+  pk: 3
+  fields:
+    password: pbkdf2_sha256$120000$iRLDwWeJUtQ9$9KQfAYCaVrKjOpukgjosueHfpbLcdXQk9GkXBchkoFA=
+    last_login: null
+    is_superuser: false
+    username: Data Clerk
+    first_name: ''
+    last_name: ''
+    email: ''
+    is_staff: true
+    is_active: true
+    date_joined: 2019-04-09 19:59:12.990098+00:00
+    birthdate: null
+    groups: [1]
+    user_permissions: []
+- model: account.user
+  pk: 4
+  fields:
+    password: pbkdf2_sha256$120000$OSZCGxMBSOCT$Ap85eO1htURmodHYOYG2kJXY/Q0CeW3/j0+TXLLNhsU=
+    last_login: null
+    is_superuser: false
+    username: Doctor
+    first_name: ''
+    last_name: ''
+    email: ''
+    is_staff: false
+    is_active: true
+    date_joined: 2019-04-09 20:02:00.057645+00:00
+    birthdate: null
+    groups: [4]
+    user_permissions: []
+- model: account.user
+  pk: 5
+  fields:
+    password: pbkdf2_sha256$120000$8BRObYGYlcbR$OyWF1itlWJVItJMET6O/Aew/jpg2Z3FENJuyJ3xTwi0=
+    last_login: null
+    is_superuser: false
+    username: Official
+    first_name: ''
+    last_name: ''
+    email: ''
+    is_staff: false
+    is_active: true
+    date_joined: 2019-04-09 20:08:38.668505+00:00
+    birthdate: null
+    groups: [2]
+    user_permissions: []

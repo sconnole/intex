@@ -9,4 +9,12 @@ ul.errorlist {
   border-radius: 10px;
 }
 
+form {
+  margin: 20px;
+}
+
+#site_right {
+  display: none;
+}
+
 /*# sourceMappingURL=login.scss.css.map */

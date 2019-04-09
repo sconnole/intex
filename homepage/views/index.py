@@ -2,12 +2,17 @@ from django.conf import settings
 from django_mako_plus import view_function, jscontext
 from django import forms
 import pyodbc
+from django.http import HttpResponseRedirect
+
 
 ROWS = 5
 OFFSET = 0
 
 @view_function
 def process_request(request, page:int=0):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/account/login/')
+
     OFFSET = page*ROWS
     if request.method == "POST": 
         request.session['param'] = convertParam(request.POST['search'])

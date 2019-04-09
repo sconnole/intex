@@ -10,7 +10,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 def process_request(request):
     
     if request.method == 'POST':
-        # Create a form instance and populate it with data from the request (binding):
+        
         form = LoginForm(request.POST)
 
         if form.is_valid():

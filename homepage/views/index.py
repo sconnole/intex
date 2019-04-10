@@ -22,7 +22,7 @@ def process_request(request, page:int=0):
     else:
         param = ""
 
-    if request.user.has_perm('account.search'):
+    if request.user.has_perm('account.search_all'):
         sql = ('''SELECT FullName, ''')
     else:
         sql = ('''SELECT NEWID(), ''')

@@ -5,17 +5,11 @@ import pyodbc
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import Permission
 
-
 ROWS = 5
 OFFSET = 0
 
 @view_function
 def process_request(request, page:int=0):
-
-    print("<<<<<<<<<<<<<<<<<<<")
-    if request.user.has_perm('account.view_analytics'):
-        print ('Yes he does!')
-
     if not request.user.is_authenticated:
         return HttpResponseRedirect('/account/login/')
 
@@ -28,7 +22,12 @@ def process_request(request, page:int=0):
     else:
         param = ""
 
-    sql = ('''SELECT FullName, Gender, Credentials, State, Specialty  
+    if request.user.has_perm('account.search'):
+        sql = ('''SELECT FullName, ''')
+    else:
+        sql = ('''SELECT NEWID(), ''')
+    
+    sql += (''' Gender, Credentials, State, Specialty  
             FROM dbo.prescriber 
             WHERE Lname LIKE ?
             OR Fname LIKE ?

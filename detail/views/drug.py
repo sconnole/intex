@@ -11,20 +11,24 @@ def process_request(request, param:str):
     if not request.user.is_authenticated:
         return HttpResponseRedirect('/account/login/')
 
-
-
     sql = ('''SELECT DrugName, IIF(IsOpioid = 0, 'Not an Opioid', 'Opioid') AS IsOpioid FROM dbo.opioids WHERE DrugName = ?;''')
     name_isop = dSQL(sql, param)
     for item in name_isop:
         drugname = item[0]
         isop = item[1]
     
-    param = param.replace('.', '_')
+    # param = param.replace('.', '_')
 
-    sql = ('''SELECT TOP(10) (SELECT FullName FROM prescriber AS p WHERE p.DoctorID = t.DoctorID) AS FullName, DoctorID, Qty FROM triple AS t WHERE Drug = ? ORDER BY Qty DESC;''')
-    docs = dSQL(sql, param)
-    
+    sql = ('''SELECT TOP(10) 
+                (SELECT FullName 
+                FROM prescriber AS p 
+                WHERE p.DoctorID = t.DoctorID) AS FullName, 
+                DoctorID, Qty 
+            FROM triple AS t 
+            WHERE Drug = ?
+            ORDER BY Qty DESC;''')
 
+    docs = dSQL(sql, param) 
 
     ##########################################################
     # Azure Analytics drugs prescribed with this one
@@ -61,11 +65,7 @@ def dSQL (sql, param):
     cursor = conn.cursor()
     return cursor.execute(sql, (param))
 
-def pSQL (sql, param):
-    conn = pyodbc.connect(settings.CONNECTION_STRING)
-    cursor = conn.cursor()
-    return cursor.execute(sql, (param, param))
-
-
-def convertParam (param):
-    return "%" + param + "%"
+def SQL (sql):
+    con = pyodbc.connect(settings.CONNECTION_STRING)
+    cur = con.cursor()
+    return cur.execute(sql)

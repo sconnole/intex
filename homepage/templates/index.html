@@ -15,7 +15,7 @@
                 </tr>
                 ## Add a for loop to add prescribers
                 %for doc in prescribers: 
-                    <tr>
+                    <tr class="clickable-row" data-href="/detail/prescriber/${doc[5]}/">
                         <td><img src="${STATIC_URL}homepage/media/user.png" alt="user"></td>
                         <td>${doc[0]}</td>
                         <td>${doc[1]}</td>
@@ -35,7 +35,7 @@
                 </tr>
                 ## Add a for loop to add drugs
                 %for drug in drugs:
-                    <tr>
+                    <tr class="clickable-row" data-href="/detail/drug/${drug[0]}/">
                         <td><img src="${STATIC_URL}homepage/media/pill.png" alt="pill"></td>
                         <td>${drug[0]}</td>
                         <td>${drug[1]}</td>

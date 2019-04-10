@@ -146,6 +146,12 @@ input, select {
 .right {
     float: right;
 }
+.clickable-row {
+    cursor: pointer;
+}
+.clickable-row:hover {
+    background-color: $RED;
+}
 
 // Bootstrap Overrides
 .nav.navbar-nav li {

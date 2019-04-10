@@ -27,7 +27,7 @@ def process_request(request, page:int=0):
     else:
         sql = ('''SELECT NEWID(), ''')
     
-    sql += (''' Gender, Credentials, State, Specialty  
+    sql += (''' Gender, Credentials, State, Specialty, DoctorID  
             FROM dbo.prescriber 
             WHERE Lname LIKE ?
             OR Fname LIKE ?

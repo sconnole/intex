@@ -1,50 +1,50 @@
-.content {
-    width: 70vw;
-    min-width: 550px;
-    margin-left: 15vw;
+#site_center {
+    margin-right: 35%;
 }
-
 #site_right {
-    visibility: hidden;
+    width: 35%;
+    background-color: #fcfcfc;
+    border: none;
 }
-
-h2 {
-    text-align: center;
+.info-card {
+    width: 45%; 
+    background-color: #ab3428;
+    color: #fff;
+    padding: 1rem;
+    float:left;
+    position: relative;
+    height: 190px;
 }
-
-.title_table {
-    margin: 20px;
-    margin-bottom: 20px;
-
-    h1, p {
-        font-size: 24px;
-        color: #000;
-        text-align: left;
-    }
+.icon {
+    width: 40px; 
+    position: absolute;
+    right: .5rem;
+    top: .5rem;
+}
+.icon img {
+    max-width: 32px;
+}
+h3 { 
+    font-size: 16px; 
 }
 
 .top_docs {
-    width: 45%;
-    min-width: 275px;
-    margin: 20px;
-    color: #000;
-
-    tr:nth-child(odd) {
-        background-color: #f2f2f2;
-    }
-
-    tr:hover {
-        background-color: #ddd;
-    }
-
+    
     th {
-        font-size: 24px;
+        border-top: none;
+        border-right: 2px solid #7493a5;
     }
-
+    tr:nth-child(odd) {
+        background-color: #23374221;
+    }
     td {
         text-align: left;
         color: inherit;
         padding: 5px;
+        color: #000;
+    }
+    tr:hover {
+        background-color: #ccc;
     }
     .drug_qty {
         text-align: right;
@@ -52,13 +52,13 @@ h2 {
 }
 
 .ratio {
-    width: 45%;
-    min-width: 275px;
-    margin: 20px;
+    width: 55%;
+    padding: 10px;
     display: inline-block;
     color: #000;
     background-color: #f2f2f2;
     text-align: center;
+    height: 190px;
 }
 
 .ratio_number {

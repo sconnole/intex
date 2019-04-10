@@ -164,6 +164,14 @@ input, select {
   float: right;
 }
 
+.clickable-row {
+  cursor: pointer;
+}
+
+.clickable-row:hover {
+  background-color: #AB3428;
+}
+
 .nav.navbar-nav li {
   margin: 0px 3px;
 }

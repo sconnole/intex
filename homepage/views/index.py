@@ -3,7 +3,7 @@ from django_mako_plus import view_function, jscontext
 from django import forms
 import pyodbc
 from django.http import HttpResponseRedirect
-
+from django.contrib.auth.models import Permission
 
 ROWS = 5
 OFFSET = 0
@@ -22,7 +22,12 @@ def process_request(request, page:int=0):
     else:
         param = ""
 
-    sql = ('''SELECT FullName, Gender, Credentials, State, Specialty  
+    if request.user.has_perm('account.search_all'):
+        sql = ('''SELECT FullName, ''')
+    else:
+        sql = ('''SELECT NEWID(), ''')
+    
+    sql += (''' Gender, Credentials, State, Specialty  
             FROM dbo.prescriber 
             WHERE Lname LIKE ?
             OR Fname LIKE ?

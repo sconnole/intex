@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554828855.6630373
+_modified_time = 1554847586.5610964
 _enable_loop = True
 _template_filename = 'C:/Users/stick/Developer/Intex/homepage/templates/index.html'
 _template_uri = 'index.html'
@@ -30,18 +30,18 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def site_center():
-            return render_site_center(context._locals(__M_locals))
-        form = context.get('form', UNDEFINED)
-        drugs = context.get('drugs', UNDEFINED)
         def title():
             return render_title(context._locals(__M_locals))
         def site_right():
             return render_site_right(context._locals(__M_locals))
-        page = context.get('page', UNDEFINED)
-        prescribers = context.get('prescribers', UNDEFINED)
         self = context.get('self', UNDEFINED)
+        page = context.get('page', UNDEFINED)
+        def site_center():
+            return render_site_center(context._locals(__M_locals))
+        drugs = context.get('drugs', UNDEFINED)
+        prescribers = context.get('prescribers', UNDEFINED)
         STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        form = context.get('form', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
@@ -79,13 +79,13 @@ def render_title(context,**pageargs):
 def render_site_center(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        page = context.get('page', UNDEFINED)
+        self = context.get('self', UNDEFINED)
+        drugs = context.get('drugs', UNDEFINED)
+        prescribers = context.get('prescribers', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         def site_center():
             return render_site_center(context)
-        drugs = context.get('drugs', UNDEFINED)
-        page = context.get('page', UNDEFINED)
-        prescribers = context.get('prescribers', UNDEFINED)
-        self = context.get('self', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n    <div class="content">\r\n        <div class="prescribers">\r\n            <table>\r\n                <tr>\r\n                    <th><img src="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
@@ -130,9 +130,9 @@ def render_site_center(context,**pageargs):
 def render_site_right(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        self = context.get('self', UNDEFINED)
         def site_right():
             return render_site_right(context)
-        self = context.get('self', UNDEFINED)
         form = context.get('form', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n    <form method="post">\r\n        <div class="search">\r\n            ')

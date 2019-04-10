@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554849672.362889
+_modified_time = 1554909048.9896586
 _enable_loop = True
 _template_filename = 'C:/Users/stick/Developer/Intex/homepage/templates/base.htm'
 _template_uri = 'base.htm'
@@ -19,18 +19,18 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def title():
-            return render_title(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
         STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        def menu():
-            return render_menu(context._locals(__M_locals))
         request = context.get('request', UNDEFINED)
         def site_right():
             return render_site_right(context._locals(__M_locals))
+        user = context.get('user', UNDEFINED)
+        self = context.get('self', UNDEFINED)
+        def menu():
+            return render_menu(context._locals(__M_locals))
+        def title():
+            return render_title(context._locals(__M_locals))
         def site_center():
             return render_site_center(context._locals(__M_locals))
-        user = context.get('user', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n<!DOCTYPE html>\r\n<html>\r\n    <meta charset="UTF-8">\r\n    <head>\r\n        <link rel="icon" href="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
@@ -86,16 +86,16 @@ def render_title(context,**pageargs):
 def render_menu(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        self = context.get('self', UNDEFINED)
-        user = context.get('user', UNDEFINED)
         def menu():
             return render_menu(context)
+        user = context.get('user', UNDEFINED)
         request = context.get('request', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">\r\n                        <span class="icon-bar"></span>\r\n                        <span class="icon-bar"></span>\r\n                        <span class="icon-bar"></span> \r\n                    </button>\r\n                    <div class="dropdown collapse navbar-collapse" id="myNavbar">        \r\n                        <ul class="nav navbar-nav">\r\n                            <li><a class="dropdown-item nav-link ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)('active' if request.dmp.page == 'index' else ''))
         __M_writer('" href="/">Home</a></li>\r\n')
-        if user.has_perm('delete_user'):
+        if user.has_perm('account.delete_user'):
             __M_writer('                                <li><a class="dropdown-item nav-link ')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)('active' if request.dmp.page == 'index' else ''))
             __M_writer('" href="/account/admin/">Admin</a></li>\r\n')
@@ -109,7 +109,7 @@ def render_menu(context,**pageargs):
         else: 
             __M_writer('                                <a class="dropdown-item nav-link" href="/account/login">Login</a>\r\n')
         __M_writer('                        </div>\r\n                    </div> \r\n')
-        if user.has_perm('view_analytics'): 
+        if user.has_perm('account.view_analytics'): 
             __M_writer('                    <div class="dropdown2 collapse navbar-collapse" id="">\r\n                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownAnalytics" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\r\n                            Analytics\r\n                        </button>\r\n                        <div class="dropdown-menu" aria-labelledby="dropdownAnalytics">\r\n                            <a class="dropdown-item nav-link" href="/analytics/unethical/">Unethical</a>\r\n                            <a class="dropdown-item nav-link" href="/analytics/prescribers/">Prescribers</a>\r\n                            <a class="dropdown-item nav-link" href="/analytics/risk/">At-Risk</a>\r\n                        </div>   \r\n                    </div> \r\n')
         __M_writer('\r\n                ')
         return ''

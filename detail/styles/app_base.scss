@@ -8,18 +8,18 @@
     visibility: hidden;
 }
 
+h2 {
+    text-align: center;
+}
+
 .title_table {
-    margin: 10px;
+    margin: 20px;
     margin-bottom: 20px;
 
-    h1 {
-        font-size: 36px;
-        color: #000;
-    }
-    
-    p {
+    h1, p {
         font-size: 24px;
         color: #000;
+        text-align: left;
     }
 }
 
@@ -44,5 +44,24 @@
     td {
         text-align: left;
         color: inherit;
+        padding: 5px;
     }
+    .drug_qty {
+        text-align: right;
+    }
+}
+
+.ratio {
+    width: 45%;
+    min-width: 275px;
+    margin: 20px;
+    display: inline-block;
+    color: #000;
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+.ratio_number {
+    font-size: 48px;
+    margin-bottom: 0;
 }

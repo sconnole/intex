@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554924522.1404805
+_modified_time = 1554925640.9696114
 _enable_loop = True
 _template_filename = 'C:/Users/stick/Developer/Intex/account/templates/admin.html'
 _template_uri = '/account/templates/admin.html'
@@ -30,8 +30,8 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        form = context.get('form', UNDEFINED)
         self = context.get('self', UNDEFINED)
+        form = context.get('form', UNDEFINED)
         def site_right():
             return render_site_right(context._locals(__M_locals))
         __M_writer = context.writer()
@@ -49,8 +49,8 @@ def render_body(context,**pageargs):
 def render_site_right(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        form = context.get('form', UNDEFINED)
         self = context.get('self', UNDEFINED)
+        form = context.get('form', UNDEFINED)
         def site_right():
             return render_site_right(context)
         __M_writer = context.writer()

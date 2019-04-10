@@ -1,0 +1,42 @@
+<%inherit file="app_base.htm" />
+
+<%block name="title">${docname} Details</%block>
+<%block name="site_center">
+    <div class="content">
+        <div class="title_table">
+            <table>
+                <tr>
+                    <td><h1>Name: ${docname}</h1></td>
+                    <td><p>Credentials: ${doccred}</p></td>
+                </tr>
+                <tr>
+                    <td><p>Gender: ${docgender}</p></td>
+                    <td><p>State: ${docstate}</p></td>
+                </tr>
+                <tr>
+                    <td><p>Specialty: ${docspecialty}</p></td>
+                </tr>
+            </table>
+        </div>
+        <div class="top_docs">
+            <h2>Drugs Prescribed</h2>
+            <table>
+                <tr>
+                    <th>Drug Name</th>
+                    <th>Quantity</th>
+                </tr>
+                %for drug in drugs:
+                    <tr>
+                        <td><a href="/detail/drug/${drug[0]}">${drug[0]}</a></td>
+                        <td class="drug_qty">${drug[1]}</td>
+                    </tr>
+                %endfor
+            </table>
+        </div>
+        <div class="ratio">
+            <h2>Opioid Prescription Ratio</h2>
+            <p class="ratio_number">${ratio}%</p>
+            <p>of drugs prescribed by this prescriber are opioids</p>
+        </div>
+    </div>
+</%block>

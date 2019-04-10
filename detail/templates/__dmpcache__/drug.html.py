@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554867528.8038142
+_modified_time = 1554911224.5784
 _enable_loop = True
 _template_filename = 'C:/Users/Owner/Google Drive/BYU/2019 1Winter/intex/intex/detail/templates/drug.html'
 _template_uri = 'drug.html'
@@ -30,14 +30,14 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        drugname = context.get('drugname', UNDEFINED)
         def title():
             return render_title(context._locals(__M_locals))
-        def site_center():
-            return render_site_center(context._locals(__M_locals))
+        docs = context.get('docs', UNDEFINED)
+        drugname = context.get('drugname', UNDEFINED)
         isop = context.get('isop', UNDEFINED)
         self = context.get('self', UNDEFINED)
-        docs = context.get('docs', UNDEFINED)
+        def site_center():
+            return render_site_center(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
@@ -58,8 +58,8 @@ def render_body(context,**pageargs):
 def render_title(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        self = context.get('self', UNDEFINED)
         drugname = context.get('drugname', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         def title():
             return render_title(context)
         __M_writer = context.writer()
@@ -73,12 +73,12 @@ def render_title(context,**pageargs):
 def render_site_center(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        docs = context.get('docs', UNDEFINED)
         drugname = context.get('drugname', UNDEFINED)
-        def site_center():
-            return render_site_center(context)
         isop = context.get('isop', UNDEFINED)
         self = context.get('self', UNDEFINED)
-        docs = context.get('docs', UNDEFINED)
+        def site_center():
+            return render_site_center(context)
         __M_writer = context.writer()
         __M_writer('\r\n    <div class="content">\r\n        <div class="title_table">\r\n            <table>\r\n                <tr>\r\n                    <td><h1>Drug: ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(drugname))
@@ -89,7 +89,7 @@ def render_site_center(context,**pageargs):
             __M_writer('                    <tr>\r\n                        <td><a href="/detail/prescriber/')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)(doc[1]))
             __M_writer('">')
-            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(doc))
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(doc[0]))
             __M_writer('</a></td>\r\n                    </tr>\r\n')
         __M_writer('            </table>\r\n        </div>   \r\n    </div>\r\n')
         return ''

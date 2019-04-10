@@ -1,0 +1,17 @@
+<%inherit file="app_base.htm" />
+
+<%block name="site_right">
+    
+</%block>
+
+<%block name="site_right">
+    <form method="post">
+        <div class="search">
+            ${ form.as_p() }
+            <button type="submit" class="searchButton">
+                <p class="btn-search">GO</p>
+            </button>
+        </div>
+    </form>
+    <a href='/account/add/' class="main-btn">Add New Prescriber</a>
+</%block>

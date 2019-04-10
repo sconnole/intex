@@ -5,14 +5,14 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554922330.1274579
+_modified_time = 1554923198.1660042
 _enable_loop = True
-_template_filename = 'C:/Users/stick/Developer/Intex/account/templates/app_base.htm'
-_template_uri = '/account/templates/app_base.htm'
+_template_filename = 'C:/Users/stick/Developer/Intex/account/templates/permission_denied.html'
+_template_uri = '/account/templates/permission_denied.html'
 _source_encoding = 'utf-8'
 import django_mako_plus
 import django.utils.html
-_exports = ['title']
+_exports = ['site_center']
 
 
 def _mako_get_namespace(context, name):
@@ -25,32 +25,31 @@ def _mako_generate_namespaces(context):
     pass
 def _mako_inherit(template, context):
     _mako_generate_namespaces(context)
-    return runtime._inherit_from(context, '/homepage/templates/base.htm', _template_uri)
+    return runtime._inherit_from(context, 'app_base.htm', _template_uri)
 def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def title():
-            return render_title(context._locals(__M_locals))
+        def site_center():
+            return render_site_center(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
-        if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
-            context['self'].title(**pageargs)
+        if 'parent' not in context._data or not hasattr(context._data['parent'], 'site_center'):
+            context['self'].site_center(**pageargs)
         
 
-        __M_writer('\r\n\r\n\r\n\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
 
 
-def render_title(context,**pageargs):
+def render_site_center(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def title():
-            return render_title(context)
+        def site_center():
+            return render_site_center(context)
         __M_writer = context.writer()
-        __M_writer('Account')
+        __M_writer('\r\n    <h1>You do not have permission to access this page</h1>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -58,6 +57,6 @@ def render_title(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/stick/Developer/Intex/account/templates/app_base.htm", "uri": "/account/templates/app_base.htm", "source_encoding": "utf-8", "line_map": {"29": 0, "36": 1, "41": 3, "47": 3, "53": 3, "59": 53}}
+{"filename": "C:/Users/stick/Developer/Intex/account/templates/permission_denied.html", "uri": "/account/templates/permission_denied.html", "source_encoding": "utf-8", "line_map": {"29": 0, "36": 1, "46": 3, "52": 3, "58": 52}}
 __M_END_METADATA
 """

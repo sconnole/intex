@@ -10,6 +10,10 @@ html, body {
   clear: both;
 }
 
+.search p {
+  display: inline;
+}
+
 .hide {
   display: none;
 }
@@ -144,7 +148,12 @@ input, select {
   float: left;
 }
 
-.page-btn:hover {
+.main-btn {
+  background: #AB3428;
+  color: #FFF;
+}
+
+.page-btn:hover, .main-btn:hover {
   text-decoration: none;
   color: #FFF;
   background: #233742;

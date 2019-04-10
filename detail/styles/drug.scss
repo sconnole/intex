@@ -1,0 +1,48 @@
+.content {
+    width: 70vw;
+    min-width: 550px;
+    margin-left: 15vw;
+}
+
+#site_right {
+    visibility: hidden;
+}
+
+.title_table {
+    margin: 10px;
+    margin-bottom: 20px;
+
+    h1 {
+        font-size: 36px;
+        color: #000;
+    }
+    
+    p {
+        font-size: 24px;
+        color: #000;
+    }
+}
+
+.top_docs {
+    width: 45%;
+    min-width: 275px;
+    margin: 20px;
+    color: #000;
+
+    tr:nth-child(odd) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+
+    th {
+        font-size: 24px;
+    }
+
+    td {
+        text-align: left;
+        color: inherit;
+    }
+}

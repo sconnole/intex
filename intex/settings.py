@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_mako_plus',
     'homepage', 
-    'account', 
+    'account',
+    'detail',
 ]
 
 MIDDLEWARE = [

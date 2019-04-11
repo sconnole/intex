@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1555021018.2675135
+_modified_time = 1555021634.0815134
 _enable_loop = True
 _template_filename = 'C:/Users/stick/Developer/Intex/homepage/templates/base.htm'
 _template_uri = 'homepage/templates/base.htm'
@@ -110,7 +110,7 @@ def render_menu(context,**pageargs):
             __M_writer('                                <a class="dropdown-item nav-link" href="/account/login">Login</a>\r\n')
         __M_writer('                        </div>\r\n                    </div> \r\n')
         if user.has_perm('account.view_analytics'): 
-            __M_writer('                    <div class="dropdown2 collapse navbar-collapse" id="">\r\n                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownAnalytics" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\r\n                            Analytics\r\n                        </button>\r\n                        <div class="dropdown-menu" aria-labelledby="dropdownAnalytics">\r\n                            <a class="dropdown-item nav-link" href="/analytics/index/">Unethical</a>\r\n                            <a class="dropdown-item nav-link" href="/analytics/opiateprescriber/">Prescribers</a>\r\n                            <a class="dropdown-item nav-link" href="/analytics/risk/">At-Risk</a>\r\n                        </div>   \r\n                    </div> \r\n')
+            __M_writer('                    <div class="dropdown2 collapse navbar-collapse" id="">\r\n                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownAnalytics" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\r\n                            Analytics\r\n                        </button>\r\n                        <div class="dropdown-menu" aria-labelledby="dropdownAnalytics">\r\n                            <a class="dropdown-item nav-link" href="/analytics/index/">Unethical</a>\r\n                            <a class="dropdown-item nav-link" href="/analytics/opiateprescribers/">Prescribers</a>\r\n                            <a class="dropdown-item nav-link" href="/analytics/risk/">At-Risk</a>\r\n                        </div>   \r\n                    </div> \r\n')
         __M_writer('\r\n                ')
         return ''
     finally:

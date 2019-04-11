@@ -1,0 +1,13 @@
+<%inherit file="app_base.htm" />
+
+<%block name="site_center">
+    <h1>Add New Prescriber</h1>
+    <form method="post">
+        <div class="edit">
+            ${ form.as_p() }
+            <button type="submit" class="page-btn">
+                Add
+            </button>
+        </div>
+    </form>
+</%block>

@@ -10,6 +10,24 @@ def process_request(request, docID:int=0):
     if not request.user.has_perm('account.add_user'):
         return HttpResponseRedirect('/account/permission_denied/') 
 
+    if request.method == 'POST':
+        first = request.POST['FName']
+        last = request.POST['LName']
+        location = request.POST['location']
+        credentials = request.POST['credentials']
+        specialty = request.POST['specialty']
+        gender = request.POST['gender']
+        fullname = last + ', ' + first
+
+        sql = ('''INSERT INTO prescriber (Fname, Lname, FullName, Gender, State, Credentials, Specialty)
+                VALUES (? , ? , ?, ? , ? , ?, ?); ''')
+        conn = pyodbc.connect(settings.CONNECTION_STRING)
+        cursor = conn.cursor()
+        cursor.execute(sql, (first, last, fullname, gender, location, credentials, specialty ))
+        conn.commit()
+        return HttpResponseRedirect('/account/admin')
+
+
     form = addPrescriber()
 
     context = {
@@ -21,4 +39,6 @@ def process_request(request, docID:int=0):
 class addPrescriber(PrescriberForm):
     FName = forms.CharField(label="First Name")
     LName = forms.CharField(label="Last Name")
+
+
 

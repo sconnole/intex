@@ -1,6 +1,7 @@
 from django.conf import settings
 from django_mako_plus import view_function
 from django import forms
+from django.core.exceptions import ValidationError
 from django.http import HttpResponseRedirect
 import pyodbc
 
@@ -38,7 +39,7 @@ def process_request(request, docID:int=0):
 
 class PrescriberForm(forms.Form):
     gender = forms.ChoiceField(choices=[("M", "Male"), ("F", "Female"),])
-    location = forms.CharField(label="Location")
+    location = forms.CharField(label="Location", max_length=2)
     credentials = forms.CharField(label="Credentials")
     specialty = forms.CharField(label="Specialty")
 

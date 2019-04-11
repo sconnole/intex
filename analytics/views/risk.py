@@ -11,10 +11,11 @@ def process_request(request, page:int=0):
 
     OFFSET = page * ROWS 
 
-    sql = ('''SELECT FullName, TRAMADOL_HCL, CEPHALEXIN, LEVOFLOXACIN, GABAPENTIN, METHADONE_HCL, SULFAMETHOXAZOLE_TRIMETHOPRIM, HYDROCHLOROTHIAZIDE
+    sql = ('''SELECT FullName, TRAMADOL_HCL, CEPHALEXIN, LEVOFLOXACIN, GABAPENTIN, METHADONE_HCL, SULFAMETHOXAZOLE_TRIMETHOPRIM, HYDROCHLOROTHIAZIDE, TotalPrescriptions,
+	        cast((TRAMADOL_HCL + CEPHALEXIN + LEVOFLOXACIN +  GABAPENTIN +  METHADONE_HCL +  SULFAMETHOXAZOLE_TRIMETHOPRIM +  HYDROCHLOROTHIAZIDE) / TotalPrescriptions as decimal(10,3)) as similar_sum 	
             FROM prescriber
-            WHERE Opioid_Prescriber = 0
-            order by fullname
+            WHERE Opioid_Prescriber = 0 and TotalPrescriptions > 0
+            order by similar_sum desc
             OFFSET ? ROWS
             FETCH NEXT ? ROWS ONLY;
         ''')
@@ -23,7 +24,7 @@ def process_request(request, page:int=0):
     docs = cursor.execute(sql,(OFFSET, ROWS))   
 
 
-    score = docs[0] 
+   
     
 
     context = { 

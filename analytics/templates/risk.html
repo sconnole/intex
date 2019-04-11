@@ -19,7 +19,7 @@
 <h1> Providers who are at risk of Perscribing opioids: </h1>
 
 <div>
-    <table>
+    <table class = "prescibers">
         <tr>
             <th>Name</th>
             <th>TRAMADOL_HCL</th>
@@ -29,6 +29,10 @@
             <th>METFORMIN_HCL</th>
             <th>SULFAMETHOXAZOLE_TRIMETHOOPRIM</th>
             <th>HYDROCHLOROTHAZIDE</th>
+            <th>Total Prescriptions</th>
+            <th>At Risk Score</th>
+
+
         </tr>
         ## Add a for loop to add prescribers
         %for doc in docs: 
@@ -41,6 +45,9 @@
                 <td>${doc[4]}</td>
                 <td>${doc[5]}</td>
                 <td>${doc[6]}</td>
+                <td>${doc[7]}</td>
+                <td>${doc[8]}</td>
+
             </tr>
         %endfor 
     </table>

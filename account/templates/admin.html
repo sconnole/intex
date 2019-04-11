@@ -24,6 +24,10 @@
                 %endfor 
             </table>
         </div>
+        <div class="paginate">
+            <a class="page-btn ${'hide' if page == 0 else ''}" href="/account/admin/${page-1}/">Prev</a>
+            <a class="page-btn right" href="/account/admin/${page+1}/">More</a>
+        </div>  
     </div>
 </%block>
 

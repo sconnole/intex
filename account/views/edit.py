@@ -16,17 +16,31 @@ def process_request(request, docID:int=0):
            ''')
 
     docs = runSQL(sql, (docID))
-    
-    for item in docs: 
-        doctor = item
 
-    # Query current data of docID
-    # Display that data
-    # Clean data? 
-    # if request.method == POST: 
-    # Check for valid form
+    for item in docs:
+        doctor = item
+ 
     # Update DB
     # Redirect to this page, but with updated data showing
+
+    if request.method == 'POST':
+        location = request.POST['location']
+        credentials = request.POST['credentials']
+        specialty = request.POST['specialty']
+        gender = request.POST['gender']
+
+        sql = ('''UPDATE prescriber
+                SET 
+                    Gender = ?, 
+                    State = ?, 
+                    Credentials = ?, 
+                    Specialty = ?
+                WHERE DoctorID = ?; ''')
+        conn = pyodbc.connect(settings.CONNECTION_STRING)
+        cursor = conn.cursor()
+        cursor.execute(sql, (gender, location, credentials, specialty, docID ))
+        conn.commit()
+        return HttpResponseRedirect('/account/edit/{}'.format(docID))
 
     form = PrescriberForm()
 

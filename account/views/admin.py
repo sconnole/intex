@@ -31,15 +31,14 @@ def process_request(request, page:int=0):
     ;''')
 
     docs = dSQL(sql, param, OFFSET)
-    print("SQL ------------------")
-    print(param)
 
     context = {
         "form": SearchForm(),
-        "docs": docs
+        "docs": docs,
+        "page": page
     }
 
-    return request.dmp.render('/account/templates/admin.html', context)
+    return request.dmp.render('admin.html', context)
 
 def convertParam (param):
     param = param.replace('%', '\%').replace('[', '\[').replace(']', '\[')

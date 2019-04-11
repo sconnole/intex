@@ -5,10 +5,10 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1555008058.222963
+_modified_time = 1555008149.2876177
 _enable_loop = True
 _template_filename = 'C:/Users/stick/Developer/Intex/account/templates/admin.html'
-_template_uri = '/account/templates/admin.html'
+_template_uri = 'admin.html'
 _source_encoding = 'utf-8'
 import django_mako_plus
 import django.utils.html
@@ -30,15 +30,15 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        self = context.get('self', UNDEFINED)
-        page = context.get('page', UNDEFINED)
+        docs = context.get('docs', UNDEFINED)
         def site_right():
             return render_site_right(context._locals(__M_locals))
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        form = context.get('form', UNDEFINED)
         def site_center():
             return render_site_center(context._locals(__M_locals))
-        form = context.get('form', UNDEFINED)
-        docs = context.get('docs', UNDEFINED)
+        page = context.get('page', UNDEFINED)
+        self = context.get('self', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'site_center'):
@@ -59,12 +59,12 @@ def render_body(context,**pageargs):
 def render_site_center(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        self = context.get('self', UNDEFINED)
-        page = context.get('page', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        docs = context.get('docs', UNDEFINED)
         def site_center():
             return render_site_center(context)
-        docs = context.get('docs', UNDEFINED)
+        page = context.get('page', UNDEFINED)
+        self = context.get('self', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n     <div class="content">\r\n        <div class="prescribers">\r\n            <table>\r\n                <tr>\r\n                    <th><img src="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
@@ -100,8 +100,8 @@ def render_site_right(context,**pageargs):
     try:
         def site_right():
             return render_site_right(context)
-        self = context.get('self', UNDEFINED)
         form = context.get('form', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n    <form method="post">\r\n        <div class="search">\r\n            ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( form.as_p() ))
@@ -113,6 +113,6 @@ def render_site_right(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/stick/Developer/Intex/account/templates/admin.html", "uri": "/account/templates/admin.html", "source_encoding": "utf-8", "line_map": {"29": 0, "43": 1, "48": 32, "53": 44, "59": 3, "69": 3, "70": 8, "71": 8, "72": 15, "73": 16, "74": 17, "75": 17, "76": 18, "77": 18, "78": 19, "79": 19, "80": 20, "81": 20, "82": 21, "83": 21, "84": 22, "85": 22, "86": 25, "87": 28, "88": 28, "89": 28, "90": 28, "91": 29, "92": 29, "98": 34, "106": 34, "107": 37, "108": 37, "114": 108}}
+{"filename": "C:/Users/stick/Developer/Intex/account/templates/admin.html", "uri": "admin.html", "source_encoding": "utf-8", "line_map": {"29": 0, "43": 1, "48": 32, "53": 44, "59": 3, "69": 3, "70": 8, "71": 8, "72": 15, "73": 16, "74": 17, "75": 17, "76": 18, "77": 18, "78": 19, "79": 19, "80": 20, "81": 20, "82": 21, "83": 21, "84": 22, "85": 22, "86": 25, "87": 28, "88": 28, "89": 28, "90": 28, "91": 29, "92": 29, "98": 34, "106": 34, "107": 37, "108": 37, "114": 108}}
 __M_END_METADATA
 """

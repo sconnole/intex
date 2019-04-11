@@ -1,0 +1,59 @@
+<%inherit file="app_base.htm" />
+
+<%block name="site_center">
+    
+<h1>Unethical Perscribers: </h1>
+
+<div class="prescribers">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Specialty</th>
+            <th>Opioid perscription ratio</th>
+        </tr>
+        ## Add a for loop to add prescribers
+        %for doc in prescribers: 
+            <tr>
+                <td>${doc[0]}</td>
+                <td>${doc[1]}</td>
+                <td>${doc[2]}</td>
+            </tr>
+        %endfor 
+    </table>
+    <div class="paginate">
+        <a class="page-btn ${'hide' if page == 0 else ''}" href="/analytics/index">Prev</a>
+        <a class="page-btn right" href="/analytics/index">More</a>
+    </div> 
+
+   
+</div>
+
+<div> 
+    <br>
+    <br>
+    <form action = "index" method = "POST"> 
+    <h2>Find similar potential Unethical Perscribers: </h2>
+    <select name ="doctorID">
+            %for item in dropdown: 
+                <option value=${item[1]}>${item[0]}</option>
+            %endfor
+    </select>
+    <button type="submit" class="page-btn">
+            Submit
+        </button>
+</form>
+
+
+</div>
+    %for item in related:
+    <td>${item[0]}</td>
+    %endfor
+
+<div>
+    
+
+</div>
+
+
+
+</%block>

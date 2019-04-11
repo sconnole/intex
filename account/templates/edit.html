@@ -1,0 +1,12 @@
+<%inherit file="app_base.htm" />
+
+<%block name="site_center">
+    <form method="post">
+        <div class="edit">
+            ${ form.as_p() }
+            <button type="submit" class="page-btn">
+                Update
+            </button>
+        </div>
+    </form>
+</%block>

@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554926609.8987298
+_modified_time = 1554957785.3446956
 _enable_loop = True
 _template_filename = 'C:/Users/stick/Developer/Intex/homepage/templates/index.html'
 _template_uri = 'index.html'
@@ -32,16 +32,16 @@ def render_body(context,**pageargs):
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         def site_center():
             return render_site_center(context._locals(__M_locals))
-        drugs = context.get('drugs', UNDEFINED)
+        form = context.get('form', UNDEFINED)
         def title():
             return render_title(context._locals(__M_locals))
-        page = context.get('page', UNDEFINED)
-        prescribers = context.get('prescribers', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         def site_right():
             return render_site_right(context._locals(__M_locals))
-        form = context.get('form', UNDEFINED)
+        drugs = context.get('drugs', UNDEFINED)
+        page = context.get('page', UNDEFINED)
         self = context.get('self', UNDEFINED)
+        prescribers = context.get('prescribers', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
@@ -82,10 +82,10 @@ def render_site_center(context,**pageargs):
         def site_center():
             return render_site_center(context)
         drugs = context.get('drugs', UNDEFINED)
-        prescribers = context.get('prescribers', UNDEFINED)
         page = context.get('page', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         self = context.get('self', UNDEFINED)
+        prescribers = context.get('prescribers', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n    <div class="content">\r\n        <div class="prescribers">\r\n            <table>\r\n                <tr>\r\n                    <th><img src="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
@@ -135,9 +135,9 @@ def render_site_right(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         form = context.get('form', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         def site_right():
             return render_site_right(context)
-        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n    <form method="post">\r\n        <div class="search">\r\n            ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( form.as_p() ))
@@ -149,6 +149,6 @@ def render_site_right(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/stick/Developer/Intex/homepage/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"29": 0, "46": 1, "51": 3, "56": 51, "61": 62, "67": 3, "73": 3, "79": 4, "90": 4, "91": 9, "92": 9, "93": 17, "94": 18, "95": 18, "96": 18, "97": 19, "98": 19, "99": 20, "100": 20, "101": 21, "102": 21, "103": 22, "104": 22, "105": 23, "106": 23, "107": 24, "108": 24, "109": 27, "110": 32, "111": 32, "112": 37, "113": 38, "114": 38, "115": 38, "116": 39, "117": 39, "118": 40, "119": 40, "120": 41, "121": 41, "122": 44, "123": 47, "124": 47, "125": 47, "126": 47, "127": 48, "128": 48, "134": 53, "142": 53, "143": 56, "144": 56, "150": 144}}
+{"filename": "C:/Users/stick/Developer/Intex/homepage/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"29": 0, "46": 1, "51": 3, "56": 50, "61": 61, "67": 3, "73": 3, "79": 4, "90": 4, "91": 9, "92": 9, "93": 16, "94": 17, "95": 17, "96": 17, "97": 18, "98": 18, "99": 19, "100": 19, "101": 20, "102": 20, "103": 21, "104": 21, "105": 22, "106": 22, "107": 23, "108": 23, "109": 26, "110": 31, "111": 31, "112": 36, "113": 37, "114": 37, "115": 37, "116": 38, "117": 38, "118": 39, "119": 39, "120": 40, "121": 40, "122": 43, "123": 46, "124": 46, "125": 46, "126": 46, "127": 47, "128": 47, "134": 52, "142": 52, "143": 55, "144": 55, "150": 144}}
 __M_END_METADATA
 """

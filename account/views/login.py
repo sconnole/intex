@@ -8,7 +8,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 @view_function
 def process_request(request):
-    
+    request.session.flush()
     if request.method == 'POST':
         
         form = LoginForm(request.POST)

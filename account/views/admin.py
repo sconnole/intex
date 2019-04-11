@@ -13,7 +13,6 @@ def process_request(request, page:int=0):
         return HttpResponseRedirect('/account/permission_denied/') 
 
     OFFSET = page * ROWS
-
     if request.method == "POST": 
         request.session['admin_search'] = convertParam(request.POST['search'])
     
@@ -21,8 +20,7 @@ def process_request(request, page:int=0):
         param = request.session['admin_search'] 
     else:
         param = "default"
-
-    param = convertParam(param)
+    
     sql = ('''SELECT FName, LName, DoctorID  
             FROM dbo.prescriber 
             WHERE Lname LIKE ? 
@@ -33,7 +31,9 @@ def process_request(request, page:int=0):
     ;''')
 
     docs = dSQL(sql, param, OFFSET)
-    
+    print("SQL ------------------")
+    print(param)
+
     context = {
         "form": SearchForm(),
         "docs": docs

@@ -5,9 +5,9 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554932338.98184
+_modified_time = 1554939752.1335106
 _enable_loop = True
-_template_filename = 'C:/Users/stick/Developer/Intex/detail/templates/drug.html'
+_template_filename = 'C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/detail/templates/drug.html'
 _template_uri = 'drug.html'
 _source_encoding = 'utf-8'
 import django_mako_plus
@@ -30,17 +30,18 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         drugname = context.get('drugname', UNDEFINED)
-        isop = context.get('isop', UNDEFINED)
-        def title():
-            return render_title(context._locals(__M_locals))
         def site_right():
             return render_site_right(context._locals(__M_locals))
-        docs = context.get('docs', UNDEFINED)
+        isop = context.get('isop', UNDEFINED)
+        reldrugs = context.get('reldrugs', UNDEFINED)
+        def title():
+            return render_title(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         def site_center():
             return render_site_center(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
+        docs = context.get('docs', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
@@ -66,10 +67,10 @@ def render_body(context,**pageargs):
 def render_title(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        self = context.get('self', UNDEFINED)
+        drugname = context.get('drugname', UNDEFINED)
         def title():
             return render_title(context)
-        drugname = context.get('drugname', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(drugname))
         __M_writer(' Details')
@@ -81,12 +82,13 @@ def render_title(context,**pageargs):
 def render_site_center(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        drugname = context.get('drugname', UNDEFINED)
+        reldrugs = context.get('reldrugs', UNDEFINED)
+        isop = context.get('isop', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         def site_center():
             return render_site_center(context)
-        drugname = context.get('drugname', UNDEFINED)
-        isop = context.get('isop', UNDEFINED)
-        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n    <div class="content">\r\n        <div class="info-card">\r\n            <span class="icon">\r\n                <img src="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
@@ -94,7 +96,14 @@ def render_site_center(context,**pageargs):
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(drugname))
         __M_writer('</h3>\r\n            <h3>Opiod: ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(isop))
-        __M_writer('</h3>\r\n        </div>\r\n    </div>\r\n')
+        __M_writer('</h3>\r\n        </div>\r\n    </div>\r\n    <div>\r\n        <table>\r\n            <tr>\r\n                <th>Five Related Drugs</th>\r\n            </tr>\r\n')
+        for reldrug in reldrugs:
+            __M_writer('                <tr>\r\n                    <td><a href="/detail/drug/')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(reldrug))
+            __M_writer('">')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(reldrug))
+            __M_writer('</a></td>\r\n                </tr>\r\n')
+        __M_writer('        </table>\r\n    </div>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -105,8 +114,8 @@ def render_site_right(context,**pageargs):
     try:
         def site_right():
             return render_site_right(context)
-        self = context.get('self', UNDEFINED)
         docs = context.get('docs', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n    <div class="top_docs">\r\n        <table>\r\n            <tr>\r\n                <th>Top Ten Prescribers</th>\r\n            </tr>\r\n')
         for doc in docs:
@@ -123,6 +132,6 @@ def render_site_right(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/stick/Developer/Intex/detail/templates/drug.html", "uri": "drug.html", "source_encoding": "utf-8", "line_map": {"29": 0, "45": 1, "50": 3, "55": 14, "60": 29, "66": 3, "74": 3, "75": 3, "81": 4, "91": 4, "92": 8, "93": 8, "94": 10, "95": 10, "96": 11, "97": 11, "103": 16, "111": 16, "112": 22, "113": 23, "114": 24, "115": 24, "116": 24, "117": 24, "118": 27, "124": 118}}
+{"filename": "C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/detail/templates/drug.html", "uri": "drug.html", "source_encoding": "utf-8", "line_map": {"29": 0, "46": 1, "51": 3, "56": 26, "61": 41, "67": 3, "75": 3, "76": 3, "82": 4, "93": 4, "94": 8, "95": 8, "96": 10, "97": 10, "98": 11, "99": 11, "100": 19, "101": 20, "102": 21, "103": 21, "104": 21, "105": 21, "106": 24, "112": 28, "120": 28, "121": 34, "122": 35, "123": 36, "124": 36, "125": 36, "126": 36, "127": 39, "133": 127}}
 __M_END_METADATA
 """

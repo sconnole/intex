@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554850282.2951033
+_modified_time = 1555011735.1265957
 _enable_loop = True
 _template_filename = 'C:/Users/majohnso/Desktop/intex/homepage/templates/base.htm'
 _template_uri = 'homepage/templates/base.htm'
@@ -19,18 +19,18 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        user = context.get('user', UNDEFINED)
+        request = context.get('request', UNDEFINED)
         self = context.get('self', UNDEFINED)
-        def menu():
-            return render_menu(context._locals(__M_locals))
-        def title():
-            return render_title(context._locals(__M_locals))
+        user = context.get('user', UNDEFINED)
+        def site_center():
+            return render_site_center(context._locals(__M_locals))
         def site_right():
             return render_site_right(context._locals(__M_locals))
         STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        request = context.get('request', UNDEFINED)
-        def site_center():
-            return render_site_center(context._locals(__M_locals))
+        def title():
+            return render_title(context._locals(__M_locals))
+        def menu():
+            return render_menu(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n<!DOCTYPE html>\r\n<html>\r\n    <meta charset="UTF-8">\r\n    <head>\r\n        <link rel="icon" href="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
@@ -87,11 +87,11 @@ def render_title(context,**pageargs):
 def render_menu(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        request = context.get('request', UNDEFINED)
         def menu():
             return render_menu(context)
-        user = context.get('user', UNDEFINED)
         self = context.get('self', UNDEFINED)
+        request = context.get('request', UNDEFINED)
+        user = context.get('user', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">\r\n                        <span class="icon-bar"></span>\r\n                        <span class="icon-bar"></span>\r\n                        <span class="icon-bar"></span> \r\n                    </button>\r\n                    <div class="dropdown collapse navbar-collapse" id="myNavbar">        \r\n                        <ul class="nav navbar-nav">\r\n                            <li><a class="dropdown-item nav-link ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)('active' if request.dmp.page == 'index' else ''))

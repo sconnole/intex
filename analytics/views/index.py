@@ -43,7 +43,13 @@ def process_request(request, page:int=0):
             order by fullname asc
         ''')
     
-    result = cursor.execute(psql)   
+    dropdown = cursor.execute(psql)      
+
+    
+    conn3 = pyodbc.connect(settings.CONNECTION_STRING)
+    cursor = conn3.cursor()
+    
+    related = []
 
     if request.method == "POST": 
             
@@ -62,24 +68,30 @@ def process_request(request, page:int=0):
 
         response = requests.request("POST", url, data=payload, headers=headers, params=querystring)
 
-        response = str(response.text[60:])
-        response = response[response.find( '"', 1 ) + 2:]
-        response = response.replace('"', '').replace(']', '').replace('}', '')
+        data = response.json()    
 
-        relatedpers = response.split(',')
+        index = data["Results"]["output1"]["value"]["Values"]
+        param = index[0][1]
+        param1 = index[0][2]
+        param2 = index[0][3]
+        param3 = index[0][4]
+        param4 = index[0][5]
+        # response = str(response.text[60:])
+        # response = response[response.find( '"', 1 ) + 2:]
+        # response = response.replace('"', '').replace(']', '').replace('}', '')
 
-        print("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
-        print(response)
+        # relatedpers = response.split(',')
+        sql2 = ('''select concat(Fname, ' ', Lname)  from prescriber where DoctorID in (?, ?, ?, ?, ?) ''')
 
-
-        # sql2 = {'''select fullname from prescriber where DoctorID like 1003120502''' }
-        # relatedpers = curser.execute(sql2)
+        related = cursor.execute(sql2, (param, param1, param2, param3, param4))
         
+      
 
     context = { 
         "prescribers": docs,
-        "result": result, 
-        "relatedpers":relatedpers
+        "dropdown": dropdown, 
+        "related":related,
+        "page":page
 
     }
     return request.dmp.render('index.html', context)

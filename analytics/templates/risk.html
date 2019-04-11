@@ -1,0 +1,54 @@
+<%inherit file="app_base.htm" />
+
+<%block name="site_center">
+<div>  
+<h1>Drugs often Perscribed with opioids: </h1>
+
+    <ul>
+        <li>TRAMADOL_HCL</li>
+        <li>CEPHALEXIN</li>
+        <li>LEVOFLOXACIN</li>
+        <li>GABAPENTIN</li>
+        <li>METFORMIN_HCL</li>
+        <li>SULFAMETHOXAZOLE_TRIMETHOOPRIM</li>
+        <li>HYDROCHLOROTHAZIDE</li>
+
+      </ul>
+</div> 
+
+<h1> Providers who are at risk of Perscribing opioids: </h1>
+
+<div>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>TRAMADOL_HCL</th>
+            <th>CEPHALEXIN</th>
+            <th>LEVOFLOXACIN</th>
+            <th>GABAPENTIN</th>
+            <th>METFORMIN_HCL</th>
+            <th>SULFAMETHOXAZOLE_TRIMETHOOPRIM</th>
+            <th>HYDROCHLOROTHAZIDE</th>
+        </tr>
+        ## Add a for loop to add prescribers
+        %for doc in docs: 
+            
+            <tr>
+                <td>${doc[0]}</td>
+                <td>${doc[1]}</td>
+                <td>${doc[2]}</td>
+                <td>${doc[3]}</td>
+                <td>${doc[4]}</td>
+                <td>${doc[5]}</td>
+                <td>${doc[6]}</td>
+            </tr>
+        %endfor 
+    </table>
+    <div class="paginate">
+        <a class="page-btn ${'hide' if page == 0 else ''}" href="/analytics/risk/${page-1}/">Prev</a>
+        <a class="page-btn right" href="/analytics/risk/${page+1}/">More</a>
+    </div>
+    </div>
+
+
+</%block>

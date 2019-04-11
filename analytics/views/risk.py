@@ -14,17 +14,23 @@ def process_request(request, page:int=0):
     sql = ('''SELECT FullName, TRAMADOL_HCL, CEPHALEXIN, LEVOFLOXACIN, GABAPENTIN, METHADONE_HCL, SULFAMETHOXAZOLE_TRIMETHOPRIM, HYDROCHLOROTHIAZIDE
             FROM prescriber
             WHERE Opioid_Prescriber = 0
+            order by fullname
+            OFFSET ? ROWS
+            FETCH NEXT ? ROWS ONLY;
         ''')
     conn = pyodbc.connect(settings.CONNECTION_STRING)
     cursor = conn.cursor()
-    docs = cursor.execute(sql,(OFFSET, ROWS)) 
-    
+    docs = cursor.execute(sql,(OFFSET, ROWS))   
+
+
+    score = docs[0] 
     
 
     context = { 
-        "docs": docs
+        "docs": docs,
+        "page":page
     }
-    return request.dmp.render('AtRisk.html', context)
+    return request.dmp.render('risk.html', context)
 
 
   

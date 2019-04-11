@@ -34,7 +34,7 @@
     <form action = "index" method = "POST"> 
     <h2>Find similar potential Unethical Perscribers: </h2>
     <select name ="doctorID">
-            %for item in result: 
+            %for item in dropdown: 
                 <option value=${item[1]}>${item[0]}</option>
             %endfor
     </select>
@@ -44,6 +44,13 @@
 </form>
 
 
+</div>
+    %for item in related:
+    <td>${item[0]}</td>
+    %endfor
+
+<div>
+    
 
 </div>
 

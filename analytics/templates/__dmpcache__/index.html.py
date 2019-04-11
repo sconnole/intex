@@ -5,14 +5,14 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554849392.8947074
+_modified_time = 1555000613.6827564
 _enable_loop = True
 _template_filename = 'C:/Users/majohnso/Desktop/intex/analytics/templates/index.html'
 _template_uri = 'index.html'
 _source_encoding = 'utf-8'
 import django_mako_plus
 import django.utils.html
-_exports = ['content']
+_exports = ['site_center']
 
 
 def _mako_get_namespace(context, name):
@@ -25,19 +25,21 @@ def _mako_generate_namespaces(context):
     pass
 def _mako_inherit(template, context):
     _mako_generate_namespaces(context)
-    return runtime._inherit_from(context, 'base.htm', _template_uri)
+    return runtime._inherit_from(context, 'app_base.htm', _template_uri)
 def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        prescribers = context.get('prescribers', UNDEFINED)
+        def site_center():
+            return render_site_center(context._locals(__M_locals))
         self = context.get('self', UNDEFINED)
-        utc_time = context.get('utc_time', UNDEFINED)
-        def content():
-            return render_content(context._locals(__M_locals))
+        page = context.get('page', UNDEFINED)
+        result = context.get('result', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
-        if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
-            context['self'].content(**pageargs)
+        if 'parent' not in context._data or not hasattr(context._data['parent'], 'site_center'):
+            context['self'].site_center(**pageargs)
         
 
         __M_writer('\r\n')
@@ -46,17 +48,35 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content(context,**pageargs):
+def render_site_center(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        prescribers = context.get('prescribers', UNDEFINED)
+        def site_center():
+            return render_site_center(context)
         self = context.get('self', UNDEFINED)
-        utc_time = context.get('utc_time', UNDEFINED)
-        def content():
-            return render_content(context)
+        page = context.get('page', UNDEFINED)
+        result = context.get('result', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n    <div class="content">\r\n        <h3>Congratulations -- you\'ve successfully created a new DMP app!</h3>\r\n        <h4 class="utc-time">Current time in UTC: ')
-        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( utc_time ))
-        __M_writer('</h4>\r\n    </div>\r\n')
+        __M_writer('\r\n    \r\n<h1>Unethical Perscribers: </h1>\r\n\r\n<div class="prescribers">\r\n    <table>\r\n        <tr>\r\n            <th>Name</th>\r\n            <th>Specialty</th>\r\n            <th>Opioid perscription ratio</th>\r\n        </tr>\r\n')
+        for doc in prescribers: 
+            __M_writer('            <tr>\r\n                <td>')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(doc[0]))
+            __M_writer('</td>\r\n                <td>')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(doc[1]))
+            __M_writer('</td>\r\n                <td>')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(doc[2]))
+            __M_writer('</td>\r\n            </tr>\r\n')
+        __M_writer('    </table>\r\n    <div class="paginate">\r\n        <a class="page-btn ')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)('hide' if page == 0 else ''))
+        __M_writer('" href="/analytics/index">Prev</a>\r\n        <a class="page-btn right" href="/analytics/index">More</a>\r\n    </div> \r\n\r\n   \r\n</div>\r\n\r\n<div> \r\n    <br>\r\n    <br>\r\n    <form action = "index" method = "POST"> \r\n    <h2>Find similar potential Unethical Perscribers: </h2>\r\n    <select name ="doctorID">\r\n')
+        for item in result: 
+            __M_writer('                <option value=')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item[1]))
+            __M_writer('>')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item[0]))
+            __M_writer('</option>\r\n')
+        __M_writer('    </select>\r\n    <button type="submit" class="page-btn">\r\n            Submit\r\n        </button>\r\n</form>\r\n\r\n<div>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> relatedpers</div>\r\n\r\n</div>\r\n\r\n\r\n\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -64,6 +84,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/majohnso/Desktop/intex/analytics/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"29": 0, "38": 1, "43": 8, "49": 3, "57": 3, "58": 6, "59": 6, "65": 59}}
+{"filename": "C:/Users/majohnso/Desktop/intex/analytics/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"29": 0, "40": 1, "45": 52, "51": 3, "61": 3, "62": 15, "63": 16, "64": 17, "65": 17, "66": 18, "67": 18, "68": 19, "69": 19, "70": 22, "71": 24, "72": 24, "73": 37, "74": 38, "75": 38, "76": 38, "77": 38, "78": 38, "79": 40, "85": 79}}
 __M_END_METADATA
 """

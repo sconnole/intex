@@ -11,8 +11,12 @@ def process_request(request, param:str):
     if not request.user.is_authenticated:
         return HttpResponseRedirect('/account/login/')
     
+    if request.user.has_perm('account.search_all'):
+        sql = ('''SELECT FullName, ''')
+    else:
+        sql = ('''SELECT NEWID(), ''')
 
-    sql = ('''SELECT FullName, Gender, Credentials, State, Specialty FROM dbo.prescriber WHERE DoctorID = ?;''')
+    sql += (''' Gender, Credentials, State, Specialty FROM dbo.prescriber WHERE DoctorID = ?;''')
     docinfo = dSQL(sql, param)
     for item in docinfo:
         docname = item[0]
@@ -28,12 +32,6 @@ def process_request(request, param:str):
     ratio = dSQL(sql, param)
     for r in ratio:
         ratio = r[0]
-
-
-    ##########################################################
-    # Azure Analytics related prescribers
-
-    ##########################################################
     
 
     context = {

@@ -10,18 +10,18 @@
             <h3>Drug: ${drugname}</h3>
             <h3>Opiod: ${isop}</h3>
         </div>
-    </div>
-    <div>
-        <table>
-            <tr>
-                <th>Five Related Drugs</th>
-            </tr>
-            %for reldrug in reldrugs:
+        <span class="top_docs">
+            <table>
                 <tr>
-                    <td><a href="/detail/drug/${reldrug}">${reldrug}</a></td>
+                    <th>Five Related Drugs</th>
                 </tr>
-            %endfor
-        </table>
+                %for reldrug in reldrugs:
+                    <tr>
+                        <td><a href="/detail/drug/${reldrug}">${reldrug}</a></td>
+                    </tr>
+                %endfor
+            </table>
+        </span>
     </div>
 </%block>
 

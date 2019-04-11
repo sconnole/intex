@@ -74,6 +74,7 @@ def dSQL (sql, param, offset):
 
 
 def convertParam (param):
+    param = param.replace('%', '\%').replace('[', '\[').replace(']', '\[')
     return "%" + param + "%"
 
 class SearchForm(forms.Form):

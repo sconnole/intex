@@ -42,6 +42,7 @@ def process_request(request, page:int=0):
     return request.dmp.render('/account/templates/admin.html', context)
 
 def convertParam (param):
+    param = param.replace('%', '\%').replace('[', '\[').replace(']', '\[')
     return "%" + param + "%"
 
 def dSQL (sql, param, offset):

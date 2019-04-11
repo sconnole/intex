@@ -17,12 +17,15 @@ def process_request(request, param:str):
     for item in name_isop:
         drugname = item[0]
         isop = item[1]
-    
-    # param = param.replace('.', '_')
+   
+    if request.user.has_perm('account.search_all'):
+        sql = ('''SELECT TOP(10) 
+                (SELECT FullName ''')
+    else:
+        sql = ('''SELECT TOP(10) 
+                (SELECT NEWID() ''')
 
-    sql = ('''SELECT TOP(10) 
-                (SELECT FullName 
-                FROM prescriber AS p 
+    sql += ('''  FROM prescriber AS p 
                 WHERE p.DoctorID = t.DoctorID) AS FullName, 
                 DoctorID, Qty 
             FROM triple AS t 

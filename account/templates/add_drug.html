@@ -1,0 +1,30 @@
+<%inherit file="app_base.htm" />
+
+<%block name="title">Manage Drugs</%block>
+
+<%block name="site_center">
+    <h1>Prescriptions by: ${doctor[0]}</h1>
+    <form action = "/account/add_drug/${doctorID}" method = "POST"> 
+        <select name ="drug">
+            %for item in dropdown: 
+                <option value=${item[0]}>${item[0]}</option>
+            %endfor 
+        </select>
+        <label for="quanity">Quantity</label>
+        <input type="number" name="quantity" value="1" step="5"/>    
+        <button type="submit" class="page-btn">
+            Add
+        </button>
+    </form>
+    <table class="prescribers">
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+        </tr>
+        %for drug in current_drugs:
+            <tr>
+                <td>${drug[0]}</td>
+                <td>${drug[1]}</td>
+            <tr>
+        %endfor
+</%block>

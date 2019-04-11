@@ -20,7 +20,7 @@ def process_request(request, page:int=0):
     if 'admin_search' in request.session:
         param = request.session['admin_search'] 
     else:
-        param = ""
+        param = "default"
 
     param = convertParam(param)
     sql = ('''SELECT FName, LName, DoctorID  

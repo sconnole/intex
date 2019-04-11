@@ -1,6 +1,24 @@
 <%inherit file="app_base.htm" />
 
 <%block name="site_center">
+    <table class="prescribers">
+        <tr>
+            <th><img src="${STATIC_URL}homepage/media/user.png" alt="user"></th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Credentials</th>
+            <th>State</th>
+            <th>Specialty</th>
+        <tr>
+        <tr>
+            <td><img src="${STATIC_URL}homepage/media/user.png" alt="user"></td>
+            <td>${doctor[0]}</td>
+            <td>${doctor[1]}</td>
+            <td>${doctor[2]}</td>
+            <td>${doctor[3]}</td>
+            <td>${doctor[4]}</td>
+        </tr>
+    </table>
     <form method="post">
         <div class="edit">
             ${ form.as_p() }

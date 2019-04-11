@@ -20,7 +20,7 @@ html, body {
 .clearfix {
     clear: both;
 }
-.search p {    display: inline; }
+.search p {    display: inline; margin: 0; }
 .hide {display: none;}
 .prescribers, .drugs {
     background-color: $BLUE;

@@ -12,6 +12,7 @@ html, body {
 
 .search p {
   display: inline;
+  margin: 0;
 }
 
 .hide {

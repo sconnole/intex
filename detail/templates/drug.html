@@ -11,6 +11,18 @@
             <h3>Opiod: ${isop}</h3>
         </div>
     </div>
+    <div>
+        <table>
+            <tr>
+                <th>Five Related Drugs</th>
+            </tr>
+            %for reldrug in reldrugs:
+                <tr>
+                    <td><a href="/detail/drug/${reldrug}">${reldrug}</a></td>
+                </tr>
+            %endfor
+        </table>
+    </div>
 </%block>
 
 <%block name="site_right">

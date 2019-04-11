@@ -31,23 +31,8 @@ def process_request(request, param:str):
 
 
     ##########################################################
-    # Azure Analytics drugs prescribed with this one
-    # conn = http.client.HTTPConnection("ussouthcentral,services,azureml,net")
+    # Azure Analytics related prescribers
 
-    # payload = "{\r\n  \"Inputs\": {\r\n    \"input1\": {\r\n      \"ColumnNames\": [\r\n        \"DoctorID\",\r\n        \"Drug\",\r\n        \"LnPlus1(Qty)\"\r\n      ],\r\n      \"Values\": [\r\n        [\r\n          \"0\",\r\n          \"" + param + "\",\r\n          \"0\"\r\n        ]\r\n      ]\r\n    }\r\n  },\r\n  \"GlobalParameters\": {}\r\n}"
-    # headers = {
-    #     'Authorization': "Bearer BL0ofc/KWATjpIzJCVleg4Fe73Y0m2bnz8wcd7IGcKfEplxgC0MzjAzL6bQa+xwtTU9RdHA/u2ffYktjEmJ8Xw==",
-    #     'Content-Type': "application/json",
-    #     'cache-control': "no-cache",
-    #     'Postman-Token': "eb7ea9c0-8a05-4a6e-af3f-08d65339f982"
-    #     }
-
-    # conn.request("POST", "workspaces,a6a8851e6a794d0ab9b2221bf735138c,services,7e6fef0270ad40c3a05aa3b3de4ebfd1,execute", payload, headers)
-
-    # res = conn.getresponse()
-    # data = res.read()
-
-    # print(data.decode("utf-8"))
     ##########################################################
     
 

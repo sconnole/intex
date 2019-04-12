@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1555077072.5126145
+_modified_time = 1555080233.581619
 _enable_loop = True
 _template_filename = 'C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/detail/templates/prescriber.html'
 _template_uri = 'prescriber.html'
@@ -30,24 +30,24 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        docstate = context.get('docstate', UNDEFINED)
+        avgratio = context.get('avgratio', UNDEFINED)
         docgender = context.get('docgender', UNDEFINED)
-        def site_right():
-            return render_site_right(context._locals(__M_locals))
         def site_center():
             return render_site_center(context._locals(__M_locals))
+        doccred = context.get('doccred', UNDEFINED)
         def title():
             return render_title(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
-        avgratio = context.get('avgratio', UNDEFINED)
-        docspecialty = context.get('docspecialty', UNDEFINED)
         docname = context.get('docname', UNDEFINED)
-        ratio = context.get('ratio', UNDEFINED)
+        docstate = context.get('docstate', UNDEFINED)
+        docspecialty = context.get('docspecialty', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         thisdoc = context.get('thisdoc', UNDEFINED)
         drugs = context.get('drugs', UNDEFINED)
-        doccred = context.get('doccred', UNDEFINED)
+        def site_right():
+            return render_site_right(context._locals(__M_locals))
         relusers = context.get('relusers', UNDEFINED)
+        ratio = context.get('ratio', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
@@ -88,19 +88,19 @@ def render_title(context,**pageargs):
 def render_site_center(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        docstate = context.get('docstate', UNDEFINED)
-        docgender = context.get('docgender', UNDEFINED)
         avgratio = context.get('avgratio', UNDEFINED)
+        docgender = context.get('docgender', UNDEFINED)
         def site_center():
             return render_site_center(context)
-        docspecialty = context.get('docspecialty', UNDEFINED)
-        docname = context.get('docname', UNDEFINED)
-        ratio = context.get('ratio', UNDEFINED)
-        user = context.get('user', UNDEFINED)
         thisdoc = context.get('thisdoc', UNDEFINED)
-        self = context.get('self', UNDEFINED)
         doccred = context.get('doccred', UNDEFINED)
+        docname = context.get('docname', UNDEFINED)
+        user = context.get('user', UNDEFINED)
+        docstate = context.get('docstate', UNDEFINED)
+        docspecialty = context.get('docspecialty', UNDEFINED)
+        ratio = context.get('ratio', UNDEFINED)
+        self = context.get('self', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n    <div class="content">\r\n        <div class="info-card">\r\n            <span class="icon">\r\n                <img src="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
@@ -121,7 +121,7 @@ def render_site_center(context,**pageargs):
             __M_writer('/">Edit Details</a>\r\n')
         __M_writer('        </div>\r\n        <div class="ratio">\r\n            <h2>Opioid Prescription Ratio</h2>\r\n            <p class="ratio_number">')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(ratio))
-        __M_writer('%</p>\r\n            <p>of drugs prescribed by this prescriber are opioids</p>\r\n        </div>\r\n        <div class="ratio">\r\n            <h2>Average Opioid Prescription Ratio</h2>\r\n            <p class="ratio_number">')
+        __M_writer('%</p>\r\n            <p>of drugs prescribed by this prescriber are opioids</p>\r\n        </div>\r\n        <div class="ratio ratio2">\r\n            <h2>Average Opioid Prescription Ratio</h2>\r\n            <p class="ratio_number">')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(avgratio))
         __M_writer('%</p>\r\n            <p>of drugs prescribed by prescribers specializing in ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(docspecialty))
@@ -135,10 +135,10 @@ def render_site_right(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         self = context.get('self', UNDEFINED)
-        drugs = context.get('drugs', UNDEFINED)
-        relusers = context.get('relusers', UNDEFINED)
         def site_right():
             return render_site_right(context)
+        relusers = context.get('relusers', UNDEFINED)
+        drugs = context.get('drugs', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n        <div class="top_docs">\r\n                <table>\r\n                        <tr>\r\n                            <th>Five Related Prescribers</th>\r\n                        </tr>\r\n')
         for user in relusers:

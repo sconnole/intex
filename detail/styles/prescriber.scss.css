@@ -1,0 +1,13 @@
+.info-card .page-btn {
+  background: #233742;
+  float: inherit;
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+}
+
+.ratio.ratio2 {
+  width: 100%;
+}
+
+/*# sourceMappingURL=prescriber.scss.css.map */

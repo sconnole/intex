@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1555038146.2549827
+_modified_time = 1555049647.3943
 _enable_loop = True
 _template_filename = 'C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/detail/templates/prescriber.html'
 _template_uri = 'prescriber.html'
@@ -30,22 +30,23 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        docname = context.get('docname', UNDEFINED)
         docgender = context.get('docgender', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        self = context.get('self', UNDEFINED)
+        thisdoc = context.get('thisdoc', UNDEFINED)
+        def title():
+            return render_title(context._locals(__M_locals))
         docstate = context.get('docstate', UNDEFINED)
         relusers = context.get('relusers', UNDEFINED)
         doccred = context.get('doccred', UNDEFINED)
-        docname = context.get('docname', UNDEFINED)
-        ratio = context.get('ratio', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        def title():
-            return render_title(context._locals(__M_locals))
-        def site_right():
-            return render_site_right(context._locals(__M_locals))
-        drugs = context.get('drugs', UNDEFINED)
-        docspecialty = context.get('docspecialty', UNDEFINED)
-        self = context.get('self', UNDEFINED)
         def site_center():
             return render_site_center(context._locals(__M_locals))
+        docspecialty = context.get('docspecialty', UNDEFINED)
+        def site_right():
+            return render_site_right(context._locals(__M_locals))
+        ratio = context.get('ratio', UNDEFINED)
+        drugs = context.get('drugs', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
@@ -86,16 +87,18 @@ def render_title(context,**pageargs):
 def render_site_center(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        docname = context.get('docname', UNDEFINED)
         docgender = context.get('docgender', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        self = context.get('self', UNDEFINED)
+        thisdoc = context.get('thisdoc', UNDEFINED)
         docstate = context.get('docstate', UNDEFINED)
         doccred = context.get('doccred', UNDEFINED)
-        docname = context.get('docname', UNDEFINED)
-        ratio = context.get('ratio', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        docspecialty = context.get('docspecialty', UNDEFINED)
-        self = context.get('self', UNDEFINED)
         def site_center():
             return render_site_center(context)
+        docspecialty = context.get('docspecialty', UNDEFINED)
+        ratio = context.get('ratio', UNDEFINED)
+        user = context.get('user', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n    <div class="content">\r\n        <div class="info-card">\r\n            <span class="icon">\r\n                <img src="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
@@ -109,7 +112,12 @@ def render_site_center(context,**pageargs):
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(docstate))
         __M_writer('</h3>\r\n            <h3>Specialty: ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(docspecialty))
-        __M_writer('</h3>\r\n        </div>\r\n        <div class="ratio">\r\n            <h2>Opioid Prescription Ratio</h2>\r\n            <p class="ratio_number">')
+        __M_writer('</h3>\r\n')
+        if user.has_perm('account.change_user'):
+            __M_writer('                <a class="page-btn" href="/account/edit/')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(thisdoc))
+            __M_writer('/">Edit Details</a>\r\n')
+        __M_writer('        </div>\r\n        <div class="ratio">\r\n            <h2>Opioid Prescription Ratio</h2>\r\n            <p class="ratio_number">')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(ratio))
         __M_writer('%</p>\r\n            <p>of drugs prescribed by this prescriber are opioids</p>\r\n        </div>\r\n    </div>\r\n')
         return ''
@@ -120,8 +128,8 @@ def render_site_center(context,**pageargs):
 def render_site_right(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        drugs = context.get('drugs', UNDEFINED)
         relusers = context.get('relusers', UNDEFINED)
+        drugs = context.get('drugs', UNDEFINED)
         self = context.get('self', UNDEFINED)
         def site_right():
             return render_site_right(context)
@@ -150,6 +158,6 @@ def render_site_right(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/detail/templates/prescriber.html", "uri": "prescriber.html", "source_encoding": "utf-8", "line_map": {"29": 0, "50": 1, "55": 3, "60": 22, "65": 49, "71": 3, "79": 3, "80": 3, "86": 4, "100": 4, "101": 8, "102": 8, "103": 10, "104": 10, "105": 11, "106": 11, "107": 12, "108": 12, "109": 13, "110": 13, "111": 14, "112": 14, "113": 18, "114": 18, "120": 24, "129": 24, "130": 30, "131": 31, "132": 32, "133": 32, "134": 32, "135": 32, "136": 35, "137": 41, "138": 42, "139": 43, "140": 43, "141": 43, "142": 43, "143": 44, "144": 44, "145": 47, "151": 145}}
+{"filename": "C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/detail/templates/prescriber.html", "uri": "prescriber.html", "source_encoding": "utf-8", "line_map": {"29": 0, "51": 1, "56": 3, "61": 25, "66": 52, "72": 3, "80": 3, "81": 3, "87": 4, "103": 4, "104": 8, "105": 8, "106": 10, "107": 10, "108": 11, "109": 11, "110": 12, "111": 12, "112": 13, "113": 13, "114": 14, "115": 14, "116": 15, "117": 16, "118": 16, "119": 16, "120": 18, "121": 21, "122": 21, "128": 27, "137": 27, "138": 33, "139": 34, "140": 35, "141": 35, "142": 35, "143": 35, "144": 38, "145": 44, "146": 45, "147": 46, "148": 46, "149": 46, "150": 46, "151": 47, "152": 47, "153": 50, "159": 153}}
 __M_END_METADATA
 """

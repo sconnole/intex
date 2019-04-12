@@ -79,6 +79,7 @@ def process_request(request, param:str):
         "drugs": drugs,
         "ratio": ratio,
         "relusers": relusers,
+        "thisdoc": param,
     }
  
     return request.dmp.render('prescriber.html', context)

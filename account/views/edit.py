@@ -44,7 +44,7 @@ def process_request(request, docID:int=0):
         conn.commit()
         return HttpResponseRedirect('/account/edit/{}'.format(docID))
 
-    form = PrescriberForm()
+    form = PrescriberForm(initial={'gender': doctor[2], 'location': doctor[3], 'credentials': doctor[2], 'specialty': doctor[4]})
 
     context = {
         "form": form,

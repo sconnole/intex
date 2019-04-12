@@ -12,6 +12,9 @@
             <h3>Credentials: ${doccred}</h3>
             <h3>State: ${docstate}</h3>
             <h3>Specialty: ${docspecialty}</h3>
+            %if user.has_perm('account.change_user'):
+                <a class="page-btn" href="/account/edit/${thisdoc}/">Edit Details</a>
+            %endif
         </div>
         <div class="ratio">
             <h2>Opioid Prescription Ratio</h2>

@@ -15,8 +15,8 @@
                 %for doc in docs: 
                     <tr>
                         <td><img src="${STATIC_URL}homepage/media/user.png" alt="user"></td>
-                        <td>${doc[0]}</td>
-                        <td>${doc[1]}</td>
+                        <td><a class="page-btn" href="/detail/prescriber/${doc[2]}/">${doc[0]}</a></td>
+                        <td><a class="page-btn" href="/detail/prescriber/${doc[2]}/">${doc[1]}</a></td>
                         <td><a class="page-btn" href="/account/edit/${doc[2]}/">Edit</a></td>
                         <td><a class="page-btn" href="/account/delete/${doc[2]}/">Delete</a></td>
                         <td><a class="page-btn" href="/account/add_drug/${doc[2]}/">Add Drug</a></td>

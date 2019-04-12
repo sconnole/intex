@@ -5,9 +5,9 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1554909458.2196388
+_modified_time = 1555035560.292628
 _enable_loop = True
-_template_filename = 'C:/Users/Owner/Google Drive/BYU/2019 1Winter/intex/intex/homepage/templates/base.htm'
+_template_filename = 'C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/homepage/templates/base.htm'
 _template_uri = '/homepage/templates/base.htm'
 _source_encoding = 'utf-8'
 import django_mako_plus
@@ -19,18 +19,18 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        user = context.get('user', UNDEFINED)
-        def site_right():
-            return render_site_right(context._locals(__M_locals))
-        def menu():
-            return render_menu(context._locals(__M_locals))
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        request = context.get('request', UNDEFINED)
         def site_center():
             return render_site_center(context._locals(__M_locals))
+        def site_right():
+            return render_site_right(context._locals(__M_locals))
+        request = context.get('request', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         self = context.get('self', UNDEFINED)
         def title():
             return render_title(context._locals(__M_locals))
+        user = context.get('user', UNDEFINED)
+        def menu():
+            return render_menu(context._locals(__M_locals))
         __M_writer = context.writer()
         __M_writer('\r\n<!DOCTYPE html>\r\n<html>\r\n    <meta charset="UTF-8">\r\n    <head>\r\n        <link rel="icon" href="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
@@ -87,15 +87,15 @@ def render_menu(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         self = context.get('self', UNDEFINED)
-        def menu():
-            return render_menu(context)
         user = context.get('user', UNDEFINED)
         request = context.get('request', UNDEFINED)
+        def menu():
+            return render_menu(context)
         __M_writer = context.writer()
         __M_writer('\r\n                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">\r\n                        <span class="icon-bar"></span>\r\n                        <span class="icon-bar"></span>\r\n                        <span class="icon-bar"></span> \r\n                    </button>\r\n                    <div class="dropdown collapse navbar-collapse" id="myNavbar">        \r\n                        <ul class="nav navbar-nav">\r\n                            <li><a class="dropdown-item nav-link ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)('active' if request.dmp.page == 'index' else ''))
         __M_writer('" href="/">Home</a></li>\r\n')
-        if user.has_perm('delete_user'):
+        if user.has_perm('account.delete_user'):
             __M_writer('                                <li><a class="dropdown-item nav-link ')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)('active' if request.dmp.page == 'index' else ''))
             __M_writer('" href="/account/admin/">Admin</a></li>\r\n')
@@ -109,8 +109,8 @@ def render_menu(context,**pageargs):
         else: 
             __M_writer('                                <a class="dropdown-item nav-link" href="/account/login">Login</a>\r\n')
         __M_writer('                        </div>\r\n                    </div> \r\n')
-        if user.has_perm('view_analytics'): 
-            __M_writer('                    <div class="dropdown2 collapse navbar-collapse" id="">\r\n                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownAnalytics" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\r\n                            Analytics\r\n                        </button>\r\n                        <div class="dropdown-menu" aria-labelledby="dropdownAnalytics">\r\n                            <a class="dropdown-item nav-link" href="/analytics/unethical/">Unethical</a>\r\n                            <a class="dropdown-item nav-link" href="/analytics/prescribers/">Prescribers</a>\r\n                            <a class="dropdown-item nav-link" href="/analytics/risk/">At-Risk</a>\r\n                        </div>   \r\n                    </div> \r\n')
+        if user.has_perm('account.view_analytics'): 
+            __M_writer('                    <div class="dropdown2 collapse navbar-collapse" id="">\r\n                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownAnalytics" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\r\n                            Analytics\r\n                        </button>\r\n                        <div class="dropdown-menu" aria-labelledby="dropdownAnalytics">\r\n                            <a class="dropdown-item nav-link" href="/analytics/index/">Unethical</a>\r\n                            <a class="dropdown-item nav-link" href="/analytics/opiateprescribers/">Prescribers</a>\r\n                            <a class="dropdown-item nav-link" href="/analytics/risk/">At-Risk</a>\r\n                        </div>   \r\n                    </div> \r\n')
         __M_writer('\r\n                ')
         return ''
     finally:
@@ -143,6 +143,6 @@ def render_site_right(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Owner/Google Drive/BYU/2019 1Winter/intex/intex/homepage/templates/base.htm", "uri": "/homepage/templates/base.htm", "source_encoding": "utf-8", "line_map": {"18": 0, "35": 2, "36": 7, "37": 7, "42": 8, "43": 11, "44": 11, "45": 11, "46": 12, "47": 12, "48": 13, "49": 13, "50": 16, "51": 17, "52": 17, "53": 22, "54": 22, "59": 61, "64": 69, "69": 74, "75": 8, "86": 23, "95": 23, "96": 31, "97": 31, "98": 32, "99": 33, "100": 33, "101": 33, "102": 35, "103": 37, "104": 37, "105": 37, "106": 37, "107": 40, "108": 41, "109": 43, "110": 44, "111": 46, "112": 48, "113": 49, "114": 60, "120": 67, "126": 67, "132": 72, "138": 72, "144": 138}}
+{"filename": "C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/homepage/templates/base.htm", "uri": "/homepage/templates/base.htm", "source_encoding": "utf-8", "line_map": {"18": 0, "35": 2, "36": 7, "37": 7, "42": 8, "43": 11, "44": 11, "45": 11, "46": 12, "47": 12, "48": 13, "49": 13, "50": 16, "51": 17, "52": 17, "53": 22, "54": 22, "59": 61, "64": 69, "69": 74, "75": 8, "86": 23, "95": 23, "96": 31, "97": 31, "98": 32, "99": 33, "100": 33, "101": 33, "102": 35, "103": 37, "104": 37, "105": 37, "106": 37, "107": 40, "108": 41, "109": 43, "110": 44, "111": 46, "112": 48, "113": 49, "114": 60, "120": 67, "126": 67, "132": 72, "138": 72, "144": 138}}
 __M_END_METADATA
 """

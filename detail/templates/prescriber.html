@@ -23,6 +23,16 @@
 
 <%block name="site_right">
         <div class="top_docs">
+                <table>
+                        <tr>
+                            <th>Five Related Prescribers</th>
+                        </tr>
+                        %for user in relusers:
+                            <tr>
+                                <td><a href="/detail/prescriber/${user[1]}">${user[0]}</a></td>
+                            </tr>
+                        %endfor
+                    </table>
             <table>
                 <tr>
                     <th>Prescribed Drug</th>

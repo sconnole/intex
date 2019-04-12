@@ -12,6 +12,8 @@ OFFSET = 0
 
 @view_function
 def process_request(request, page:int=0):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/account/login/')
     if not request.user.has_perm('account.view_analytics'):
         return HttpResponseRedirect('/account/permission_denied/')
 

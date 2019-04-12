@@ -12,10 +12,10 @@ def process_request(request):
     
     docID = request.POST['doctorID']
 
-    sql = ('''DELETE FROM prescriber WHERE DoctorID = ?''')
+    sql = ('''DELETE FROM triple WHERE DoctorID = ? ; DELETE FROM prescriber WHERE DoctorID = ?''')
     conn = pyodbc.connect(settings.CONNECTION_STRING)
     cursor = conn.cursor()
-    cursor.execute(sql, (docID))
+    cursor.execute(sql, (docID, docID))
     cursor.commit()
 
     return HttpResponseRedirect('/account/admin/')

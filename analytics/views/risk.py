@@ -23,10 +23,6 @@ def process_request(request, page:int=0):
     cursor = conn.cursor()
     docs = cursor.execute(sql,(OFFSET, ROWS))   
 
-
-   
-    
-
     context = { 
         "docs": docs,
         "page":page

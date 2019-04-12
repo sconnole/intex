@@ -6,14 +6,11 @@ import http.client
 import itertools
 import requests
 
-
-
 ROWS = 50
 OFFSET = 0
 
 @view_function
 def process_request(request, page:int=0):
-
 
     OFFSET = page * ROWS
 
@@ -30,10 +27,8 @@ def process_request(request, page:int=0):
     cursor = conn.cursor()
     docs = cursor.execute(sql,(OFFSET, ROWS))
     
-
     conn2 = pyodbc.connect(settings.CONNECTION_STRING)
     cursor = conn2.cursor()
-
 
     psql = ('''Select fullname, doctorID
             from prescriber 
@@ -44,7 +39,6 @@ def process_request(request, page:int=0):
         ''')
     
     dropdown = cursor.execute(psql)      
-
     
     conn3 = pyodbc.connect(settings.CONNECTION_STRING)
     cursor = conn3.cursor()
@@ -52,8 +46,6 @@ def process_request(request, page:int=0):
     related = []
 
     if request.method == "POST": 
-            
-
         url = "https://ussouthcentral.services.azureml.net/workspaces/a6a8851e6a794d0ab9b2221bf735138c/services/b03ef81972164572a7a19b5449bc2ccb/execute"
 
         querystring = {"api-version":"2.0","details":"true%0A%0A"}
@@ -76,23 +68,15 @@ def process_request(request, page:int=0):
         param2 = index[0][3]
         param3 = index[0][4]
         param4 = index[0][5]
-        # response = str(response.text[60:])
-        # response = response[response.find( '"', 1 ) + 2:]
-        # response = response.replace('"', '').replace(']', '').replace('}', '')
 
-        # relatedpers = response.split(',')
         sql2 = ('''select concat(Fname, ' ', Lname)  from prescriber where DoctorID in (?, ?, ?, ?, ?) ''')
-
         related = cursor.execute(sql2, (param, param1, param2, param3, param4))
         
-      
-
     context = { 
         "prescribers": docs,
         "dropdown": dropdown, 
         "related":related,
         "page":page
-
     }
     return request.dmp.render('index.html', context)
 

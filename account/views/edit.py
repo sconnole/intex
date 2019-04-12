@@ -7,6 +7,8 @@ import pyodbc
 
 @view_function
 def process_request(request, docID:int=0):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/account/login/')
     if not request.user.has_perm('account.change_user'):
         return HttpResponseRedirect('/account/permission_denied/') 
     
@@ -42,7 +44,7 @@ def process_request(request, docID:int=0):
         conn.commit()
         return HttpResponseRedirect('/account/edit/{}'.format(docID))
 
-    form = PrescriberForm()
+    form = PrescriberForm(initial={'gender': doctor[2], 'location': doctor[3], 'credentials': doctor[2], 'specialty': doctor[4]})
 
     context = {
         "form": form,

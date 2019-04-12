@@ -2,4 +2,11 @@
   margin: 0;
 }
 
+.list_link {
+  color: #FFF;
+}
+.list_link a:hover {
+  color: #FFF;
+}
+
 /*# sourceMappingURL=admin.scss.css.map */

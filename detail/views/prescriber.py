@@ -59,7 +59,12 @@ def process_request(request, param:str):
     p4 = jr[0][4]
     p5 = jr[0][5]
 
-    sql = ('''SELECT CONCAT(Fname, ' ', Lname), DoctorID FROM prescriber WHERE DoctorID in (?, ?, ?, ?, ?);''')
+    if request.user.has_perm('account.search_all'):
+        sql = ('''SELECT CONCAT(Fname, ' ', Lname), ''')
+    else:
+        sql = ('''SELECT NEWID(), ''')
+
+    sql += ('''DoctorID FROM prescriber WHERE DoctorID in (?, ?, ?, ?, ?);''')
 
     relusers = uSQL(sql, p1, p2, p3, p4, p5)
     ##########################################################
@@ -74,6 +79,7 @@ def process_request(request, param:str):
         "drugs": drugs,
         "ratio": ratio,
         "relusers": relusers,
+        "thisdoc": param,
     }
  
     return request.dmp.render('prescriber.html', context)

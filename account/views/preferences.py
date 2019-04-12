@@ -9,6 +9,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 @view_function
 def process_request(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/account/login/')
     if request.method == 'POST':
         form = UpdatepreferenceForm(request.POST)
         form.is_valid()

@@ -5,6 +5,8 @@ from django.http import HttpResponseRedirect
 
 @view_function
 def process_request(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/account/login/')
     if not request.user.has_perm('account.delete_user'):
         return HttpResponseRedirect('/account/permission_denied/') 
     

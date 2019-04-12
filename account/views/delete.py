@@ -4,7 +4,9 @@ import pyodbc
 from django.http import HttpResponseRedirect
 
 @view_function
-def process_request(request,  docID:int=0):
+def process_request(request, docID:int=0):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect('/account/login/')
     if not request.user.has_perm('account.delete_user'):
         return HttpResponseRedirect('/account/permission_denied/') 
 

@@ -8,8 +8,7 @@ from django.forms import forms
 def process_request(request,  docID:int=0):
     if not request.user.has_perm('account.change_user'):
         return HttpResponseRedirect('/account/permission_denied/') 
-    print(request.method)
-    print(docID)
+
     if request.method == "POST":
         drug = request.POST['drug']
         qty = request.POST['quantity']
@@ -33,7 +32,6 @@ def process_request(request,  docID:int=0):
             WHERE DoctorID = ? ''')
 
     current_drugs = runSQL(sql, (docID)) 
-    
 
     context = {
         "doctor": doctor,
@@ -56,25 +54,58 @@ def runSQL (sql, param):
 
 def updateDB(drug, qty, docID):
     
-    print("UPDATE------------------")
     sql = '''SELECT IsOpioid FROM Opioids WHERE DrugName = ? '''
     result = runSQL(sql, (drug))
 
-    for drug in result:
-        Opioid = drug
-    print(Opioid)
+    for drugs in result:
+        opioid = drugs[0]
 
-    sql = ('''UPDATE triple 
+    if opioid == 1: 
+        sql = ('''UPDATE prescriber
+            SET Opioid_Prescriber = 1 
+            WHERE DoctorID = ? ; 
+            
+            UPDATE prescriber 
+            SET 
+                TotalOpioidPerscription = TotalOpioidPerscription + ?
+            WHERE
+                DoctorID = ?
+            ''')
+        con = pyodbc.connect(settings.CONNECTION_STRING)
+        cursor = con.cursor()
+        cursor.execute(sql, (docID, qty, docID))
+        cursor.commit()
+
+
+    sql = ('''UPDATE triple  
             SET Qty = Qty + ? 
             WHERE DoctorID = ? 
-            AND Drug = ?
+            AND Drug = ? 
         IF @@ROWCOUNT=0
-            INSERT INTO
-            triple (DoctorID, Drug, Qty) 
-            values(?, ?, ?);
-            ''')
+            INSERT INTO triple (Qty, DoctorID, Drug) 
+            VALUES (?, ?, ?);''')
+
     conn = pyodbc.connect(settings.CONNECTION_STRING)
     cursor = conn.cursor()
-    #cursor.execute(sql, (qty, docID, drug, docID, drug, qty))
+    cursor.execute(sql, (qty, docID, drug, qty, docID, drug))
+    cursor.commit()
+
+    columnDrug = drug.replace(".", "_")
     
-    return
+    sql = ('''UPDATE prescriber 
+            SET 
+                TotalPrescriptions = TotalPrescriptions + ?
+            WHERE
+                DoctorID = ?;
+            UPDATE prescriber
+            SET 
+                OpioidPerscriptionRatio =  CAST(TotalOpioidPerscription/(TotalPrescriptions + .000000000000000001) as decimal (6,2))
+            WHERE 
+                DoctorID = ?;
+            ''')
+    sql += "UPDATE prescriber SET " + columnDrug + " = " + columnDrug + " + " + str(qty) + " WHERE DoctorID = " + str(docID)
+    
+    c = pyodbc.connect(settings.CONNECTION_STRING)
+    cursor = c.cursor()
+    cursor.execute(sql, (qty, docID, docID))
+    cursor.commit()

@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1555020251.106695
+_modified_time = 1555077983.795609
 _enable_loop = True
 _template_filename = 'C:/Users/stick/Developer/Intex/account/templates/add_drug.html'
 _template_uri = 'add_drug.html'
@@ -30,15 +30,15 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        dropdown = context.get('dropdown', UNDEFINED)
-        doctorID = context.get('doctorID', UNDEFINED)
-        def title():
-            return render_title(context._locals(__M_locals))
-        current_drugs = context.get('current_drugs', UNDEFINED)
         self = context.get('self', UNDEFINED)
         def site_center():
             return render_site_center(context._locals(__M_locals))
+        dropdown = context.get('dropdown', UNDEFINED)
+        current_drugs = context.get('current_drugs', UNDEFINED)
+        def title():
+            return render_title(context._locals(__M_locals))
         doctor = context.get('doctor', UNDEFINED)
+        doctorID = context.get('doctorID', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
@@ -70,13 +70,13 @@ def render_title(context,**pageargs):
 def render_site_center(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        dropdown = context.get('dropdown', UNDEFINED)
-        doctorID = context.get('doctorID', UNDEFINED)
-        current_drugs = context.get('current_drugs', UNDEFINED)
         self = context.get('self', UNDEFINED)
         def site_center():
             return render_site_center(context)
+        dropdown = context.get('dropdown', UNDEFINED)
+        current_drugs = context.get('current_drugs', UNDEFINED)
         doctor = context.get('doctor', UNDEFINED)
+        doctorID = context.get('doctorID', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n    <h1>Prescriptions by: ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(doctor[0]))
@@ -89,7 +89,7 @@ def render_site_center(context,**pageargs):
             __M_writer('>')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)(item[0]))
             __M_writer('</option>\r\n')
-        __M_writer('        </select>\r\n        <label for="quanity">Quantity</label>\r\n        <input type="number" name="quantity" value="1" step="5"/>    \r\n        <button type="submit" class="page-btn">\r\n            Add\r\n        </button>\r\n    </form>\r\n    <table class="prescribers">\r\n        <tr>\r\n            <th>Name</th>\r\n            <th>Quantity</th>\r\n        </tr>\r\n')
+        __M_writer('        </select>\r\n        <label for="quanity">Quantity</label>\r\n        <input type="number" name="quantity" value="1"/>    \r\n        <button type="submit" class="page-btn">\r\n            Add\r\n        </button>\r\n    </form>\r\n    <table class="prescribers">\r\n        <tr>\r\n            <th>Name</th>\r\n            <th>Quantity</th>\r\n        </tr>\r\n')
         for drug in current_drugs:
             __M_writer('            <tr>\r\n                <td>')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)(drug[0]))

@@ -1,25 +1,10 @@
 <%inherit file="app_base.htm" />
 
+<%block name="title">At-Risk</%block>
+
 <%block name="site_center">
-<div>  
-<h1>Drugs often Perscribed with opioids: </h1>
-
-    <ul>
-        <li>TRAMADOL_HCL</li>
-        <li>CEPHALEXIN</li>
-        <li>LEVOFLOXACIN</li>
-        <li>GABAPENTIN</li>
-        <li>METFORMIN_HCL</li>
-        <li>SULFAMETHOXAZOLE_TRIMETHOOPRIM</li>
-        <li>HYDROCHLOROTHAZIDE</li>
-
-      </ul>
-</div> 
-
-<h1> Providers who are at risk of Perscribing opioids: </h1>
-
 <div>
-    <table class = "prescibers">
+    <table class="prescribers">
         <tr>
             <th>Name</th>
             <th>TRAMADOL_HCL</th>
@@ -31,12 +16,8 @@
             <th>HYDROCHLOROTHAZIDE</th>
             <th>Total Prescriptions</th>
             <th>At Risk Score</th>
-
-
         </tr>
-        ## Add a for loop to add prescribers
         %for doc in docs: 
-            
             <tr>
                 <td>${doc[0]}</td>
                 <td>${doc[1]}</td>
@@ -47,7 +28,7 @@
                 <td>${doc[6]}</td>
                 <td>${doc[7]}</td>
                 <td>${doc[8]}</td>
-
+                <td>${doc[9]}</td>
             </tr>
         %endfor 
     </table>
@@ -56,6 +37,18 @@
         <a class="page-btn right" href="/analytics/risk/${page+1}/">More</a>
     </div>
     </div>
+</%block>
 
-
+<%block name="site_right">
+    <p>Non-opiod drugs commonly prescribed when doctors prescribe opioids:</p>
+        <ul>
+            <li>TRAMADOL_HCL</li>
+            <li>CEPHALEXIN</li>
+            <li>LEVOFLOXACIN</li>
+            <li>GABAPENTIN</li>
+            <li>METFORMIN_HCL</li>
+            <li>SULFAMETHOXAZOLE_TRIMETHOOPRIM</li>
+            <li>HYDROCHLOROTHAZIDE</li>
+        </ul>
+    </table>
 </%block>

@@ -1,0 +1,19 @@
+.similar td {
+  color: #000;
+}
+
+select {
+  width: 100%;
+}
+
+.similar .page-btn {
+  width: 100%;
+  margin: 0 0 1rem;
+}
+
+p {
+  text-align: center;
+  margin: 0.5rem;
+}
+
+/*# sourceMappingURL=index.scss.css.map */

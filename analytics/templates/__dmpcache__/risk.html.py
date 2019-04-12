@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1555041347.836239
+_modified_time = 1555041567.220754
 _enable_loop = True
 _template_filename = 'C:/Users/stick/Developer/Intex/analytics/templates/risk.html'
 _template_uri = 'risk.html'
@@ -123,7 +123,7 @@ def render_site_right(context,**pageargs):
         def site_right():
             return render_site_right(context)
         __M_writer = context.writer()
-        __M_writer('\r\n    <p>Drugs prescribed with opioids: </p>\r\n        <ul>\r\n            <li>TRAMADOL_HCL</li>\r\n            <li>CEPHALEXIN</li>\r\n            <li>LEVOFLOXACIN</li>\r\n            <li>GABAPENTIN</li>\r\n            <li>METFORMIN_HCL</li>\r\n            <li>SULFAMETHOXAZOLE_TRIMETHOOPRIM</li>\r\n            <li>HYDROCHLOROTHAZIDE</li>\r\n        </ul>\r\n    </table>\r\n')
+        __M_writer('\r\n    <p>Non-opiod drugs commonly prescribed when doctors prescribe opioids:</p>\r\n        <ul>\r\n            <li>TRAMADOL_HCL</li>\r\n            <li>CEPHALEXIN</li>\r\n            <li>LEVOFLOXACIN</li>\r\n            <li>GABAPENTIN</li>\r\n            <li>METFORMIN_HCL</li>\r\n            <li>SULFAMETHOXAZOLE_TRIMETHOOPRIM</li>\r\n            <li>HYDROCHLOROTHAZIDE</li>\r\n        </ul>\r\n    </table>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()

@@ -1,0 +1,67 @@
+#site_center {
+    margin-right: 35%;
+}
+#site_right {
+    width: 35%;
+    background-color: #fcfcfc;
+    border: none;
+}
+.info-card {
+    width: 45%; 
+    background-color: #ab3428;
+    color: #fff;
+    padding: 1rem;
+    float:left;
+    position: relative;
+    height: 190px;
+}
+.icon {
+    width: 40px; 
+    position: absolute;
+    right: .5rem;
+    top: .5rem;
+}
+.icon img {
+    max-width: 32px;
+}
+h3 { 
+    font-size: 16px; 
+}
+
+.top_docs {
+    
+    th {
+        border-top: none;
+        border-right: 2px solid #7493a5;
+    }
+    tr:nth-child(odd) {
+        background-color: #23374221;
+    }
+    td {
+        text-align: left;
+        color: inherit;
+        padding: 5px;
+        color: #000;
+    }
+    tr:hover {
+        background-color: #ccc;
+    }
+    .drug_qty {
+        text-align: right;
+    }
+}
+
+.ratio {
+    width: 55%;
+    padding: 10px;
+    display: inline-block;
+    color: #000;
+    background-color: #f2f2f2;
+    text-align: center;
+    height: 190px;
+}
+
+.ratio_number {
+    font-size: 48px;
+    margin-bottom: 0;
+}

@@ -32,6 +32,23 @@ def process_request(request, param:str):
     ratio = dSQL(sql, param)
     for r in ratio:
         ratio = r[0]
+    
+    sql = ('''SELECT CAST(ROUND(((IIF(SUM(t2.SpecOpAvg) > 0, SUM(t2.SpecOpAvg), 0) / IIF(SUM(t1.SpecAvg) > 0, CAST(SUM(t1.SpecAvg) AS decimal), 1)) * 100), 2) AS float) AS AvgRatio
+                FROM
+                    (SELECT t.Drug, AVG(t.Qty) AS SpecAvg
+                        FROM triple t JOIN prescriber p ON t.DoctorID = p.DoctorID
+                        GROUP BY t.Drug, p.Specialty
+                        HAVING p.Specialty = ?) AS t1
+                    LEFT JOIN
+                    (SELECT t.Drug, AVG(t.Qty) AS SpecOpAvg
+                        FROM triple t JOIN prescriber p ON t.DoctorID = p.DoctorID
+                        GROUP BY t.Drug, p.Specialty
+                        HAVING p.Specialty = ? AND
+                            t.Drug IN (SELECT DrugName FROM opioids WHERE IsOpioid = 1)) AS t2
+                    ON t1.Drug = t2.Drug;''')
+    avgratio = rSQL(sql, docspecialty)
+    for ar in avgratio:
+        avgratio = ar[0]
 
 
     ##########################################################
@@ -78,6 +95,7 @@ def process_request(request, param:str):
         "docspecialty": docspecialty,
         "drugs": drugs,
         "ratio": ratio,
+        "avgratio": avgratio,
         "relusers": relusers,
         "thisdoc": param,
     }
@@ -89,6 +107,11 @@ def dSQL (sql, param):
     conn = pyodbc.connect(settings.CONNECTION_STRING)
     cursor = conn.cursor()
     return cursor.execute(sql, (param))
+
+def rSQL (sql, param):
+    conn = pyodbc.connect(settings.CONNECTION_STRING)
+    cursor = conn.cursor()
+    return cursor.execute(sql, (param, param))
 
 def uSQL (sql, p1, p2, p3, p4, p5):
     conn = pyodbc.connect(settings.CONNECTION_STRING)

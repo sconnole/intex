@@ -90,10 +90,6 @@ header#header {
   border-bottom: 2px solid #7493a5;
 }
 
-#header button {
-  margin-left: 1rem;
-}
-
 input, select {
   margin: 8px 0;
   display: inline-block;
@@ -104,6 +100,29 @@ input, select {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 5px;
+}
+
+.row {
+  margin: 0px;
+}
+
+a.prediction img {
+  float: left;
+  margin: 0 1rem 0 0;
+}
+
+a.prediction {
+  color: #000;
+  padding: 0 1rem;
+}
+
+.prediction p {
+  line-height: 50px;
+  margin-bottom: 0;
+}
+
+.card {
+  padding: 0.5rem 0px;
 }
 
 .req {
@@ -249,6 +268,15 @@ input, select {
   .dropdown-menu {
     right: inherit;
     left: 0px;
+  }
+}
+@media (max-width: 768px) {
+  .row {
+    display: block;
+  }
+
+  .col-md-6 {
+    max-width: 100%;
   }
 }
 

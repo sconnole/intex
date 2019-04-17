@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1555511147.8285387
+_modified_time = 1555517938.4687073
 _enable_loop = True
 _template_filename = 'C:/Users/stick/Developer/Intex/bp/templates/base.htm'
 _template_uri = '/bp/templates/base.htm'
@@ -19,15 +19,15 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        user = context.get('user', UNDEFINED)
-        def content():
-            return render_content(context._locals(__M_locals))
         self = context.get('self', UNDEFINED)
         STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        def content():
+            return render_content(context._locals(__M_locals))
         def menu():
             return render_menu(context._locals(__M_locals))
+        user = context.get('user', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('<!DOCTYPE html>\r\n<html>\r\n    <meta charset="UTF-8">\r\n    <head>\r\n        <link rel="icon" href="')
+        __M_writer('\r\n<!DOCTYPE html>\r\n<html>\r\n    <meta charset="UTF-8">\r\n    <head>\r\n        <link rel="icon" href="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
         __M_writer('homepage/media/favicon.ico" type="image/x-icon" />\r\n        <title>BP - Analytics</title>\r\n\r\n')
         __M_writer('        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>\r\n\r\n        <link rel="stylesheet" href="')
@@ -60,12 +60,15 @@ def render_body(context,**pageargs):
 def render_menu(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        self = context.get('self', UNDEFINED)
         def menu():
             return render_menu(context)
         user = context.get('user', UNDEFINED)
-        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">\r\n                        <span class="icon-bar"></span>\r\n                        <span class="icon-bar"></span>\r\n                        <span class="icon-bar"></span> \r\n                    </button>\r\n                    <div class="dropdown collapse navbar-collapse" id="myNavbar">        \r\n                        <ul class="nav navbar-nav">\r\n                            <li><a class="dropdown-item nav-link" href="/bp/index/">Home</a></li>\r\n                        </ul>\r\n                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\r\n                            Welcome')
+        __M_writer('\r\n                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">\r\n                        <span class="icon-bar"></span>\r\n                        <span class="icon-bar"></span>\r\n                        <span class="icon-bar"></span> \r\n                    </button>\r\n                    <div class="dropdown collapse navbar-collapse" id="myNavbar">        \r\n                        <ul class="nav navbar-nav">\r\n                            <li><a class="dropdown-item nav-link" href="/bp/index/">Home</a></li>\r\n')
+        if user.is_authenticated: 
+            __M_writer('                            <li><a class="dropdown-item nav-link" href="/bp/client/">Client</a></li>\r\n                            <li><a class="dropdown-item nav-link" href="/bp/time/">Time</a></li>\r\n')
+        __M_writer('                        </ul>\r\n                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">\r\n                            Welcome')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(',' if user.username != '' else ''))
         __M_writer(' ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(user.username))
@@ -94,6 +97,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/stick/Developer/Intex/bp/templates/base.htm", "uri": "/bp/templates/base.htm", "source_encoding": "utf-8", "line_map": {"18": 0, "30": 2, "31": 6, "32": 6, "33": 10, "34": 12, "35": 12, "36": 13, "37": 13, "38": 14, "39": 14, "40": 17, "41": 18, "42": 18, "43": 24, "44": 24, "49": 46, "54": 53, "60": 25, "68": 25, "69": 36, "70": 36, "71": 36, "72": 36, "73": 39, "74": 40, "75": 41, "76": 42, "77": 44, "83": 51, "89": 51, "95": 89}}
+{"filename": "C:/Users/stick/Developer/Intex/bp/templates/base.htm", "uri": "/bp/templates/base.htm", "source_encoding": "utf-8", "line_map": {"18": 0, "30": 1, "31": 6, "32": 6, "33": 10, "34": 12, "35": 12, "36": 13, "37": 13, "38": 14, "39": 14, "40": 17, "41": 18, "42": 18, "43": 24, "44": 24, "49": 50, "54": 57, "60": 25, "68": 25, "69": 34, "70": 35, "71": 38, "72": 40, "73": 40, "74": 40, "75": 40, "76": 43, "77": 44, "78": 45, "79": 46, "80": 48, "86": 55, "92": 55, "98": 92}}
 __M_END_METADATA
 """

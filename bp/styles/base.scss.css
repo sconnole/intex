@@ -114,6 +114,7 @@ a.prediction img {
 a.prediction {
   color: #000;
   padding: 0 1rem;
+  text-decoration: none;
 }
 
 .prediction p {
@@ -123,6 +124,7 @@ a.prediction {
 
 .card {
   padding: 0.5rem 0px;
+  width: 100%;
 }
 
 .req {

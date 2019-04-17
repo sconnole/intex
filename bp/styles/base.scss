@@ -102,6 +102,7 @@ a.prediction img {
 a.prediction {
     color: $TEXT_COLOR_MAIN;
     padding: 0 1rem;
+    text-decoration: none;
 }
 .prediction p {
     line-height: 50px;
@@ -109,6 +110,7 @@ a.prediction {
 }
 .card {
     padding: 0.5rem 0px;
+    width: 100%;
 }
 .req {
     border-left: 3px solid $VALIDATION;

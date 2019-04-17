@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1555515284.5926135
+_modified_time = 1555516689.7920907
 _enable_loop = True
 _template_filename = 'C:/Users/stick/Developer/Intex/bp/templates/index.html'
 _template_uri = 'index.html'
@@ -56,7 +56,7 @@ def render_content(context,**pageargs):
         __M_writer = context.writer()
         __M_writer('\r\n    <div class="row">\r\n        <div class="card col-md-6">\r\n            <a href="/bp/client/" class="prediction">\r\n                <img src="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
-        __M_writer('bp/media/client-small.png">\r\n                <p>Client Prediction</p>\r\n            </a>\r\n        </div>\r\n        <div class="card col-md-6">\r\n            <a href="/bp/client/" class="prediction">\r\n                <img src="')
+        __M_writer('bp/media/client-small.png">\r\n                <p>Client Prediction</p>\r\n            </a>\r\n        </div>\r\n        <div class="card col-md-6">\r\n            <a href="/bp/time/" class="prediction">\r\n                <img src="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
         __M_writer('bp/media/money-small.png">\r\n                <p>Days as Client Prediction</p>\r\n            </a>\r\n        </div>\r\n    </div>\r\n')
         return ''

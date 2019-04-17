@@ -1,4 +1,4 @@
-## this is the skeleton of all pages on in this app - it defines the basic html tags
+
 <!DOCTYPE html>
 <html>
     <meta charset="UTF-8">
@@ -31,6 +31,10 @@
                     <div class="dropdown collapse navbar-collapse" id="myNavbar">        
                         <ul class="nav navbar-nav">
                             <li><a class="dropdown-item nav-link" href="/bp/index/">Home</a></li>
+                            % if user.is_authenticated: 
+                            <li><a class="dropdown-item nav-link" href="/bp/client/">Client</a></li>
+                            <li><a class="dropdown-item nav-link" href="/bp/time/">Time</a></li>
+                             % endif
                         </ul>
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Welcome${',' if user.username != '' else ''} ${user.username}

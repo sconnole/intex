@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1555469756.3912396
+_modified_time = 1555470736.1772742
 _enable_loop = True
 _template_filename = 'C:/Users/stick/Developer/Intex/bp/templates/base.htm'
 _template_uri = 'base.htm'
@@ -27,7 +27,9 @@ def render_body(context,**pageargs):
         def menu():
             return render_menu(context._locals(__M_locals))
         __M_writer = context.writer()
-        __M_writer('<!DOCTYPE html>\r\n<html>\r\n    <meta charset="UTF-8">\r\n    <head>\r\n\r\n        <title>DMP</title>\r\n\r\n')
+        __M_writer('<!DOCTYPE html>\r\n<html>\r\n    <meta charset="UTF-8">\r\n    <head>\r\n        <link rel="icon" href="')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
+        __M_writer('homepage/media/favicon.ico" type="image/x-icon" />\r\n        <title>BP - Analytics</title>\r\n\r\n')
         __M_writer('        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>\r\n\r\n        <link rel="stylesheet" href="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
         __M_writer('homepage/media/bootstrap.min.css">\r\n        <script src="')
@@ -37,7 +39,9 @@ def render_body(context,**pageargs):
         __M_writer('homepage/media/bootstrap.min.js"></script>\r\n\r\n')
         __M_writer('        <script src="/django_mako_plus/dmp-common.min.js"></script>\r\n        ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( django_mako_plus.links(self) ))
-        __M_writer('\r\n\r\n    </head>\r\n    <body>\r\n        <header id="header">\r\n            <nav class="navbar navbar-expand-lg">\r\n                ')
+        __M_writer('\r\n\r\n    </head>\r\n    <body>\r\n        <header id="header">\r\n            <nav class="navbar navbar-expand-lg">\r\n                <a href="/bp/index/"><img src="')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( STATIC_URL ))
+        __M_writer('bp/media/bp-logo-white.png" alt="home" /></a>\r\n                ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'menu'):
             context['self'].menu(**pageargs)
         
@@ -90,6 +94,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/stick/Developer/Intex/bp/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 0, "30": 2, "31": 10, "32": 12, "33": 12, "34": 13, "35": 13, "36": 14, "37": 14, "38": 17, "39": 18, "40": 18, "45": 45, "50": 52, "56": 24, "64": 24, "65": 35, "66": 35, "67": 35, "68": 35, "69": 38, "70": 39, "71": 40, "72": 41, "73": 43, "79": 50, "85": 50, "91": 85}}
+{"filename": "C:/Users/stick/Developer/Intex/bp/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 0, "30": 2, "31": 6, "32": 6, "33": 10, "34": 12, "35": 12, "36": 13, "37": 13, "38": 14, "39": 14, "40": 17, "41": 18, "42": 18, "43": 24, "44": 24, "49": 46, "54": 53, "60": 25, "68": 25, "69": 36, "70": 36, "71": 36, "72": 36, "73": 39, "74": 40, "75": 41, "76": 42, "77": 44, "83": 51, "89": 51, "95": 89}}
 __M_END_METADATA
 """

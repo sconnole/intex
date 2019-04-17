@@ -3,8 +3,8 @@
 <html>
     <meta charset="UTF-8">
     <head>
-
-        <title>DMP</title>
+        <link rel="icon" href="${STATIC_URL}homepage/media/favicon.ico" type="image/x-icon" />
+        <title>BP - Analytics</title>
 
         ## add any site-wide scripts or CSS here; for example, jquery:
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -21,6 +21,7 @@
     <body>
         <header id="header">
             <nav class="navbar navbar-expand-lg">
+                <a href="/bp/index/"><img src="${ STATIC_URL }bp/media/bp-logo-white.png" alt="home" /></a>
                 <%block name="menu">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                         <span class="icon-bar"></span>

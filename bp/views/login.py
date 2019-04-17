@@ -29,10 +29,12 @@ def process_request(request):
     return request.dmp.render('/bp/templates/login.html', context)
 
 class LoginForm(forms.Form):
-    username = forms.CharField(label=u'Username', max_length=30)
+    username = forms.CharField(
+                                max_length=30,
+                                widget=forms.TextInput(attrs={'class': "req", 'placeholder': 'Username'})
+                                )
     password = forms.CharField(
-                                label=u'Password',
-                                widget=forms.PasswordInput()
+                                widget=forms.PasswordInput(attrs={'class': "req", 'placeholder': 'Password'})
                                 )
     def clean(self):
         data = self.cleaned_data

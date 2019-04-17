@@ -3,11 +3,24 @@
   float: inherit;
   position: absolute;
   right: 0.5rem;
-  bottom: 0.5rem;
+  bottom: 1rem;
 }
 
 .ratio.ratio2 {
   width: 100%;
+}
+
+.d-info {
+  width: 70%;
+  float: left;
+}
+
+.a-info {
+  width: 30%;
+}
+
+.top_docs .d-info th:last-child {
+  border-right: none;
 }
 
 /*# sourceMappingURL=prescriber.scss.css.map */

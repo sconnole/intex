@@ -9,3 +9,16 @@
 .ratio.ratio2 {
     width: 100%;
 }
+
+.d-info {
+    width: 70%;
+    float: left;
+}
+
+.a-info {
+    width: 30%;
+}
+
+.top_docs .d-info th:last-child {
+    border-right: none;
+}

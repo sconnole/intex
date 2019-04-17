@@ -28,6 +28,23 @@ def process_request(request, param:str):
     sql = ('''SELECT Drug, Qty FROM triple WHERE DoctorID = ?;''')
     drugs = dSQL(sql, param)
 
+    specavg = []
+    for d in drugs:
+        drugname = d[0]
+        drugqty = d[1]
+        sql = ('''SELECT DISTINCT
+                    CASE
+                        WHEN ? < (SELECT AVG(t.Qty) AS SpecAvg FROM triple t JOIN prescriber p ON t.DoctorID = p.DoctorID GROUP BY t.Drug, p.Specialty HAVING p.Specialty = ? AND t.Drug = ?) THEN 'Below'
+                        WHEN ? > (SELECT AVG(t.Qty) AS SpecAvg FROM triple t JOIN prescriber p ON t.DoctorID = p.DoctorID GROUP BY t.Drug, p.Specialty HAVING p.Specialty = ? AND t.Drug = ?) THEN 'Above'
+                        ELSE 'Specialty'
+                    END AS Diff
+                FROM triple
+                WHERE DoctorID = ?;''')
+        specavg += aSQL(sql, drugqty, docspecialty, drugname, param)
+
+    sql = ('''SELECT Drug, Qty FROM triple WHERE DoctorID = ?;''')
+    drugs = dSQL(sql, param)
+
     sql = ('''SELECT OpioidPerscriptionRatio FROM prescriber WHERE DoctorID = ?;''')
     ratio = dSQL(sql, param)
     for r in ratio:
@@ -98,6 +115,7 @@ def process_request(request, param:str):
         "avgratio": avgratio,
         "relusers": relusers,
         "thisdoc": param,
+        "specavg": specavg,
     }
  
     return request.dmp.render('prescriber.html', context)
@@ -117,6 +135,11 @@ def uSQL (sql, p1, p2, p3, p4, p5):
     conn = pyodbc.connect(settings.CONNECTION_STRING)
     cursor = conn.cursor()
     return cursor.execute(sql, (p1, p2, p3, p4, p5))
+
+def aSQL (sql, qty, specialty, drug, param):
+    conn = pyodbc.connect(settings.CONNECTION_STRING)
+    cursor = conn.cursor()
+    return cursor.execute(sql, (qty, specialty, drug, qty, specialty, drug, param))
 
 
 def convertParam (param):

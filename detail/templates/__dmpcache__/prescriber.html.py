@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1555080233.581619
+_modified_time = 1555084277.9275215
 _enable_loop = True
 _template_filename = 'C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/detail/templates/prescriber.html'
 _template_uri = 'prescriber.html'
@@ -30,24 +30,25 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        def title():
+            return render_title(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
+        def site_right():
+            return render_site_right(context._locals(__M_locals))
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        ratio = context.get('ratio', UNDEFINED)
         avgratio = context.get('avgratio', UNDEFINED)
+        docstate = context.get('docstate', UNDEFINED)
+        drugs = context.get('drugs', UNDEFINED)
+        thisdoc = context.get('thisdoc', UNDEFINED)
+        docspecialty = context.get('docspecialty', UNDEFINED)
         docgender = context.get('docgender', UNDEFINED)
+        docname = context.get('docname', UNDEFINED)
+        specavg = context.get('specavg', UNDEFINED)
+        relusers = context.get('relusers', UNDEFINED)
         def site_center():
             return render_site_center(context._locals(__M_locals))
         doccred = context.get('doccred', UNDEFINED)
-        def title():
-            return render_title(context._locals(__M_locals))
-        docname = context.get('docname', UNDEFINED)
-        docstate = context.get('docstate', UNDEFINED)
-        docspecialty = context.get('docspecialty', UNDEFINED)
-        self = context.get('self', UNDEFINED)
-        thisdoc = context.get('thisdoc', UNDEFINED)
-        drugs = context.get('drugs', UNDEFINED)
-        def site_right():
-            return render_site_right(context._locals(__M_locals))
-        relusers = context.get('relusers', UNDEFINED)
-        ratio = context.get('ratio', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'title'):
@@ -73,10 +74,10 @@ def render_body(context,**pageargs):
 def render_title(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        docname = context.get('docname', UNDEFINED)
         self = context.get('self', UNDEFINED)
         def title():
             return render_title(context)
-        docname = context.get('docname', UNDEFINED)
         __M_writer = context.writer()
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(docname))
         __M_writer(' Details')
@@ -88,19 +89,19 @@ def render_title(context,**pageargs):
 def render_site_center(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        avgratio = context.get('avgratio', UNDEFINED)
+        thisdoc = context.get('thisdoc', UNDEFINED)
+        self = context.get('self', UNDEFINED)
+        docspecialty = context.get('docspecialty', UNDEFINED)
         docgender = context.get('docgender', UNDEFINED)
+        docname = context.get('docname', UNDEFINED)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        ratio = context.get('ratio', UNDEFINED)
+        avgratio = context.get('avgratio', UNDEFINED)
+        user = context.get('user', UNDEFINED)
         def site_center():
             return render_site_center(context)
-        thisdoc = context.get('thisdoc', UNDEFINED)
-        doccred = context.get('doccred', UNDEFINED)
-        docname = context.get('docname', UNDEFINED)
-        user = context.get('user', UNDEFINED)
         docstate = context.get('docstate', UNDEFINED)
-        docspecialty = context.get('docspecialty', UNDEFINED)
-        ratio = context.get('ratio', UNDEFINED)
-        self = context.get('self', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        doccred = context.get('doccred', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n    <div class="content">\r\n        <div class="info-card">\r\n            <span class="icon">\r\n                <img src="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
@@ -137,6 +138,7 @@ def render_site_right(context,**pageargs):
         self = context.get('self', UNDEFINED)
         def site_right():
             return render_site_right(context)
+        specavg = context.get('specavg', UNDEFINED)
         relusers = context.get('relusers', UNDEFINED)
         drugs = context.get('drugs', UNDEFINED)
         __M_writer = context.writer()
@@ -147,7 +149,7 @@ def render_site_right(context,**pageargs):
             __M_writer('">')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)(user[0]))
             __M_writer('</a></td>\r\n                            </tr>\r\n')
-        __M_writer('                    </table>\r\n            <table>\r\n                <tr>\r\n                    <th>Prescribed Drug</th>\r\n                    <th>Quantity</th>\r\n                </tr>\r\n')
+        __M_writer('                    </table>\r\n            <table class="d-info">\r\n                <tr>\r\n                    <th>Prescribed Drug</th>\r\n                    <th>Quantity</th>\r\n                </tr>\r\n')
         for drug in drugs:
             __M_writer('                    <tr>\r\n                        <td><a href="/detail/drug/')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)(drug[0]))
@@ -155,6 +157,11 @@ def render_site_right(context,**pageargs):
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)(drug[0]))
             __M_writer('</a></td>\r\n                        <td class="drug_qty">')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)(drug[1]))
+            __M_writer('</td>\r\n                    </tr>\r\n')
+        __M_writer('            </table>\r\n            <table class="a-info">\r\n                <tr>\r\n                    <th>Average</th>\r\n                </tr>\r\n')
+        for s in specavg:
+            __M_writer('                    <tr>\r\n                        <td>')
+            __M_writer(django_mako_plus.ExpressionPostProcessor(self)(s[0]))
             __M_writer('</td>\r\n                    </tr>\r\n')
         __M_writer('            </table>\r\n        </div>\r\n')
         return ''
@@ -164,6 +171,6 @@ def render_site_right(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/detail/templates/prescriber.html", "uri": "prescriber.html", "source_encoding": "utf-8", "line_map": {"29": 0, "52": 1, "57": 3, "62": 30, "67": 57, "73": 3, "81": 3, "82": 3, "88": 4, "105": 4, "106": 8, "107": 8, "108": 10, "109": 10, "110": 11, "111": 11, "112": 12, "113": 12, "114": 13, "115": 13, "116": 14, "117": 14, "118": 15, "119": 16, "120": 16, "121": 16, "122": 18, "123": 21, "124": 21, "125": 26, "126": 26, "127": 27, "128": 27, "134": 32, "143": 32, "144": 38, "145": 39, "146": 40, "147": 40, "148": 40, "149": 40, "150": 43, "151": 49, "152": 50, "153": 51, "154": 51, "155": 51, "156": 51, "157": 52, "158": 52, "159": 55, "165": 159}}
+{"filename": "C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/detail/templates/prescriber.html", "uri": "prescriber.html", "source_encoding": "utf-8", "line_map": {"29": 0, "53": 1, "58": 3, "63": 30, "68": 67, "74": 3, "82": 3, "83": 3, "89": 4, "106": 4, "107": 8, "108": 8, "109": 10, "110": 10, "111": 11, "112": 11, "113": 12, "114": 12, "115": 13, "116": 13, "117": 14, "118": 14, "119": 15, "120": 16, "121": 16, "122": 16, "123": 18, "124": 21, "125": 21, "126": 26, "127": 26, "128": 27, "129": 27, "135": 32, "145": 32, "146": 38, "147": 39, "148": 40, "149": 40, "150": 40, "151": 40, "152": 43, "153": 49, "154": 50, "155": 51, "156": 51, "157": 51, "158": 51, "159": 52, "160": 52, "161": 55, "162": 60, "163": 61, "164": 62, "165": 62, "166": 65, "172": 166}}
 __M_END_METADATA
 """

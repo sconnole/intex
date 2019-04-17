@@ -41,7 +41,7 @@
                             </tr>
                         %endfor
                     </table>
-            <table>
+            <table class="d-info">
                 <tr>
                     <th>Prescribed Drug</th>
                     <th>Quantity</th>
@@ -50,6 +50,16 @@
                     <tr>
                         <td><a href="/detail/drug/${drug[0]}">${drug[0]}</a></td>
                         <td class="drug_qty">${drug[1]}</td>
+                    </tr>
+                %endfor
+            </table>
+            <table class="a-info">
+                <tr>
+                    <th>Average</th>
+                </tr>
+                %for s in specavg:
+                    <tr>
+                        <td>${s[0]}</td>
                     </tr>
                 %endfor
             </table>

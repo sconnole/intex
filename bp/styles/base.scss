@@ -1,0 +1,247 @@
+$main_width: 250px;
+$BLUE: #233742;
+$RED: #AB3428;
+$LIGHT_BLUE: #bbcde5;
+$BORDER_COLOR: #7493a5;
+$BOX_SHADOW: #ddd;
+$TEXT_COLOR_MAIN:#000;
+$TEXT_COLOR_SECONDARY: #FFF;
+$MAIN_BG: #fcfcfc;
+$FONT_MAIN: 'Arial';
+$FONT_SECONDARY: 'Verdana';
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: $FONT_MAIN;
+    color: $TEXT_COLOR_MAIN;
+    background-color: $MAIN_BG;
+}
+.clearfix {
+    clear: both;
+}
+.search p {    display: inline; margin: 0; }
+.hide {display: none;}
+.prescribers, .drugs {
+    background-color: $BLUE;
+}
+.drugs {
+    margin-top: 20px;
+}
+table {
+    width: 100%;
+    text-align: center;
+}
+.prescribers th {
+    border-top: 0px;
+}
+th:last-child {
+    border-right: none;
+}
+th {
+    background-color: $RED;
+    color: $TEXT_COLOR_SECONDARY;
+    font-weight: 100;
+    padding: 5px 0px;
+    border: 2px solid $BORDER_COLOR;
+}
+td {
+    color: $TEXT_COLOR_SECONDARY;
+    padding: 5px 0px;
+}
+table img {
+    max-width: 32px;
+}
+.navbar {
+    padding: 10px 0px;
+    margin: 0px 10px;
+}
+main {
+    margin: 0;
+    padding: 0px;
+    position: relative;
+    min-height: calc(100vh);
+}
+#site_right {
+    background-color: $LIGHT_BLUE;
+    color: $TEXT_COLOR_MAIN;
+    position: absolute;
+    top: 0;
+    width: $main_width;
+    right: 0px;
+    bottom: 0px;
+    border-left: 2px solid $BORDER_COLOR;
+}
+#site_center {
+    margin-right: $main_width;
+    color: $TEXT_COLOR_MAIN;
+}
+header#header {
+    background-color: $BLUE;
+    border-bottom: 2px solid $BORDER_COLOR;
+}
+#header button {
+    margin-left: 1rem;
+}
+.search {
+    width: 100%;
+    height: 45px;
+    margin-top: 10px;
+}
+#mySearch {
+    width: 80%;
+    border-radius: 0;
+    float: left;
+    outline: none;
+    color: $TEXT_COLOR_MAIN;
+    margin: 0px;
+    height: 100%;
+    border: none;
+}
+.searchButton {
+    float: right;
+    width: 20%;
+    height: 100%;
+    cursor: pointer;
+    background: $RED;
+    text-align: center;
+    color: $TEXT_COLOR_MAIN;
+    border: none;
+}
+.btn-search {
+    color: $TEXT_COLOR_SECONDARY;
+    line-height: 2.7rem;
+}
+
+input, select {
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid $BORDER_COLOR;
+    box-shadow: inset 0 1px 3px $BOX_SHADOW;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 5px;
+}
+.page-btn {
+    background: $RED;
+    color: $TEXT_COLOR_SECONDARY;
+    margin: .5rem 1rem;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    text-decoration: none;
+    float: left;
+}
+.main-btn {
+    background: $RED;
+    color: $TEXT_COLOR_SECONDARY;
+}
+.page-btn:hover, .main-btn:hover {
+    text-decoration: none;
+    color: $TEXT_COLOR_SECONDARY;
+    background: $BLUE;
+    transition-duration: .4s;
+}
+.right {
+    float: right;
+}
+.clickable-row {
+    cursor: pointer;
+}
+.clickable-row:hover {
+    background-color: $RED;
+}
+
+// Bootstrap Overrides
+.nav.navbar-nav li {
+    margin: 0px 3px;
+}
+.navbar-expand-lg .navbar-collapse {
+    justify-content: flex-end;
+}
+.dropdown2.collapse.navbar-collapse {
+    max-width: 7.5rem;
+}
+.navbar-toggle {
+    display: none;
+    background-color: $BLUE;
+}
+.dropdown-menu {
+    left: inherit;
+    right: 0px;
+    padding: 0px;
+    background-color: $BLUE;
+}
+.dropdown-item {
+    color: $TEXT_COLOR_SECONDARY;
+}
+.dropdown-item.active, .dropdown-item:active, .dropdown-item:hover {
+    background-color: $RED;
+    color: $TEXT_COLOR_SECONDARY;
+}
+.navbar-toggle .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: $TEXT_COLOR_SECONDARY;
+}
+.navbar-toggle .icon-bar+.icon-bar {
+    margin-top: 4px;
+}
+.navbar-toggle {
+    position: relative;
+    float: right;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-right: 15px;
+    margin-bottom: 8px;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.navbar-default .navbar-toggle {
+    border-color: $RED;
+}
+.btn-secondary:not(:disabled):not(.disabled).active, 
+.btn-secondary:not(:disabled):not(.disabled):active, 
+.show>.btn-secondary.dropdown-toggle, .btn-secondary {
+    color: $TEXT_COLOR_SECONDARY;
+    background-color: $BLUE;
+    border-color: $RED;
+}
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+#site_left .navbar-nav .nav-link {
+    padding: 10px;
+    background-color: $BLUE;
+    color: $TEXT_COLOR_SECONDARY;
+    border: 2px solid $BORDER_COLOR;
+    border-radius: 10px;
+    text-align: center;
+}
+#site_left .navbar-nav .nav-link.active {
+    background-color: $BLUE;
+}
+#site_left .navbar-nav {
+    padding: 10px 20px; 
+}
+
+@media (max-width: 991px) {
+    .navbar-toggle {
+        display: block;
+    }
+    #site_right {
+        width: 0px; 
+    }
+    #site_center {
+        margin-right: 0px;
+    }
+    .dropdown-menu {
+        right: inherit;
+        left: 0px; 
+    }
+}

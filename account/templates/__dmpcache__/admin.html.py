@@ -5,9 +5,9 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1555050744.9649992
+_modified_time = 1555082506.864015
 _enable_loop = True
-_template_filename = 'C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/account/templates/admin.html'
+_template_filename = 'C:/Users/stick/Developer/Intex/account/templates/admin.html'
 _template_uri = 'admin.html'
 _source_encoding = 'utf-8'
 import django_mako_plus
@@ -30,15 +30,15 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        docs = context.get('docs', UNDEFINED)
         STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        page = context.get('page', UNDEFINED)
+        def site_right():
+            return render_site_right(context._locals(__M_locals))
         def site_center():
             return render_site_center(context._locals(__M_locals))
         form = context.get('form', UNDEFINED)
         self = context.get('self', UNDEFINED)
-        docs = context.get('docs', UNDEFINED)
-        def site_right():
-            return render_site_right(context._locals(__M_locals))
-        page = context.get('page', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'site_center'):
@@ -59,16 +59,16 @@ def render_body(context,**pageargs):
 def render_site_center(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        docs = context.get('docs', UNDEFINED)
         STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        page = context.get('page', UNDEFINED)
         def site_center():
             return render_site_center(context)
         self = context.get('self', UNDEFINED)
-        docs = context.get('docs', UNDEFINED)
-        page = context.get('page', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n     <div class="content">\r\n        <div class="prescribers">\r\n            <table>\r\n                <tr>\r\n                    <th><img src="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
-        __M_writer('homepage/media/user.png" alt="user"></th>\r\n                    <th>First Name</th>\r\n                    <th>Last Name</th>\r\n                    <th></th>\r\n                    <th></th>\r\n                    <th></th>\r\n                </tr>\r\n')
+        __M_writer('homepage/media/user.png" alt="user"></th>\r\n                    <th>First Name</th>\r\n                    <th>Last Name</th>\r\n                    <th>&nbsp;</th>\r\n                    <th>&nbsp;</th>\r\n                    <th>&nbsp;</th>\r\n                </tr>\r\n')
         for doc in docs: 
             __M_writer('                    <tr>\r\n                        <td><img src="')
             __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
@@ -117,6 +117,6 @@ def render_site_right(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/account/templates/admin.html", "uri": "admin.html", "source_encoding": "utf-8", "line_map": {"29": 0, "43": 1, "48": 32, "53": 44, "59": 3, "69": 3, "70": 8, "71": 8, "72": 15, "73": 16, "74": 17, "75": 17, "76": 18, "77": 18, "78": 18, "79": 18, "80": 19, "81": 19, "82": 19, "83": 19, "84": 20, "85": 20, "86": 21, "87": 21, "88": 22, "89": 22, "90": 25, "91": 28, "92": 28, "93": 28, "94": 28, "95": 29, "96": 29, "102": 34, "110": 34, "111": 37, "112": 37, "118": 112}}
+{"filename": "C:/Users/stick/Developer/Intex/account/templates/admin.html", "uri": "admin.html", "source_encoding": "utf-8", "line_map": {"29": 0, "43": 1, "48": 32, "53": 44, "59": 3, "69": 3, "70": 8, "71": 8, "72": 15, "73": 16, "74": 17, "75": 17, "76": 18, "77": 18, "78": 18, "79": 18, "80": 19, "81": 19, "82": 19, "83": 19, "84": 20, "85": 20, "86": 21, "87": 21, "88": 22, "89": 22, "90": 25, "91": 28, "92": 28, "93": 28, "94": 28, "95": 29, "96": 29, "102": 34, "110": 34, "111": 37, "112": 37, "118": 112}}
 __M_END_METADATA
 """

@@ -1,0 +1,11 @@
+<%inherit file="base.htm" />
+
+<%block name="title">Login</%block>
+<%block name="site_center">
+    <form method="post">
+        <table>
+        ${ form.as_p() }
+        </table>
+        <input type="submit" value="Submit">
+    </form>
+</%block>

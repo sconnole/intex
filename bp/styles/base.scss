@@ -1,6 +1,6 @@
 $main_width: 250px;
 $BLUE: #233742;
-$RED: #AB3428;
+$GRAY: #555;
 $LIGHT_BLUE: #bbcde5;
 $BORDER_COLOR: #7493a5;
 $BOX_SHADOW: #ddd;
@@ -39,7 +39,7 @@ th:last-child {
     border-right: none;
 }
 th {
-    background-color: $RED;
+    background-color: $GRAY;
     color: $TEXT_COLOR_SECONDARY;
     font-weight: 100;
     padding: 5px 0px;
@@ -98,20 +98,6 @@ header#header {
     height: 100%;
     border: none;
 }
-.searchButton {
-    float: right;
-    width: 20%;
-    height: 100%;
-    cursor: pointer;
-    background: $RED;
-    text-align: center;
-    color: $TEXT_COLOR_MAIN;
-    border: none;
-}
-.btn-search {
-    color: $TEXT_COLOR_SECONDARY;
-    line-height: 2.7rem;
-}
 
 input, select {
     margin: 8px 0;
@@ -125,7 +111,7 @@ input, select {
     padding: 5px;
 }
 .page-btn {
-    background: $RED;
+    background: $GRAY;
     color: $TEXT_COLOR_SECONDARY;
     margin: .5rem 1rem;
     padding: .5rem 1rem;
@@ -134,7 +120,7 @@ input, select {
     float: left;
 }
 .main-btn {
-    background: $RED;
+    background: $GRAY;
     color: $TEXT_COLOR_SECONDARY;
 }
 .page-btn:hover, .main-btn:hover {
@@ -150,7 +136,7 @@ input, select {
     cursor: pointer;
 }
 .clickable-row:hover {
-    background-color: $RED;
+    background-color: $GRAY;
 }
 
 // Bootstrap Overrides
@@ -177,7 +163,7 @@ input, select {
     color: $TEXT_COLOR_SECONDARY;
 }
 .dropdown-item.active, .dropdown-item:active, .dropdown-item:hover {
-    background-color: $RED;
+    background-color: $GRAY;
     color: $TEXT_COLOR_SECONDARY;
 }
 .navbar-toggle .icon-bar {
@@ -202,14 +188,14 @@ input, select {
     border-radius: 4px;
 }
 .navbar-default .navbar-toggle {
-    border-color: $RED;
+    border-color: $GRAY;
 }
 .btn-secondary:not(:disabled):not(.disabled).active, 
 .btn-secondary:not(:disabled):not(.disabled):active, 
 .show>.btn-secondary.dropdown-toggle, .btn-secondary {
     color: $TEXT_COLOR_SECONDARY;
     background-color: $BLUE;
-    border-color: $RED;
+    border-color: $GRAY;
 }
 .navbar-expand-lg .navbar-nav .nav-link {
     padding-right: 1rem;

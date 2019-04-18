@@ -4,6 +4,7 @@ from datetime import datetime, timezone
 from django import forms
 from django.core.exceptions import ValidationError
 from django.http import HttpResponseRedirect
+import requests
 
 @view_function
 def process_request(request):
@@ -14,11 +15,34 @@ def process_request(request):
         form = TimeForm(request.POST)
 
         if form.is_valid():
-            lead = form["LeadSource"]
-            print("|||||||||||||||||", lead)
-            return HttpResponseRedirect('/bp/index/')
-        else:
-            pass
+            lead = form["LeadSource"].value()
+            replies = form["RepliesFromClient"].value()
+            emails = form["EmailsToClient"].value()
+            total = form["TotalTickets"].value()
+            days = form["DaysAsClient"].value()
+            locations = form["Num_Locations"].value()
+            fb = form["FB"].value()
+            PatientEducation = form["PE_Videos"].value()
+            status = form["StatusNumeric"].value()
+            
+            ## API CALL ##
+
+            url = "https://ussouthcentral.services.azureml.net/workspaces/a6a8851e6a794d0ab9b2221bf735138c/services/94fcbd2942024dfeaeec95aa5073e9fe/execute"
+
+            querystring = {"api-version":"2.0","details":"true"}
+
+            payload = "{\r\n  \"Inputs\": {\r\n    \"input1\": {\r\n      \"ColumnNames\": [\r\n        \"DaysAsClient\",\r\n        \"LeadSourceNumeric\",\r\n        \"Num_Locations\",\r\n        \"FB\",\r\n        \"PE_Videos\",\r\n        \"StatusNumeric\",\r\n        \"LnPlus1(RepliesFromClient)\",\r\n        \"LnPlus1(EmailsToClient)\",\r\n        \"LnPlus1(TotalTickets)\"\r\n      ],\r\n      \"Values\": [\r\n        [\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\"\r\n        ]\r\n      ]\r\n    }\r\n  },\r\n  \"GlobalParameters\": {}\r\n}"
+            headers = {
+                'Authorization': "Bearer d8BMaTmW6A3m/3HxIU5bF2W36Gv84j3bfEBymyXNxxhU0HZbt1gOSX74Kb7m/yKKIOuqoAXbuwaUnPNoUX/t9g==",
+                'Content-Type': "application/json",
+                'cache-control': "no-cache",
+                'Postman-Token': "9c3deea1-5752-457c-9d66-7f5708c5bb35"
+            }
+
+            response = requests.request("POST", url, data=payload, headers=headers, params=querystring)
+
+            print(response.text)
+            
     else:
         form = TimeForm()
     

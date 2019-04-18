@@ -67,12 +67,12 @@ def process_request(request):
 class TimeForm(forms.Form):    
     
     LEAD_CHOICES = (
-        ('1', 'Not Tracked'),
-        ('3', 'Default Team'),
-        ('4', 'Call Floor'),
-        ('5', 'Referral'),
         ('6', 'Upgrade'),
+        ('5', 'Referral'),
+        ('4', 'Call Floor'),
+        ('3', 'Default Team'),
         ('2', 'Other'),
+        ('1', 'Not Tracked'),
         )
 
     LeadSource = forms.ChoiceField(

@@ -31,15 +31,25 @@ def process_request(request):
             seo = form["SEONumeric"].value()
             status = form["StatusNumeric"].value()
 
+            dictionary_lead = {
+                '6': 'Upgrade',
+                '5': 'Referral',
+                '4': 'Call Floor',
+                '3': 'Default Team',
+                '2': 'Other',
+                '1': 'not tracked',
+            }
+            leadstr = dictionary_lead[lead]
+
             #Because the Client_ID is not an actual identity field it is not unique
             #The max value for Client_ID in the original data is 7194
             #If you ever want to reset to the original data simply run the following query:
             #       DELETE FROM Client WHERE Client_ID > 7194
-            sql = ('''INSERT INTO Client (Client_ID, LeadSourceNumeric, RepliesFromClient, EmailsToClient, TotalTickets, DaysAsClient, Num_Locations, FB, PE_Videos, SEONumeric, StatusNumeric) 
-                        VALUES ((SELECT MAX(Client_ID) + 1 FROM Client), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);''')
+            sql = ('''INSERT INTO Client (Client_ID, LeadSourceNumeric, LeadSource, RepliesFromClient, EmailsToClient, TotalTickets, DaysAsClient, Num_Locations, FB, PE_Videos, SEONumeric, StatusNumeric) 
+                        VALUES ((SELECT MAX(Client_ID) + 1 FROM Client), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);''')
             conn = pyodbc.connect(settings.BP_STRING)
             cursor = conn.cursor()
-            cursor.execute(sql, (lead, replies, emails, total, days, locations, fb, PatientEducation, seo, status))
+            cursor.execute(sql, (lead, leadstr, replies, emails, total, days, locations, fb, PatientEducation, seo, status))
             conn.commit()
 
             success = 'Data Successfully Added to the Database'
@@ -58,12 +68,12 @@ def process_request(request):
 class DataForm(forms.Form):
     
     LEAD_CHOICES = (
-        ('1', 'Not Tracked'),
-        ('3', 'Default Team'),
-        ('4', 'Call Floor'),
-        ('5', 'Referral'),
         ('6', 'Upgrade'),
+        ('5', 'Referral'),
+        ('4', 'Call Floor'),
+        ('3', 'Default Team'),
         ('2', 'Other'),
+        ('1', 'Not Tracked'),
         )
     
     SEO_CHOICES = (

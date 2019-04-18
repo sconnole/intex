@@ -98,12 +98,6 @@ class TimeForm(forms.Form):
                 min_value=0,
                 widget=forms.NumberInput(attrs={'class': 'req'})
                 )
-    DaysAsClient = forms.IntegerField(
-                label="Days as a Client",
-                initial=0,
-                min_value=0,
-                widget=forms.NumberInput(attrs={'class': 'req'})
-                )
     Num_Locations = forms.IntegerField(
                 label="Number of Locations",
                 initial=0,

@@ -10,7 +10,9 @@
             <input class="main-btn" type="submit" value="Add Client Record">
         </form>
     </div>
-    <div class="result">
-        <h2>${ success }</h2>
-    </div>
+    %if request.method == 'POST':
+        <div class="result">
+            <h2>${ success }</h2>
+        </div>
+    %endif
 </%block>

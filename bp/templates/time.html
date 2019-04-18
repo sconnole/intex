@@ -10,9 +10,11 @@
             <input class="main-btn" type="submit" value="Predict">
         </form>
     </div>
-    <div class="result">
-        <h2>A client with these attributes is predicted to stay with BP for:</h2>
-        <p>${ days } days</p>
-        <p>Or ${ years } years, ${ months } months</p>
-    </div>
+    %if request.method == 'POST':
+        <div class="result">
+            <h2>A client with these attributes is predicted to stay with BP for:</h2>
+            <p>${ days } days</p>
+            <p>Or ${ years } years, ${ months } months</p>
+        </div>
+    %endif
 </%block>

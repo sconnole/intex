@@ -10,8 +10,9 @@
             <input class="main-btn" type="submit" value="Predict">
         </form>
     </div>
-    <div class="result">
-        <h2>A client with these attributes is predicted to be:</h2>
-        <p>${ status }</p>
-    </div>
+    %if request.method == 'POST':
+        <div class="result">
+            <h2>A client with these attributes is ${ percent }% likely to be ${ status }</h2>
+        </div>
+    %endif
 </%block>

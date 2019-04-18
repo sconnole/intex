@@ -15,6 +15,7 @@ def process_request(request):
         return HttpResponseRedirect('/bp/login/')
 
     status = ""
+    percent = Decimal("0.00")
     if request.method == 'POST':
         form = ClientForm(request.POST)
 
@@ -49,8 +50,14 @@ def process_request(request):
             result = data["Results"]["output1"]["value"]["Values"][0][0]
             if Decimal(result) > Decimal("0.5"):
                 status = "Active"
+                percent = int(Decimal(result) * 100)
+                if percent > 100:
+                    percent = 100
             else:
                 status = "Closed"
+                if Decimal(result) < 0:
+                    result = 0
+                percent = int((1 - Decimal(result)) * 100)
             
     else:
         form = ClientForm()
@@ -58,6 +65,7 @@ def process_request(request):
     context = {
         'form': form,
         'status': status,
+        'percent': percent,
     }
 
     return request.dmp.render('client.html', context)

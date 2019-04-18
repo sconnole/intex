@@ -15,7 +15,7 @@ def process_request(request):
     if not request.user.has_perm('account.access_bp'):
         return HttpResponseRedirect('/bp/login/')
     
-    # success = ''
+    success = ''
     if request.method == 'POST':
         form = DataForm(request.POST)
 
@@ -56,7 +56,6 @@ def process_request(request):
 
     else:
         form = DataForm()
-        success = 'Submit Data to be Added to the Database'
     
     context = {
         'form': form,

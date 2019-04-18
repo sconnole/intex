@@ -5,9 +5,9 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1555554585.9980156
+_modified_time = 1555559907.913852
 _enable_loop = True
-_template_filename = 'C:/Users/stick/Developer/Intex/bp/templates/time.html'
+_template_filename = 'C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/bp/templates/time.html'
 _template_uri = 'time.html'
 _source_encoding = 'utf-8'
 import django_mako_plus
@@ -31,9 +31,12 @@ def render_body(context,**pageargs):
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
         self = context.get('self', UNDEFINED)
-        form = context.get('form', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
+        days = context.get('days', UNDEFINED)
+        years = context.get('years', UNDEFINED)
+        form = context.get('form', UNDEFINED)
+        months = context.get('months', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
@@ -49,13 +52,22 @@ def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         self = context.get('self', UNDEFINED)
-        form = context.get('form', UNDEFINED)
         def content():
             return render_content(context)
+        days = context.get('days', UNDEFINED)
+        years = context.get('years', UNDEFINED)
+        form = context.get('form', UNDEFINED)
+        months = context.get('months', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n    <div class="form-content">\r\n        <form method="post">\r\n            <table>\r\n            ')
+        __M_writer('\r\n    <h1>Days as Client Predictor</h1>\r\n    <div class="form-content">\r\n        <form method="post">\r\n            <table>\r\n            ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( form.as_p() ))
-        __M_writer('\r\n            </table>\r\n            <input class="main-btn" type="submit" value="Predict">\r\n        </form>\r\n    </div>\r\n')
+        __M_writer('\r\n            </table>\r\n            <input class="main-btn" type="submit" value="Predict">\r\n        </form>\r\n    </div>\r\n    <div class="result">\r\n        <h2>A client with these attributes is predicted to stay with BP for:</h2>\r\n        <p>')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( days ))
+        __M_writer(' days</p>\r\n        <p>Or ')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( years ))
+        __M_writer(' years, ')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( months ))
+        __M_writer(' months</p>\r\n    </div>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -63,6 +75,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/stick/Developer/Intex/bp/templates/time.html", "uri": "time.html", "source_encoding": "utf-8", "line_map": {"29": 0, "38": 1, "48": 3, "56": 3, "57": 7, "58": 7, "64": 58}}
+{"filename": "C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/bp/templates/time.html", "uri": "time.html", "source_encoding": "utf-8", "line_map": {"29": 0, "41": 1, "51": 3, "62": 3, "63": 8, "64": 8, "65": 15, "66": 15, "67": 16, "68": 16, "69": 16, "70": 16, "76": 70}}
 __M_END_METADATA
 """

@@ -5,9 +5,9 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1555548000.065495
+_modified_time = 1555560350.7136471
 _enable_loop = True
-_template_filename = 'C:/Users/stick/Developer/Intex/bp/templates/client.html'
+_template_filename = 'C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/bp/templates/client.html'
 _template_uri = 'client.html'
 _source_encoding = 'utf-8'
 import django_mako_plus
@@ -33,6 +33,7 @@ def render_body(context,**pageargs):
         def content():
             return render_content(context._locals(__M_locals))
         form = context.get('form', UNDEFINED)
+        status = context.get('status', UNDEFINED)
         self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
@@ -51,11 +52,14 @@ def render_content(context,**pageargs):
         def content():
             return render_content(context)
         form = context.get('form', UNDEFINED)
+        status = context.get('status', UNDEFINED)
         self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n    <div class="form-content">\r\n        <form method="post">\r\n            <table>\r\n            ')
+        __M_writer('\r\n    <h1>Client Status Predictor</h1>\r\n    <div class="form-content">\r\n        <form method="post">\r\n            <table>\r\n            ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( form.as_p() ))
-        __M_writer('\r\n            </table>\r\n            <input class="main-btn" type="submit" value="Predict">\r\n        </form>\r\n    </div>\r\n')
+        __M_writer('\r\n            </table>\r\n            <input class="main-btn" type="submit" value="Predict">\r\n        </form>\r\n    </div>\r\n    <div class="result">\r\n        <h2>A client with these attributes is predicted to be:</h2>\r\n        <p>')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( status ))
+        __M_writer('</p>\r\n    </div>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -63,6 +67,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/stick/Developer/Intex/bp/templates/client.html", "uri": "client.html", "source_encoding": "utf-8", "line_map": {"29": 0, "38": 1, "48": 3, "56": 3, "57": 7, "58": 7, "64": 58}}
+{"filename": "C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/bp/templates/client.html", "uri": "client.html", "source_encoding": "utf-8", "line_map": {"29": 0, "39": 1, "49": 3, "58": 3, "59": 8, "60": 8, "61": 15, "62": 15, "68": 62}}
 __M_END_METADATA
 """

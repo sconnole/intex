@@ -15,6 +15,8 @@ def process_request(request):
         return HttpResponseRedirect('/bp/login/')
     
     days = 0
+    years = 0
+    months = 0
     if request.method == 'POST':
         form = TimeForm(request.POST)
 

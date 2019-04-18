@@ -1,1 +1,12 @@
 <%inherit file="base.htm" />
+
+<%block name="content">
+    <div class="form-content">
+        <form method="post">
+            <table>
+            ${ form.as_p() }
+            </table>
+            <input class="main-btn" type="submit" value="Predict">
+        </form>
+    </div>
+</%block>

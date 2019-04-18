@@ -4,13 +4,17 @@ from datetime import datetime, timezone
 from django import forms
 from django.core.exceptions import ValidationError
 from django.http import HttpResponseRedirect
+from decimal import Decimal
 import requests
 
 @view_function
 def process_request(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect('/bp/login/')
+    if not request.user.has_perm('account.access_bp'):
+        return HttpResponseRedirect('/bp/login/')
     
+    days = 0
     if request.method == 'POST':
         form = TimeForm(request.POST)
 
@@ -19,7 +23,6 @@ def process_request(request):
             replies = form["RepliesFromClient"].value()
             emails = form["EmailsToClient"].value()
             total = form["TotalTickets"].value()
-            days = form["DaysAsClient"].value()
             locations = form["Num_Locations"].value()
             fb = form["FB"].value()
             PatientEducation = form["PE_Videos"].value()
@@ -31,7 +34,7 @@ def process_request(request):
 
             querystring = {"api-version":"2.0","details":"true"}
 
-            payload = "{\r\n  \"Inputs\": {\r\n    \"input1\": {\r\n      \"ColumnNames\": [\r\n        \"RepliesFromClient\",\r\n        \"EmailsToClient\",\r\n        \"TotalTickets\",\r\n        \"LeadSourceNumeric\",\r\n        \"Num_Locations\",\r\n        \"FB\",\r\n        \"PE_Videos\",\r\n        \"StatusNumeric\"\r\n      ],\r\n      \"Values\": [\r\n        [\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\"\r\n        ]\r\n      ]\r\n    }\r\n  },\r\n  \"GlobalParameters\": {}\r\n}"
+            payload = "{\r\n  \"Inputs\": {\r\n    \"input1\": {\r\n      \"ColumnNames\": [\r\n        \"RepliesFromClient\",\r\n        \"EmailsToClient\",\r\n        \"TotalTickets\",\r\n        \"LeadSourceNumeric\",\r\n        \"Num_Locations\",\r\n        \"FB\",\r\n        \"PE_Videos\",\r\n        \"StatusNumeric\"\r\n      ],\r\n      \"Values\": [\r\n        [\r\n          \"" + replies + "\",\r\n          \"" + emails + "\",\r\n          \"" + total + "\",\r\n          \"" + lead + "\",\r\n          \"" + locations + "\",\r\n          \"" + fb + "\",\r\n          \"" + PatientEducation + "\",\r\n          \"" + status + "\"\r\n        ]\r\n      ]\r\n    }\r\n  },\r\n  \"GlobalParameters\": {}\r\n}"
             headers = {
                 'Authorization': "Bearer d8BMaTmW6A3m/3HxIU5bF2W36Gv84j3bfEBymyXNxxhU0HZbt1gOSX74Kb7m/yKKIOuqoAXbuwaUnPNoUX/t9g==",
                 'Content-Type': "application/json",
@@ -43,13 +46,18 @@ def process_request(request):
 
             data = response.json()
             result = data["Results"]["output1"]["value"]["Values"][0][0]
-            print(result)
+            days = int(round(Decimal(result), 0 ))
+            years = int(days / 365)
+            months = int((days % 365) * 0.0328)
 
     else:
         form = TimeForm()
     
     context = {
         'form': form,
+        'days': days,
+        'years': years,
+        'months': months,
     }
    
     return request.dmp.render('time.html', context)
@@ -58,12 +66,11 @@ class TimeForm(forms.Form):
     
     LEAD_CHOICES = (
         ('1', 'Not Tracked'),
-        ('2', 'Default Team'),
-        ('3', 'Call Floor'),
-        ('4', 'Referral'),
-        ('5', 'Upgrade'),
-        ('6', 'Other'),
-        ('0', 'Blank'),
+        ('3', 'Default Team'),
+        ('4', 'Call Floor'),
+        ('5', 'Referral'),
+        ('6', 'Upgrade'),
+        ('2', 'Other'),
         )
 
     LeadSource = forms.ChoiceField(
@@ -112,6 +119,7 @@ class TimeForm(forms.Form):
                 widget=forms.Select(attrs={'class': 'req'})                
                 )
     StatusNumeric = forms.ChoiceField(
-                choices=(("1", "Yes"), ("0", "No"),),
+                label='Status',
+                choices=(("1", "Active"), ("0", "Closed"),),
                 widget=forms.Select(attrs={'class': 'req'})                
                 )

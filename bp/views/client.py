@@ -4,13 +4,17 @@ from datetime import datetime, timezone
 from django import forms
 from django.core.exceptions import ValidationError
 from django.http import HttpResponseRedirect
+from decimal import Decimal
 import requests
 
 @view_function
 def process_request(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect('/bp/login/')
-    result = ""
+    if not request.user.has_perm('account.access_bp'):
+        return HttpResponseRedirect('/bp/login/')
+
+    status = ""
     if request.method == 'POST':
         form = ClientForm(request.POST)
 
@@ -31,7 +35,7 @@ def process_request(request):
 
             querystring = {"api-version":"2.0","details":"true"}
 
-            payload = "{\r\n  \"Inputs\": {\r\n    \"input1\": {\r\n      \"ColumnNames\": [\r\n        \"LeadSource\",\r\n        \"RepliesFromClient\",\r\n        \"EmailsToClient\",\r\n        \"TotalTickets\",\r\n        \"DaysAsClient\",\r\n        \"Num_Locations\",\r\n        \"FB\",\r\n        \"PE_Videos\",\r\n        \"SEONumeric\"\r\n      ],\r\n      \"Values\": [\r\n        [\r\n          \"Call Floor\",\r\n          \"500\",\r\n          \"600\",\r\n          \"800\",\r\n          \"2800\",\r\n          \"2\",\r\n          \"1\",\r\n          \"1\",\r\n          \"2\"\r\n        ]\r\n      ]\r\n    }\r\n  },\r\n  \"GlobalParameters\": {}\r\n}"
+            payload = "{\r\n  \"Inputs\": {\r\n    \"input1\": {\r\n      \"ColumnNames\": [\r\n        \"LeadSource\",\r\n        \"RepliesFromClient\",\r\n        \"EmailsToClient\",\r\n        \"TotalTickets\",\r\n        \"DaysAsClient\",\r\n        \"Num_Locations\",\r\n        \"FB\",\r\n        \"PE_Videos\",\r\n        \"SEONumeric\"\r\n      ],\r\n      \"Values\": [\r\n        [\r\n          \"" + lead + "\",\r\n          \"" + replies + "\",\r\n          \"" + emails + "\",\r\n          \"" + total + "\",\r\n          \"" + days + "\",\r\n          \"" + locations + "\",\r\n          \"" + fb + "\",\r\n          \"" + PatientEducation + "\",\r\n          \"" + seo + "\"\r\n        ]\r\n      ]\r\n    }\r\n  },\r\n  \"GlobalParameters\": {}\r\n}"
             headers = {
                 'Authorization': "Bearer AbnjLEx45qpNmNSIEnSeIlEIMbn07O70Rl9MTchYD3uhLp9YEww/Z87E8nVroUkJ05qtj/6EHs6OSnbAGj9k7w==",
                 'Content-Type': "application/json",
@@ -43,13 +47,17 @@ def process_request(request):
             
             data = response.json()
             result = data["Results"]["output1"]["value"]["Values"][0][0]
+            if Decimal(result) > Decimal("0.5"):
+                status = "Active"
+            else:
+                status = "Closed"
             
     else:
         form = ClientForm()
     
     context = {
         'form': form,
-        'result': result,
+        'status': status,
     }
 
     return request.dmp.render('client.html', context)

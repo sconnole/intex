@@ -7,6 +7,8 @@ from django.http import HttpResponseRedirect
 def process_request(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect('/bp/login/')
+    if not request.user.has_perm('account.access_bp'):
+        return HttpResponseRedirect('/bp/logout/')
 
     context = {
         

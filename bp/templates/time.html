@@ -1,6 +1,7 @@
 <%inherit file="base.htm" />
 
 <%block name="content">
+    <h1>Days as Client Predictor</h1>
     <div class="form-content">
         <form method="post">
             <table>
@@ -8,5 +9,10 @@
             </table>
             <input class="main-btn" type="submit" value="Predict">
         </form>
+    </div>
+    <div class="result">
+        <h2>A client with these attributes is predicted to stay with BP for:</h2>
+        <p>${ days } days</p>
+        <p>Or ${ years } years, ${ months } months</p>
     </div>
 </%block>

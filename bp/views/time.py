@@ -31,18 +31,20 @@ def process_request(request):
 
             querystring = {"api-version":"2.0","details":"true"}
 
-            payload = "{\r\n  \"Inputs\": {\r\n    \"input1\": {\r\n      \"ColumnNames\": [\r\n        \"DaysAsClient\",\r\n        \"LeadSourceNumeric\",\r\n        \"Num_Locations\",\r\n        \"FB\",\r\n        \"PE_Videos\",\r\n        \"StatusNumeric\",\r\n        \"LnPlus1(RepliesFromClient)\",\r\n        \"LnPlus1(EmailsToClient)\",\r\n        \"LnPlus1(TotalTickets)\"\r\n      ],\r\n      \"Values\": [\r\n        [\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\"\r\n        ]\r\n      ]\r\n    }\r\n  },\r\n  \"GlobalParameters\": {}\r\n}"
+            payload = "{\r\n  \"Inputs\": {\r\n    \"input1\": {\r\n      \"ColumnNames\": [\r\n        \"RepliesFromClient\",\r\n        \"EmailsToClient\",\r\n        \"TotalTickets\",\r\n        \"LeadSourceNumeric\",\r\n        \"Num_Locations\",\r\n        \"FB\",\r\n        \"PE_Videos\",\r\n        \"StatusNumeric\"\r\n      ],\r\n      \"Values\": [\r\n        [\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\",\r\n          \"0\"\r\n        ]\r\n      ]\r\n    }\r\n  },\r\n  \"GlobalParameters\": {}\r\n}"
             headers = {
                 'Authorization': "Bearer d8BMaTmW6A3m/3HxIU5bF2W36Gv84j3bfEBymyXNxxhU0HZbt1gOSX74Kb7m/yKKIOuqoAXbuwaUnPNoUX/t9g==",
                 'Content-Type': "application/json",
                 'cache-control': "no-cache",
-                'Postman-Token': "9c3deea1-5752-457c-9d66-7f5708c5bb35"
-            }
+                'Postman-Token': "a59f1fcb-7dae-45cd-9904-8ba935e4747a"
+                }
 
             response = requests.request("POST", url, data=payload, headers=headers, params=querystring)
 
-            print(response.text)
-            
+            data = response.json()
+            result = data["Results"]["output1"]["value"]["Values"][0][0]
+            print(result)
+
     else:
         form = TimeForm()
     

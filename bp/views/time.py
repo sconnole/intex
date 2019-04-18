@@ -28,7 +28,6 @@ def process_request(request):
             locations = form["Num_Locations"].value()
             fb = form["FB"].value()
             PatientEducation = form["PE_Videos"].value()
-            status = form["StatusNumeric"].value()
             
             ## API CALL ##
 
@@ -36,7 +35,7 @@ def process_request(request):
 
             querystring = {"api-version":"2.0","details":"true"}
 
-            payload = "{\r\n  \"Inputs\": {\r\n    \"input1\": {\r\n      \"ColumnNames\": [\r\n        \"RepliesFromClient\",\r\n        \"EmailsToClient\",\r\n        \"TotalTickets\",\r\n        \"LeadSourceNumeric\",\r\n        \"Num_Locations\",\r\n        \"FB\",\r\n        \"PE_Videos\",\r\n        \"StatusNumeric\"\r\n      ],\r\n      \"Values\": [\r\n        [\r\n          \"" + replies + "\",\r\n          \"" + emails + "\",\r\n          \"" + total + "\",\r\n          \"" + lead + "\",\r\n          \"" + locations + "\",\r\n          \"" + fb + "\",\r\n          \"" + PatientEducation + "\",\r\n          \"" + status + "\"\r\n        ]\r\n      ]\r\n    }\r\n  },\r\n  \"GlobalParameters\": {}\r\n}"
+            payload = "{\r\n  \"Inputs\": {\r\n    \"input1\": {\r\n      \"ColumnNames\": [\r\n        \"RepliesFromClient\",\r\n        \"EmailsToClient\",\r\n        \"TotalTickets\",\r\n        \"LeadSourceNumeric\",\r\n        \"Num_Locations\",\r\n        \"FB\",\r\n        \"PE_Videos\",\r\n        \"StatusNumeric\"\r\n      ],\r\n      \"Values\": [\r\n        [\r\n          \"" + replies + "\",\r\n          \"" + emails + "\",\r\n          \"" + total + "\",\r\n          \"" + lead + "\",\r\n          \"" + locations + "\",\r\n          \"" + fb + "\",\r\n          \"" + PatientEducation + "\",\r\n          \"1\"\r\n        ]\r\n      ]\r\n    }\r\n  },\r\n  \"GlobalParameters\": {}\r\n}"
             headers = {
                 'Authorization': "Bearer d8BMaTmW6A3m/3HxIU5bF2W36Gv84j3bfEBymyXNxxhU0HZbt1gOSX74Kb7m/yKKIOuqoAXbuwaUnPNoUX/t9g==",
                 'Content-Type': "application/json",
@@ -112,10 +111,5 @@ class TimeForm(forms.Form):
     PE_Videos = forms.ChoiceField(
                 label='Patient Education Videos',
                 choices=(("1", "Yes"), ("0", "No"),),
-                widget=forms.Select(attrs={'class': 'req'})                
-                )
-    StatusNumeric = forms.ChoiceField(
-                label='Status',
-                choices=(("1", "Active"), ("0", "Closed"),),
                 widget=forms.Select(attrs={'class': 'req'})                
                 )

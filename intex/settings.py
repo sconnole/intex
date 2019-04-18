@@ -36,6 +36,12 @@ CONNECTION_STRING = ("DRIVER={ODBC Driver 17 for SQL Server};"
     "UID=eligardner@eligardner;"
     "PWD=Password413")
 
+BP_STRING = ("DRIVER={ODBC Driver 17 for SQL Server};"
+    "SERVER=tcp:eligardner.database.windows.net,1433;"
+    "Database=is415;"
+    "UID=eligardner@eligardner;"
+    "PWD=Password413")
+
 # Application definition
 
 INSTALLED_APPS = [

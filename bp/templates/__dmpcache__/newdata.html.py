@@ -5,10 +5,10 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1555609739.9647307
+_modified_time = 1555609397.232868
 _enable_loop = True
-_template_filename = 'C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/bp/templates/index.html'
-_template_uri = 'index.html'
+_template_filename = 'C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/bp/templates/newdata.html'
+_template_uri = 'newdata.html'
 _source_encoding = 'utf-8'
 import django_mako_plus
 import django.utils.html
@@ -30,8 +30,9 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         self = context.get('self', UNDEFINED)
+        form = context.get('form', UNDEFINED)
+        success = context.get('success', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
         __M_writer = context.writer()
@@ -40,7 +41,6 @@ def render_body(context,**pageargs):
             context['self'].content(**pageargs)
         
 
-        __M_writer('\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -49,18 +49,17 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         self = context.get('self', UNDEFINED)
+        form = context.get('form', UNDEFINED)
+        success = context.get('success', UNDEFINED)
         def content():
             return render_content(context)
         __M_writer = context.writer()
-        __M_writer('\r\n    <div class="row">\r\n        <div class="card">\r\n            <a href="/bp/client/" class="prediction">\r\n                <img src="')
-        __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
-        __M_writer('bp/media/client-small.png">\r\n                <p>Client Account Prediction</p>\r\n            </a>\r\n        </div>\r\n        <div class="card">\r\n            <a href="/bp/time/" class="prediction">\r\n                <img src="')
-        __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
-        __M_writer('bp/media/calendar.png">\r\n                <p>Days as Client Prediction</p>\r\n            </a>\r\n        </div>\r\n        <div class="card">\r\n            <a href="/bp/newdata/" class="prediction">\r\n                <img src="')
-        __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
-        __M_writer('bp/media/new_record.png">\r\n                <p>Add Client Record</p>\r\n            </a>\r\n        </div>\r\n    </div>\r\n')
+        __M_writer('\r\n    <h1>Add Client Record</h1>\r\n    <div class="form-content">\r\n        <form method="post">\r\n            <table>\r\n            ')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( form.as_p() ))
+        __M_writer('\r\n            </table>\r\n            <input class="main-btn" type="submit" value="Add Client Record">\r\n        </form>\r\n    </div>\r\n    <div class="result">\r\n        <h2>')
+        __M_writer(django_mako_plus.ExpressionPostProcessor(self)( success ))
+        __M_writer('</h2>\r\n    </div>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -68,6 +67,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/bp/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"29": 0, "38": 1, "43": 24, "49": 3, "57": 3, "58": 7, "59": 7, "60": 13, "61": 13, "62": 19, "63": 19, "69": 63}}
+{"filename": "C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/bp/templates/newdata.html", "uri": "newdata.html", "source_encoding": "utf-8", "line_map": {"29": 0, "39": 1, "49": 3, "58": 3, "59": 8, "60": 8, "61": 14, "62": 14, "68": 62}}
 __M_END_METADATA
 """

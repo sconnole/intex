@@ -109,6 +109,7 @@ a.prediction {
 .prediction p {
     line-height: 50px;
     margin-bottom: 0;
+    font-size: 24px;
 }
 .card {
     padding: 0.5rem 0px;
@@ -383,6 +384,10 @@ main h1 {
 
 .tableauPlaceholder {
     margin: auto;
+}
+
+.card:hover {
+    background-color: $LIGHT_BLUE;
 }
 
 

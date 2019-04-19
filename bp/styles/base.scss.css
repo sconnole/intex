@@ -122,6 +122,7 @@ a.prediction {
 .prediction p {
   line-height: 50px;
   margin-bottom: 0;
+  font-size: 24px;
 }
 
 .card {
@@ -419,6 +420,10 @@ main h1 {
 
 .tableauPlaceholder {
   margin: auto;
+}
+
+.card:hover {
+  background-color: #bbcde5;
 }
 
 @media only screen and (max-width: 700px) {

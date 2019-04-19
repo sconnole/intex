@@ -5,9 +5,9 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1555619689.3087988
+_modified_time = 1555631673.4624274
 _enable_loop = True
-_template_filename = 'C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/bp/templates/newdata.html'
+_template_filename = 'C:/Users/stick/Developer/Intex/bp/templates/newdata.html'
 _template_uri = 'newdata.html'
 _source_encoding = 'utf-8'
 import django_mako_plus
@@ -30,12 +30,12 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        success = context.get('success', UNDEFINED)
+        request = context.get('request', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         form = context.get('form', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
-        self = context.get('self', UNDEFINED)
-        success = context.get('success', UNDEFINED)
-        request = context.get('request', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
@@ -50,14 +50,14 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        success = context.get('success', UNDEFINED)
+        request = context.get('request', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         form = context.get('form', UNDEFINED)
         def content():
             return render_content(context)
-        self = context.get('self', UNDEFINED)
-        success = context.get('success', UNDEFINED)
-        request = context.get('request', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n    <h1>Add Client Record</h1>\r\n    <div class="form-content">\r\n        <form method="post">\r\n            <table>\r\n            ')
+        __M_writer('\r\n    <h1>Add Client Record</h1>\r\n    <div class="form-content form-style-5">\r\n        <form method="post">\r\n            <table>\r\n            ')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)( form.as_p() ))
         __M_writer('\r\n            </table>\r\n            <input class="main-btn" type="submit" value="Add Client Record">\r\n        </form>\r\n    </div>\r\n')
         if request.method == 'POST':
@@ -71,6 +71,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/bp/templates/newdata.html", "uri": "newdata.html", "source_encoding": "utf-8", "line_map": {"29": 0, "40": 1, "50": 3, "60": 3, "61": 8, "62": 8, "63": 13, "64": 14, "65": 15, "66": 15, "72": 66}}
+{"filename": "C:/Users/stick/Developer/Intex/bp/templates/newdata.html", "uri": "newdata.html", "source_encoding": "utf-8", "line_map": {"29": 0, "40": 1, "50": 3, "60": 3, "61": 8, "62": 8, "63": 13, "64": 14, "65": 15, "66": 15, "72": 66}}
 __M_END_METADATA
 """

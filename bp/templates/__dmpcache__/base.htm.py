@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1555609507.2940462
+_modified_time = 1555644163.0824525
 _enable_loop = True
 _template_filename = 'C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/bp/templates/base.htm'
 _template_uri = 'base.htm'
@@ -19,15 +19,15 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        def menu():
-            return render_menu(context._locals(__M_locals))
-        user = context.get('user', UNDEFINED)
-        self = context.get('self', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        user = context.get('user', UNDEFINED)
+        self = context.get('self', UNDEFINED)
+        def menu():
+            return render_menu(context._locals(__M_locals))
         __M_writer = context.writer()
-        __M_writer('\r\n<!DOCTYPE html>\r\n<html>\r\n    <meta charset="UTF-8">\r\n    <head>\r\n        <link rel="icon" href="')
+        __M_writer('\r\n<!DOCTYPE html>\r\n<html>\r\n    <meta charset="UTF-8">\r\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\r\n    <head>\r\n        <link rel="icon" href="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
         __M_writer('homepage/media/favicon.ico" type="image/x-icon" />\r\n        <title>BP - Analytics</title>\r\n\r\n')
         __M_writer('        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>\r\n\r\n        <link rel="stylesheet" href="')
@@ -97,6 +97,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/bp/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 0, "30": 1, "31": 6, "32": 6, "33": 10, "34": 12, "35": 12, "36": 13, "37": 13, "38": 14, "39": 14, "40": 17, "41": 18, "42": 18, "43": 24, "44": 24, "49": 51, "54": 58, "60": 25, "68": 25, "69": 34, "70": 35, "71": 39, "72": 41, "73": 41, "74": 41, "75": 41, "76": 44, "77": 45, "78": 46, "79": 47, "80": 49, "86": 56, "92": 56, "98": 92}}
+{"filename": "C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/bp/templates/base.htm", "uri": "base.htm", "source_encoding": "utf-8", "line_map": {"18": 0, "30": 1, "31": 7, "32": 7, "33": 11, "34": 13, "35": 13, "36": 14, "37": 14, "38": 15, "39": 15, "40": 18, "41": 19, "42": 19, "43": 25, "44": 25, "49": 52, "54": 59, "60": 26, "68": 26, "69": 35, "70": 36, "71": 40, "72": 42, "73": 42, "74": 42, "75": 42, "76": 45, "77": 46, "78": 47, "79": 48, "80": 50, "86": 57, "92": 57, "98": 92}}
 __M_END_METADATA
 """

@@ -2,17 +2,19 @@
 
 <%block name="content">
     <h1>Add Client Record</h1>
-    <div class="form-content form-style-5">
-        <form method="post">
-            <table>
-            ${ form.as_p() }
-            </table>
-            <input class="main-btn" type="submit" value="Add Client Record">
-        </form>
-    </div>
-    %if request.method == 'POST':
-        <div class="result">
-            <h2>${ success }</h2>
+    <div class="wrapper">
+        <div class="form-content form-style-5">
+            <form method="post">
+                <table>
+                ${ form.as_p() }
+                </table>
+                <input class="main-btn" type="submit" value="Add Client Record">
+            </form>
         </div>
-    %endif
+        %if request.method == 'POST':
+            <div class="result">
+                <h2>${ success }</h2>
+            </div>
+        %endif
+    </div>
 </%block>

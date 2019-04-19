@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1555611441.2637434
+_modified_time = 1555646172.4511023
 _enable_loop = True
 _template_filename = 'C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/bp/templates/index.html'
 _template_uri = 'index.html'
@@ -30,10 +30,10 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        self = context.get('self', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\r\n\r\n')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content'):
@@ -49,18 +49,18 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        self = context.get('self', UNDEFINED)
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         def content():
             return render_content(context)
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
+        self = context.get('self', UNDEFINED)
         __M_writer = context.writer()
-        __M_writer('\r\n    <div class="row">\r\n        <div class="card">\r\n            <a href="/bp/client/" class="prediction">\r\n                <img src="')
+        __M_writer('\r\n    <div class="wrapper">\r\n        <div class="row">\r\n            <div class="card">\r\n                <a href="/bp/client/" class="prediction">\r\n                    <img src="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
-        __M_writer('bp/media/client.png">\r\n                <p>Client Account Prediction</p>\r\n            </a>\r\n        </div>\r\n        <div class="card">\r\n            <a href="/bp/time/" class="prediction">\r\n                <img src="')
+        __M_writer('bp/media/client.png">\r\n                    <p>Client Account Prediction</p>\r\n                </a>\r\n            </div>\r\n            <div class="card">\r\n                <a href="/bp/time/" class="prediction">\r\n                    <img src="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
-        __M_writer('bp/media/calendar.png">\r\n                <p>Days as Client Prediction</p>\r\n            </a>\r\n        </div>\r\n        <div class="card">\r\n            <a href="/bp/newdata/" class="prediction">\r\n                <img src="')
+        __M_writer('bp/media/calendar.png">\r\n                    <p>Days as Client Prediction</p>\r\n                </a>\r\n            </div>\r\n            <div class="card">\r\n                <a href="/bp/newdata/" class="prediction">\r\n                    <img src="')
         __M_writer(django_mako_plus.ExpressionPostProcessor(self)(STATIC_URL))
-        __M_writer('bp/media/new_record.png">\r\n                <p>Add Client Record</p>\r\n            </a>\r\n        </div>\r\n    </div>\r\n')
+        __M_writer('bp/media/new_record.png">\r\n                    <p>Add Client Record</p>\r\n                </a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -68,6 +68,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/bp/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"29": 0, "38": 1, "43": 24, "49": 3, "57": 3, "58": 7, "59": 7, "60": 13, "61": 13, "62": 19, "63": 19, "69": 63}}
+{"filename": "C:/Users/Owner/Google Drive/BYU/2019 1Winter/INTEX/intex/bp/templates/index.html", "uri": "index.html", "source_encoding": "utf-8", "line_map": {"29": 0, "38": 1, "43": 26, "49": 3, "57": 3, "58": 8, "59": 8, "60": 14, "61": 14, "62": 20, "63": 20, "69": 63}}
 __M_END_METADATA
 """

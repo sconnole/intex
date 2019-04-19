@@ -52,7 +52,7 @@ def process_request(request):
             cursor.execute(sql, (lead, leadstr, replies, emails, total, days, locations, fb, PatientEducation, seo, status))
             conn.commit()
 
-            success = 'Data Successfully Added to the Database'
+            success = 'Record Successfully Added to the Database'
 
     else:
         form = DataForm()

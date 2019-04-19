@@ -1,24 +1,26 @@
 <%inherit file="base.htm" />
 
 <%block name="content">
-    <div class="row">
-        <div class="card">
-            <a href="/bp/client/" class="prediction">
-                <img src="${STATIC_URL}bp/media/client.png">
-                <p>Client Account Prediction</p>
-            </a>
-        </div>
-        <div class="card">
-            <a href="/bp/time/" class="prediction">
-                <img src="${STATIC_URL}bp/media/calendar.png">
-                <p>Days as Client Prediction</p>
-            </a>
-        </div>
-        <div class="card">
-            <a href="/bp/newdata/" class="prediction">
-                <img src="${STATIC_URL}bp/media/new_record.png">
-                <p>Add Client Record</p>
-            </a>
+    <div class="wrapper">
+        <div class="row">
+            <div class="card">
+                <a href="/bp/client/" class="prediction">
+                    <img src="${STATIC_URL}bp/media/client.png">
+                    <p>Client Account Prediction</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="/bp/time/" class="prediction">
+                    <img src="${STATIC_URL}bp/media/calendar.png">
+                    <p>Days as Client Prediction</p>
+                </a>
+            </div>
+            <div class="card">
+                <a href="/bp/newdata/" class="prediction">
+                    <img src="${STATIC_URL}bp/media/new_record.png">
+                    <p>Add Client Record</p>
+                </a>
+            </div>
         </div>
     </div>
 </%block>

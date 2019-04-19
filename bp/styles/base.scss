@@ -94,6 +94,8 @@ input, select {
 }
 .row {
     margin: 0px;
+    margin-left: 1%;
+    width: 98%;
 }
 a.prediction img {
     float: left;
@@ -111,6 +113,7 @@ a.prediction {
 .card {
     padding: 0.5rem 0px;
     width: 100%;
+    margin-top: 20px;
 }
 .form-content {
     position: relative;
@@ -345,3 +348,48 @@ main h1 {
         max-width: 100%;
     }
 }
+
+
+//Eli Added These
+.wrapper {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.form-style-5 {
+    max-width: none;
+    margin: 0;
+    width: 48.5%;
+    margin-left: 1%;
+    margin-bottom: 10px;
+    float: left;
+}
+
+.result {
+    background-color: $BLUE;
+    border-radius: 8px;
+    margin-left: 50.5%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 48.5%;
+
+    p {
+        font-size: 24px;
+    }
+    h2 {
+        padding: 2rem;
+    }
+}
+
+.tableauPlaceholder {
+    margin: auto;
+}
+
+
+@media only screen and (max-width:700px) {
+    .form-style-5, .result {
+        float: none;
+        width:96%;
+        margin-left: 2%;
+    }
+  }
